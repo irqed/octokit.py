@@ -1,3 +1,3 @@
-Octokit.py: Missing Python toolkit for the GitHub API.
-==========
+Octokit.py: Python toolkit for the GitHub API.
+======================================================
 
