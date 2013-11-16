@@ -12,6 +12,7 @@ except ImportError:
 
 if sys.argv[-1] == 'publish':
     os.system("python setup.py sdist upload")
+    os.system("python setup.py bdist_wheel upload")
     print("You probably also want to tag the version now:")
     print("  git tag -a %s -m 'version %s'" % (octokit.__version__, octokit.__version__))
     print("  git push --tags")
