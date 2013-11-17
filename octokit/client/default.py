@@ -1,5 +1,10 @@
 # encoding: utf-8
 
+"""
+Represents default settings for a Client.
+"""
+
+
 from .. import __version__
 
 

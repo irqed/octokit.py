@@ -16,7 +16,7 @@
 
 """
 Octokit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Octokit is a toolkit for the GitHub API.
 
 :copyright: (c) 2013 by Alexander Shchepetilnikov.
@@ -27,3 +27,12 @@ __version__ = '0.0.1'
 __author__ = 'Alexander Shchepetilnikov'
 __license__ = 'MIT'
 __copyright__ = 'Copyright 2013 Alexander Shchepetilnikov'
+
+
+from octokit.client import Client
+
+
+class Octokit(object):
+    """Toolkit for the Github API"""
+    def __init__(self):
+        self._client = Client()

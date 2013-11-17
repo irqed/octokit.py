@@ -1,3 +1,8 @@
 # encoding: utf-8
 
-from client import Client
+"""
+Client for the GitHub API.
+"""
+
+
+from octokit.client.client import Client
