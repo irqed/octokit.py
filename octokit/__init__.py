@@ -29,10 +29,4 @@ __license__ = 'MIT'
 __copyright__ = 'Copyright 2013 Alexander Shchepetilnikov'
 
 
-from octokit.client import Client
-
-
-class Octokit(object):
-    """Toolkit for the Github API"""
-    def __init__(self):
-        self._client = Client()
+from octokit import Octokit

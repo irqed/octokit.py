@@ -4,5 +4,4 @@
 Client for the GitHub API.
 """
 
-
-from octokit.client.client import Client
+from octokit.client.base import Client
