@@ -29,4 +29,4 @@ __license__ = 'MIT'
 __copyright__ = 'Copyright 2013 Alexander Shchepetilnikov'
 
 
-from octokit import Octokit
+from octokit.base import Octokit

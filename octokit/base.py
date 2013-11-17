@@ -10,5 +10,5 @@ from octokit.client import Client
 class Octokit(object):
     """Toolkit for the Github API
     """
-    def __init__(self):
+    def __init__(self, **kwargs):
         self._client = Client()
