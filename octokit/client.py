@@ -12,3 +12,21 @@ class Octokit(object):
     """
     def __init__(self, **kwargs):
         pass
+
+    @property
+    def authenticated(self):
+        return (self.basic_authenticated or
+                self.token_authenticated or
+                self.application_authenticated)
+
+    @property
+    def basic_authenticated(self):
+        return False
+
+    @property
+    def token_authenticated(self):
+        return False
+
+    @property
+    def application_authenticated(self):
+        return False
