@@ -4,7 +4,21 @@
 Toolkit for the GitHub API.
 """
 
-from octokit.options import DEFAULTS, Options
+from resources import User, Users
+from options import DEFAULTS, Options
+
+
+def lazy_property(fn):
+    """Decorator that makes a property lazy-evaluated
+    """
+    attr_name = '_lazy_' + fn.__name__
+
+    @property
+    def _lazy_property(self):
+        if not hasattr(self, attr_name):
+            setattr(self, attr_name, fn(self))
+        return getattr(self, attr_name)
+    return _lazy_property
 
 
 class Octokit(object):
@@ -59,3 +73,11 @@ class Octokit(object):
     def application_authenticated(self):
         return (True if self.options.client_id and
                         self.options.client_secret else False)
+
+    @lazy_property
+    def user(self):
+        return User()
+
+    @lazy_property
+    def users(self):
+        return Users()
