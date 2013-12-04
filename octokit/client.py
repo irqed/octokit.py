@@ -4,11 +4,11 @@
 Toolkit for the GitHub API.
 """
 
-from octokit.client import Client
+from octokit.options import DEFAULTS
 
 
 class Octokit(object):
-    """Toolkit for the Github API
+    """Brings all Github API resources together
     """
     def __init__(self, **kwargs):
-        self._client = Client()
+        pass

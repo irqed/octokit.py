@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 """
-Default options for a Client.
+Default options for an API client.
 """
 
 from os import environ as env
@@ -28,18 +28,22 @@ _O = namedtuple('Options',
                  login, password, page_size, proxy')
 
 DEFAULTS = _O(
+    access_token=env.get('OCTOKIT_ACCESS_TOKEN'),
+
+    client_id=env.get('OCTOKIT_CLIENT_ID'),
+    client_secret=env.get('OCTOKIT_SECRET'),
+
+    login=env.get('OCTOKIT_LOGIN'),
+    password=env.get('OCTOKIT_PASSWORD'),
+
+    proxy=env.get('OCTOKIT_PROXY'),
+
     api_endpoint=env.get('OCTOKIT_API_ENDPOINT') or API_ENDPOINT,
     web_endpoint=env.get('OCTOKIT_WEB_ENDPOINT') or WEB_ENDPOINT,
 
     user_agent=env.get('OCTOKIT_USER_AGENT') or USER_AGENT,
     media_type=env.get('OCTOKIT_MEDIA_TYPE') or MEDIA_TYPE,
 
-    access_token=env.get('OCTOKIT_ACCESS_TOKEN', None),
-    auto_paginate=env.get('OCTOKIT_AUTO_PAGINATE', None),
-    client_id=env.get('OCTOKIT_CLIENT_ID', None),
-    client_secret=env.get('OCTOKIT_SECRET', None),
-    login=env.get('OCTOKIT_LOGIN', None),
-    password=env.get('OCTOKIT_PASSWORD', None),
-    page_size=int(env.get('OCTOKIT_PER_PAGE', 10)),
-    proxy=env.get('OCTOKIT_PROXY', None)
+    auto_paginate=env.get('OCTOKIT_AUTO_PAGINATE', False),
+    page_size=int(env.get('OCTOKIT_PER_PAGE', 10))
 )

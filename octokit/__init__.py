@@ -17,7 +17,7 @@
 """
 Octokit
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Octokit is a toolkit for the GitHub API.
+Octokit is a python toolkit for the GitHub API.
 
 :copyright: (c) 2013 by Alexander Shchepetilnikov.
 :license: MIT, see LICENSE for more details.
@@ -29,4 +29,4 @@ __license__ = 'MIT'
 __copyright__ = 'Copyright 2013 Alexander Shchepetilnikov'
 
 
-from octokit.base import Octokit
+from octokit.client import Octokit
