@@ -22,12 +22,12 @@ MEDIA_TYPE   = "application/vnd.github.beta+json"
 # Default WEB endpoint
 WEB_ENDPOINT = "https://github.com"
 
-_O = namedtuple('Options',
+Options = namedtuple('Options',
                 'api_endpoint, user_agent, media_type, web_endpoint,\
                  access_token, auto_paginate, client_id, client_secret,\
                  login, password, page_size, proxy')
 
-DEFAULTS = _O(
+DEFAULTS = Options(
     access_token=env.get('OCTOKIT_ACCESS_TOKEN'),
 
     client_id=env.get('OCTOKIT_CLIENT_ID'),

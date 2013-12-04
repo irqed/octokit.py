@@ -4,14 +4,36 @@
 Toolkit for the GitHub API.
 """
 
-from octokit.options import DEFAULTS
+from octokit.options import DEFAULTS, Options
 
 
 class Octokit(object):
     """Brings all Github API resources together
     """
     def __init__(self, **kwargs):
-        # TODO: merge default settings with kwargs
+        self.merge_options(DEFAULTS, kwargs)
+
+    def merge_options(self, defaults, options):
+        self.options = Options(
+            access_token=options.get('access_token') or defaults.access_token,
+
+            client_id=options.get('client_id') or defaults.client_id,
+            client_secret=options.get('client_secret') or defaults.client_secret,
+
+            login=options.get('login') or defaults.login,
+            password=options.get('password') or defaults.password,
+
+            proxy=options.get('proxy') or defaults.proxy,
+
+            api_endpoint=options.get('api_endpoint') or defaults.api_endpoint,
+            web_endpoint=options.get('web_endpoint') or defaults.web_endpoint,
+
+            user_agent=options.get('user_agent') or defaults.user_agent,
+            media_type=options.get('media_type') or defaults.media_type,
+
+            auto_paginate=options.get('auto_paginate') or defaults.auto_paginate,
+            page_size=options.get('page_size') or defaults.page_size
+        )
 
     @property
     def authenticated(self):
@@ -20,15 +42,20 @@ class Octokit(object):
                 self.application_authenticated)
 
     @property
+    def user_authenticated(self):
+        return self.basic_authenticated or self.token_authenticated
+
+    @property
     def basic_authenticated(self):
-        return (True if hasattr(self, 'login') and
-                    hasattr(self, 'password') else False)
+        print self.options.login
+        print self.options.password
+        return True if self.options.login and self.options.password else False
 
     @property
     def token_authenticated(self):
-        return True if hasattr(self, 'access_token') else False
+        return True if self.options.access_token else False
 
     @property
     def application_authenticated(self):
-        return (True if hasattr(self, 'client_id') and
-                    hasattr(self, 'client_secret') else False)
+        return (True if self.options.client_id and
+                        self.options.client_secret else False)
