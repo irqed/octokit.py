@@ -2,7 +2,7 @@ init:
 	pip install -r requirements.txt
 
 test:
-	py.test
+	py.test --verbose
 
 coverage:
 	py.test --verbose --cov-report term --cov=octokit test_octokit.py
