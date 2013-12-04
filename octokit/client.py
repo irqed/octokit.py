@@ -61,8 +61,6 @@ class Octokit(object):
 
     @property
     def basic_authenticated(self):
-        print self.options.login
-        print self.options.password
         return True if self.options.login and self.options.password else False
 
     @property
