@@ -4,6 +4,12 @@ init:
 test:
 	py.test --verbose
 
+lint:
+	pylint -r n octokit
+
+flake:
+	flake8 octokit
+
 coverage:
 	py.test --verbose --cov-report term --cov=octokit test_octokit.py
 
