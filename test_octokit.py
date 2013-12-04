@@ -3,10 +3,11 @@
 
 """Tests for Octokit."""
 
+import os
+import pytest
 import unittest
 
 import octokit
-import pytest
 
 
 class AuthenticationTestCase(unittest.TestCase):
@@ -15,12 +16,16 @@ class AuthenticationTestCase(unittest.TestCase):
 
     def test_unauthenticated(self):
         hub = octokit.Octokit()
-        assert hub.authenticated is False
+        self.assertEqual(hub.authenticated, False)
 
     def test_basic(self):
-        hub = octokit.Octokit(login='', password='')
-        assert hub.authenticated is True
-        assert hub.basic_authenticated is True
+        login = os.environ.get('OCTOKIT_LOGIN')
+        password = os.environ.get('OCTOKIT_PASSWORD')
+
+        hub = octokit.Octokit(login=login, password=password)
+
+        self.assertEqual(hub.authenticated, True)
+        self.assertEqual(hub.basic_authenticated, True)
 
     def test_token(self):
         hub = octokit.Octokit(access_token='', client_secret='')
@@ -61,8 +66,3 @@ class UserTestCase(unittest.TestCase):
     def test_another_user(self):
         hub = octokit.Octokit(login='', password='')
         assert hub.users['username'].name == ''
-
-    def test_users(self):
-        users = octokit.Octokit(login='', password='').users
-        assert len(users) == 100
-        assert len(users.next()) == 100  # get the second page of the results
