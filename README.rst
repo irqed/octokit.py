@@ -5,6 +5,7 @@ Python toolkit for the GitHub API.
 Octokit.py is a port of ruby toolkit Octokit.rb, basically it's a wrapper around GitHub API.
 
 
+
 Quick start
 ===========
 
@@ -16,6 +17,7 @@ Consuming resources
 
 Accessing HTTP responses
 ------------------------
+
 
 
 Authentication
@@ -36,11 +38,23 @@ Application authentication
 --------------------------
 
 
+
 Pagination
 ==========
 
 Auto pagination
 ---------------
+
+
+
+Configuration and defaults
+==========================
+
+Configuring module defaults
+---------------------------
+
+Using ENV variables
+-------------------
 
 
 TODO
