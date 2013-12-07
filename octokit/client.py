@@ -23,6 +23,8 @@ def lazy_property(fn):
 
 
 class OctokitError(Exception):
+    """Custom exception to wrap API response errors
+    """
     def __init__(self, message):
         super(OctokitError, self).__init__(message)
 
