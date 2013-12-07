@@ -3,9 +3,10 @@
 """
 Toolkit for the GitHub API.
 """
+import requests
 
-from resources import User, Users
 from options import DEFAULTS, Options
+from resources import (User, Users)
 
 
 def lazy_property(fn):
@@ -21,11 +22,38 @@ def lazy_property(fn):
     return _lazy_property
 
 
+class OctokitError(Exception):
+    def __init__(self, message):
+        super(OctokitError, self).__init__(message)
+
+
+class HTTPBackend(object):
+    """Wrapper for requests session
+    """
+    def __init__(self, options):
+        super(HTTPBackend, self).__init__()
+        self.session = requests.Session()
+
+    def get(self):
+        raise NotImplementedError
+
+    def post(self):
+        raise NotImplementedError
+
+    def put(self):
+        raise NotImplementedError
+
+    def delete(self):
+        raise NotImplementedError
+
+
 class Octokit(object):
     """Brings all Github API resources together
     """
     def __init__(self, **kwargs):
+        super(Octokit, self).__init__()
         self.merge_options(DEFAULTS, kwargs)
+        self.http = HTTPBackend(self.options)
 
     def merge_options(self, defaults, options):
         self.options = Options(
@@ -74,8 +102,8 @@ class Octokit(object):
 
     @lazy_property
     def user(self):
-        return User()
+        return User(self.http)
 
     @lazy_property
     def users(self):
-        return Users()
+        return Users(self.http)

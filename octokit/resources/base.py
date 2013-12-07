@@ -4,8 +4,12 @@
 Base for GitHub API resources
 """
 
+import requests
+
+
 class Resource(object):
-    """Base GitHub API Resource
+    """Base class for all GitHub API resources
     """
-    def __init__(self, **kwargs):
+    def __init__(self, http, **kwargs):
         super(Resource, self).__init__()
+        self._http = http
