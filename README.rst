@@ -18,7 +18,6 @@ Accessing HTTP responses
 ------------------------
 
 
-
 Authentication
 ==============
 
@@ -36,6 +35,12 @@ Two-Factor Authentication
 Application authentication
 --------------------------
 
+
+Pagination
+==========
+
+Auto pagination
+---------------
 
 
 TODO
