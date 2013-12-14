@@ -62,7 +62,6 @@ class Settings(object):
     def credentials_passed(self):
         if ((self.login and self.password) or self.access_token or
                 (self.client_id and self.client_secret)):
-
             return True
         return False
 
