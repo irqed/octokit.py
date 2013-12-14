@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-"""Tests for Octokit."""
+"""Tests for Octokit.
+"""
 
 import os
 import pytest
@@ -13,6 +14,10 @@ import octokit
 class AuthenticationTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
+
+    def test_not_authenticated(self):
+        hub = octokit.Octokit(trust_env=False)
+        self.assertEqual(hub.authenticated, False)
 
     def test_authenticated_by_env(self):
         hub = octokit.Octokit()

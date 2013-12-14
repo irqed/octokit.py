@@ -1,5 +1,8 @@
 # encoding: utf-8
 
-from users import User, Users
+"""GitHub API resources.
+"""
 
-__all__ = [User, Users, ]
+from octokit.resources.users import User, Users
+
+__all__ = ['User', 'Users', ]

@@ -1,12 +1,11 @@
 # encoding: utf-8
 
+"""Toolkit for the GitHub API.
 """
-Toolkit for the GitHub API.
-"""
-import requests
 
-from options import DEFAULTS, Options
-from resources import (User, Users)
+from octokit import http
+from octokit.settings import Settings
+from octokit.resources import (User, Users)
 
 
 def lazy_property(fn):
@@ -22,62 +21,13 @@ def lazy_property(fn):
     return _lazy_property
 
 
-class OctokitError(Exception):
-    """Custom exception to wrap API response errors
-    """
-    def __init__(self, message):
-        super(OctokitError, self).__init__(message)
-
-
-class HTTPBackend(object):
-    """Wrapper for requests session
-    """
-    def __init__(self, options):
-        super(HTTPBackend, self).__init__()
-        self.session = requests.Session()
-
-    def get(self):
-        raise NotImplementedError
-
-    def post(self):
-        raise NotImplementedError
-
-    def put(self):
-        raise NotImplementedError
-
-    def delete(self):
-        raise NotImplementedError
-
-
 class Octokit(object):
-    """Brings all Github API resources together
+    """Github API resources hub. Brings everything together.
     """
     def __init__(self, **kwargs):
         super(Octokit, self).__init__()
-        self.merge_options(DEFAULTS, kwargs)
-        self.http = HTTPBackend(self.options)
-
-    def merge_options(self, defaults, options):
-        self.options = Options(
-            access_token=options.get('access_token') or defaults.access_token,
-
-            client_id=options.get('client_id') or defaults.client_id,
-            client_secret=options.get('client_secret') or defaults.client_secret,
-
-            login=options.get('login') or defaults.login,
-            password=options.get('password') or defaults.password,
-
-            proxy=options.get('proxy') or defaults.proxy,
-
-            api_endpoint=options.get('api_endpoint') or defaults.api_endpoint,
-            web_endpoint=options.get('web_endpoint') or defaults.web_endpoint,
-
-            user_agent=options.get('user_agent') or defaults.user_agent,
-            media_type=options.get('media_type') or defaults.media_type,
-
-            auto_paginate=options.get('auto_paginate') or defaults.auto_paginate,
-            page_size=options.get('page_size') or defaults.page_size
-        )
+        self.settings = Settings(**kwargs)
+        self._http = http.HTTPBackend(self.settings)
 
     @property
     def authenticated(self):
@@ -91,21 +41,23 @@ class Octokit(object):
 
     @property
     def basic_authenticated(self):
-        return True if self.options.login and self.options.password else False
+        return (True if isinstance(self._http.auth, http.HTTPBasicAuth)
+                else False)
 
     @property
     def token_authenticated(self):
-        return True if self.options.access_token else False
+        return (True if isinstance(self._http.auth, http.HTTPTokenAuth)
+                else False)
 
     @property
     def application_authenticated(self):
-        return (True if self.options.client_id and
-                        self.options.client_secret else False)
+        return (True if isinstance(self._http.auth, http.HTTPApplicationAuth)
+                else False)
 
     @lazy_property
     def user(self):
-        return User(self.http)
+        return User(http=self._http)
 
     @lazy_property
     def users(self):
-        return Users(self.http)
+        return Users(http=self._http)
