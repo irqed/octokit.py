@@ -46,8 +46,9 @@ class HTTPBackend(object):
     def auth(self):
         return self._session.auth if self._session.auth else None
 
-    def get(self):
-        raise NotImplementedError
+    def get(self, url, params=None):
+        return self._session.get(self._settings.api_endpoint + url,
+                                 auth=self.auth, params=params)
 
     def post(self):
         raise NotImplementedError

@@ -3,13 +3,27 @@
 """Methods for the Users API
 """
 
-from .base import Resource
+from base import Resource
+
+def lazy_property(fn):
+    """Decorator that makes a property lazy-evaluated
+    """
+    attr_name = '_lazy_' + fn.__name__
+
+    @property
+    def _lazy_property(self):
+        if not hasattr(self, attr_name):
+            setattr(self, attr_name, fn(self))
+        return getattr(self, attr_name)
+    return _lazy_property
 
 
 class User(Resource):
     """User API resource
     http://developer.github.com/v3/users/#get-the-authenticated-user
     """
+    url = '/user'
+
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
 

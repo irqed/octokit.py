@@ -62,10 +62,11 @@ class AuthenticationTestCase(unittest.TestCase):
         self.assertEqual(hub_two.user_authenticated, True)
 
 
-class UsersTestCase(unittest.TestCase):
+class UserTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
 
     def test_login(self):
         hub = octokit.Octokit()
-        self.assertEqual(hub.user.login, 'octopy')
+        current_user = hub.user.get()
+        self.assertEqual(current_user['login'], 'octopy')
