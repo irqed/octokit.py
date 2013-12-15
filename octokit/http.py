@@ -21,7 +21,6 @@ class HTTPBackend(object):
         self._settings = settings
         self._session = requests.Session()
 
-        self.auth = None
         self.last_request = None
         self.last_response = None
 
@@ -34,13 +33,17 @@ class HTTPBackend(object):
 
     def setup_auth(self):
         if self._settings.login and self._settings.password:
-            self.auth = HTTPBasicAuth(self._settings.login,
+            self._session.auth = HTTPBasicAuth(self._settings.login,
                                       self._settings.password)
         elif self._settings.access_token:
-            self.auth = HTTPTokenAuth(self._settings.access_token)
+            self._session.auth = HTTPTokenAuth(self._settings.access_token)
         elif self._settings.client_id and self._settings.client_secret:
-            self.auth = HTTPApplicationAuth(self._settings.client_id,
+            self._session.auth = HTTPApplicationAuth(self._settings.client_id,
                                             self._settings.client_secret)
+
+    @property
+    def auth(self):
+        return self._session.auth if self._session.auth else None
 
     def get(self):
         raise NotImplementedError
