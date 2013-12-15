@@ -3,19 +3,7 @@
 """Methods for the Users API
 """
 
-from base import Resource
-
-def lazy_property(fn):
-    """Decorator that makes a property lazy-evaluated
-    """
-    attr_name = '_lazy_' + fn.__name__
-
-    @property
-    def _lazy_property(self):
-        if not hasattr(self, attr_name):
-            setattr(self, attr_name, fn(self))
-        return getattr(self, attr_name)
-    return _lazy_property
+from octokit.resources.base import Resource
 
 
 class User(Resource):
@@ -37,7 +25,8 @@ class Users(Resource):
     def __init__(self, **kwargs):
         super(Users, self).__init__(**kwargs)
 
-    def get(self, login=None):
+    def get(self, **kwargs):
+        login = kwargs.get('login')
         if login:
             return self._http.get(self.url + "/%s" % login)
         else:

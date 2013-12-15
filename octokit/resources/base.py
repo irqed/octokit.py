@@ -3,12 +3,12 @@
 """Base for GitHub API resources
 """
 
-import json
-
 
 class Resource(object):
     """Base class for all GitHub API resources
     """
+    url = None
+
     def __init__(self, **kwargs):
         super(Resource, self).__init__()
         self._http = kwargs.get('http')

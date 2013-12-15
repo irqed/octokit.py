@@ -83,7 +83,7 @@ class UsersTestCase(unittest.TestCase):
 
     def test_get_user_by_login(self):
         hub = octokit.Octokit()
-        user = hub.users.get('irqed')
+        user = hub.users.get(login='irqed')
         self.assertEqual(user['login'], 'irqed')
 
 

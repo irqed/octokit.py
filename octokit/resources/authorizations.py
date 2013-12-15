@@ -3,7 +3,7 @@
 """Methods for the Authorizations API
 """
 
-from base import Resource
+from octokit.resources.base import Resource
 
 
 class Authorizations(Resource):

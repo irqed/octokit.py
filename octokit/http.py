@@ -19,8 +19,8 @@ class HTTPBackend(object):
     def __init__(self, settings):
         super(HTTPBackend, self).__init__()
         self._settings = settings
-        self._session = requests.Session()
-        self._session.proxies = self._settings.proxies
+        self._s = requests.Session()
+        self._s.proxies = self._settings.proxies
 
         self.last_request = None
         self.last_response = None
@@ -29,26 +29,26 @@ class HTTPBackend(object):
         self.setup_auth()
 
     def setup_headers(self):
-        self._session.headers['Accept'] = self._settings.media_type
-        self._session.headers['User-Agent'] = self._settings.user_agent
+        self._s.headers['Accept'] = self._settings.media_type
+        self._s.headers['User-Agent'] = self._settings.user_agent
 
     def setup_auth(self):
         if self._settings.login and self._settings.password:
-            self._session.auth = HTTPBasicAuth(self._settings.login,
-                                      self._settings.password)
+            self._s.auth = HTTPBasicAuth(self._settings.login,
+                                         self._settings.password)
         elif self._settings.access_token:
-            self._session.auth = HTTPTokenAuth(self._settings.access_token)
+            self._s.auth = HTTPTokenAuth(self._settings.access_token)
         elif self._settings.client_id and self._settings.client_secret:
-            self._session.auth = HTTPApplicationAuth(self._settings.client_id,
-                                            self._settings.client_secret)
+            self._s.auth = HTTPApplicationAuth(self._settings.client_id,
+                                               self._settings.client_secret)
 
     @property
     def auth(self):
-        return self._session.auth if self._session.auth else None
+        return self._s.auth if self._s.auth else None
 
     def get(self, url, params=None):
-        return self._session.get(self._settings.api_endpoint + url,
-                                 auth=self.auth, params=params).json()
+        return self._s.get(self._settings.api_endpoint + url,
+                           auth=self.auth, params=params).json()
 
     def post(self):
         raise NotImplementedError
@@ -77,6 +77,7 @@ class HTTPTokenAuth(requests.auth.AuthBase):
     def __call__(self, r):
         r.headers['Authorization'] = 'token %s' % self.access_token
         return r
+
 
 class HTTPApplicationAuth(requests.auth.AuthBase):
     """Class to use with GitHub's application auth
