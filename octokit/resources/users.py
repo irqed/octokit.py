@@ -36,3 +36,9 @@ class Users(Resource):
 
     def __init__(self, **kwargs):
         super(Users, self).__init__(**kwargs)
+
+    def get(self, login=None):
+        if login:
+            return self._http.get(self.url + "/%s" % login)
+        else:
+            return self._http.get(self.url)

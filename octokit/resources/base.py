@@ -14,5 +14,4 @@ class Resource(object):
         self._http = kwargs.get('http')
 
     def get(self):
-        r = self._http.get(self.url)
-        return r.json()
+        return self._http.get(self.url)
