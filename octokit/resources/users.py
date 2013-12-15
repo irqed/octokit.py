@@ -32,5 +32,7 @@ class Users(Resource):
     """Users API resource
     http://developer.github.com/v3/users/
     """
+    url = '/users'
+
     def __init__(self, **kwargs):
         super(Users, self).__init__(**kwargs)

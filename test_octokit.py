@@ -66,7 +66,17 @@ class UserTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
 
-    def test_login(self):
+    def test_current_user(self):
         hub = octokit.Octokit()
         current_user = hub.user.get()
         self.assertEqual(current_user['login'], 'octopy')
+
+
+class UsersTestCase(unittest.TestCase):
+
+    _multiprocess_can_split_ = True
+
+    def test_get_users(self):
+        hub = octokit.Octokit()
+        users = hub.users.get()
+        self.assertEqual(len(users), 100)
