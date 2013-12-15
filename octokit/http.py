@@ -20,6 +20,7 @@ class HTTPBackend(object):
         super(HTTPBackend, self).__init__()
         self._settings = settings
         self._session = requests.Session()
+        self._session.proxies = self._settings.proxies
 
         self.last_request = None
         self.last_response = None
@@ -58,11 +59,11 @@ class HTTPBackend(object):
         raise NotImplementedError
 
 
-class HTTPBasicAuth(requests.auth.AuthBase):
+class HTTPBasicAuth(requests.auth.HTTPBasicAuth):
     """Class to use with GitHub basic auth
     """
     def __init__(self, login, password):
-        super(HTTPBasicAuth, self).__init__()
+        super(HTTPBasicAuth, self).__init__(login, password)
 
 
 class HTTPTokenAuth(requests.auth.AuthBase):
@@ -70,10 +71,19 @@ class HTTPTokenAuth(requests.auth.AuthBase):
     """
     def __init__(self, access_token):
         super(HTTPTokenAuth, self).__init__()
+        self.access_token = access_token
 
+    def __call__(self, r):
+        r.headers['Authorization'] = 'token %s' % self.access_token
+        return r
 
 class HTTPApplicationAuth(requests.auth.AuthBase):
     """Class to use with GitHub's application auth
     """
     def __init__(self, client_id, client_secret):
         super(HTTPApplicationAuth, self).__init__()
+        self.client_id = client_id
+        self.client_secret = client_secret
+
+    def __call__(self, r):
+        return r
