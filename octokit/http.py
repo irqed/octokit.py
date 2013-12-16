@@ -21,6 +21,7 @@ class HTTPBackend(object):
         self._settings = settings
         self._s = requests.Session()
         self._s.proxies = self._settings.proxies
+        self._s.trust_env = self._settings.trust_env
 
         self.last_request = None
         self.last_response = None
