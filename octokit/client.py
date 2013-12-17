@@ -5,7 +5,7 @@
 
 from octokit import http
 from octokit.settings import Settings
-from octokit.resources import (Authorizations, User, Users)
+from octokit.resources import (Authorizations, Emojis, User, Users)
 
 
 def lazy_property(fn):
@@ -65,3 +65,7 @@ class Octokit(object):
     @lazy_property
     def authorizations(self):
         return Authorizations(http=self._http)
+
+    @lazy_property
+    def emojis(self):
+        return Emojis(http=self._http)

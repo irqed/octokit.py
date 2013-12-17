@@ -95,3 +95,13 @@ class Authorizations(unittest.TestCase):
         hub = octokit.Octokit()
         authorizations = hub.authorizations.get()
         self.assertEqual(len(authorizations), 1)
+
+
+class EmojisTestCase(unittest.TestCase):
+
+    _multiprocess_can_split_ = True
+
+    def test_list_emojis(self):
+        hub = octokit.Octokit()
+        emojis = hub.emojis.get()
+        self.assertNotEqual(len(emojis), 0)
