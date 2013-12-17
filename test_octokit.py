@@ -115,3 +115,8 @@ class GitignoreTestCase(unittest.TestCase):
         hub = octokit.Octokit()
         templates = hub.gitignore.get()
         self.assertNotEqual(len(templates), 0)
+
+    def test_get_gitignore_template_by_lang(self):
+        hub = octokit.Octokit()
+        template = hub.gitignore.get(lang='Python')
+        self.assertNotEqual(len(template), 0)
