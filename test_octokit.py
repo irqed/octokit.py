@@ -105,3 +105,13 @@ class EmojisTestCase(unittest.TestCase):
         hub = octokit.Octokit()
         emojis = hub.emojis.get()
         self.assertNotEqual(len(emojis), 0)
+
+
+class GitignoreTestCase(unittest.TestCase):
+
+    _multiprocess_can_split_ = True
+
+    def test_list_gitignore_templates(self):
+        hub = octokit.Octokit()
+        templates = hub.gitignore.get()
+        self.assertNotEqual(len(templates), 0)
