@@ -120,3 +120,13 @@ class GitignoreTestCase(unittest.TestCase):
         hub = octokit.Octokit()
         template = hub.gitignore.get(lang='Python')
         self.assertNotEqual(len(template), 0)
+
+
+class MetaTestCase(unittest.TestCase):
+
+    _multiprocess_can_split_ = True
+
+    def test_get_github_meta(self):
+        hub = octokit.Octokit()
+        meta = hub.meta.get()
+        self.assertNotEqual(len(meta), 0)
