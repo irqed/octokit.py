@@ -14,4 +14,8 @@ class ServiceStatus(Resource):
     url = '/api/status.json'
 
     def __init__(self, **kwargs):
-        super(User, self).__init__(**kwargs)
+        super(ServiceStatus, self).__init__(**kwargs)
+
+    @property
+    def status(self):
+        return self._http.get('/api/status.json')

@@ -138,5 +138,9 @@ class ServiceStatusTestCase(unittest.TestCase):
 
     def test_get_status_links(self):
         hub = octokit.Octokit()
-        meta = hub.meta.get()
-        self.assertNotEqual(len(meta), 0)
+        service = hub.service_status.get()
+        self.assertNotEqual(len(service), 0)
+
+    def test_status(self):
+        hub = octokit.Octokit()
+        self.assertNotEqual(len(hub.service_status.status), 0)
