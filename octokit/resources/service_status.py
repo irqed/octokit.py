@@ -19,3 +19,7 @@ class ServiceStatus(Resource):
     @property
     def status(self):
         return self._http.get('/api/status.json')
+
+    @property
+    def last_message(self):
+        return self._http.get('/api/last-message.json')
