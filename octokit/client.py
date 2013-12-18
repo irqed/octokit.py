@@ -6,7 +6,7 @@
 from octokit import http
 from octokit.settings import Settings
 from octokit.resources import (Authorizations, Emojis, Gitignore, Meta,
-                               User, Users)
+                               ServiceStatus, User, Users)
 
 
 def lazy_property(fn):
@@ -78,3 +78,7 @@ class Octokit(object):
     @lazy_property
     def meta(self):
         return Meta(http=self._http)
+
+    @lazy_property
+    def service_status(self):
+        return ServiceStatus(http=self._http)

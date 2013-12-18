@@ -8,6 +8,8 @@ from octokit.resources.authorizations import Authorizations
 from octokit.resources.emojis import Emojis
 from octokit.resources.gitignore import Gitignore
 from octokit.resources.meta import Meta
+from octokit.resources.service_status import ServiceStatus
 
 
-__all__ = ['User', 'Users', 'Authorizations', 'Emojis', 'Gitignore', 'Meta']
+__all__ = ['User', 'Users', 'Authorizations', 'Emojis', 'Gitignore', 'Meta',
+           'ServiceStatus']

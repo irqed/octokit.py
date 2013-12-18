@@ -3,3 +3,15 @@
 """Methods for the GitHub Status API
 https://status.github.com/api
 """
+
+from octokit.resources.base import Resource
+
+
+class ServiceStatus(Resource):
+    """GitHub API service status 
+    http://developer.github.com/v3/users/#get-the-authenticated-user
+    """
+    url = '/api/status.json'
+
+    def __init__(self, **kwargs):
+        super(User, self).__init__(**kwargs)

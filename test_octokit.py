@@ -130,3 +130,13 @@ class MetaTestCase(unittest.TestCase):
         hub = octokit.Octokit()
         meta = hub.meta.get()
         self.assertNotEqual(len(meta), 0)
+
+
+class ServiceStatusTestCase(unittest.TestCase):
+
+    _multiprocess_can_split_ = True
+
+    def test_get_status_links(self):
+        hub = octokit.Octokit()
+        meta = hub.meta.get()
+        self.assertNotEqual(len(meta), 0)
