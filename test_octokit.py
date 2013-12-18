@@ -148,3 +148,7 @@ class ServiceStatusTestCase(unittest.TestCase):
     def test_status(self):
         hub = octokit.Octokit()
         self.assertNotEqual(len(hub.service_status.last_message), 0)
+
+    def test_messages(self):
+        hub = octokit.Octokit()
+        self.assertNotEqual(len(hub.service_status.messages), 0)

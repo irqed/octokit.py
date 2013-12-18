@@ -23,3 +23,7 @@ class ServiceStatus(Resource):
     @property
     def last_message(self):
         return self._http.get('/api/last-message.json')
+
+    @property
+    def messages(self):
+        return self._http.get('/api/messages.json')
