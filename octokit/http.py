@@ -9,8 +9,10 @@ import requests
 class OctokitError(Exception):
     """Custom exception to wrap API response errors
     """
-    def __init__(self, message):
+    def __init__(self, code, message):
         super(OctokitError, self).__init__(message)
+        self.code = code
+        self.message = message
 
 
 class HTTPBackend(object):
@@ -48,8 +50,11 @@ class HTTPBackend(object):
         return self._s.auth if self._s.auth else None
 
     def get(self, url, params=None):
-        return self._s.get(self._settings.api_endpoint + url,
-                           auth=self.auth, params=params).json()
+        url = url if 'https' in url else self._settings.api_endpoint + url
+        r = self._s.get(url, auth=self.auth, params=params)
+        if not r.ok:
+            raise OctokitError(r.status_code, r.json()['message'])
+        return r.json()
 
     def post(self):
         raise NotImplementedError
