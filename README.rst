@@ -1,3 +1,15 @@
-Octokit.py: Python toolkit for the GitHub API.
+Octokit.py: toolkit for the GitHub API.
 ======================================================
+
+
+TODO
+----
+
+- Support .netrc files
+- Syntactic sugar
+- Name it:)
+
+
+
+
 
