@@ -16,6 +16,9 @@ class User(Resource):
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
 
+    def update(self, **kwargs):
+        return self._http.patch(self.url, **kwargs)
+
 
 class Users(Resource):
     """Users API resource

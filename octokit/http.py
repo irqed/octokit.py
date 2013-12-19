@@ -3,6 +3,7 @@
 """Github auth backends for requests.
 """
 
+import json
 import requests
 
 
@@ -61,6 +62,16 @@ class HTTPBackend(object):
 
     def put(self):
         raise NotImplementedError
+
+    def patch(self, url, **payload):
+        data = {}
+        for key, value in payload.items():
+            data[key] = value
+        r = self._s.patch(self._settings.api_endpoint + url, auth=self.auth,
+                        data=json.dumps(data))
+        if not r.ok:
+            raise OctokitError(r.status_code, r.json()['message'])
+        return r.json()
 
     def delete(self):
         raise NotImplementedError

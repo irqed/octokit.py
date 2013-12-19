@@ -71,6 +71,15 @@ class UserTestCase(unittest.TestCase):
         current_user = hub.user.get()
         self.assertEqual(current_user['login'], 'octopy')
 
+    def test_update_user(self):
+        hub = octokit.Octokit()
+        current_user = hub.user.update(name='octo py', email='octo@irqed.com',
+                                       blog='octo blog', company='octo inc',
+                                       location='moscow', hireable=True,
+                                       bio='meh')
+
+        self.assertEqual(current_user['location'], 'moscow')
+
 
 class UsersTestCase(unittest.TestCase):
 
