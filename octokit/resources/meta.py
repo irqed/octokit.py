@@ -10,7 +10,7 @@ from octokit.resources.base import Resource
 class Meta(Resource):
     """Meta API resource
     """
-    url = '/emojis'
+    url = '/meta'
 
     def __init__(self, **kwargs):
         super(Meta, self).__init__(**kwargs)

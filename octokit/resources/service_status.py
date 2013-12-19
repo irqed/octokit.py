@@ -10,7 +10,7 @@ from octokit.resources.base import Resource
 class ServiceStatus(Resource):
     """GitHub API service status 
     """
-    url = 'https://status.github.com/api/status.json'
+    url = 'https://status.github.com/api.json'
 
     def __init__(self, **kwargs):
         super(ServiceStatus, self).__init__(**kwargs)

@@ -109,7 +109,7 @@ class EmojisTestCase(unittest.TestCase):
     def test_list_emojis(self):
         hub = octokit.Octokit()
         emojis = hub.emojis.get()
-        self.assertNotEqual(len(emojis), 0)
+        self.assertIn('+1', emojis)
 
 
 class GitignoreTestCase(unittest.TestCase):
@@ -119,12 +119,12 @@ class GitignoreTestCase(unittest.TestCase):
     def test_list_gitignore_templates(self):
         hub = octokit.Octokit()
         templates = hub.gitignore.get()
-        self.assertNotEqual(len(templates), 0)
+        self.assertIn('Python', templates)
 
     def test_get_gitignore_template_by_lang(self):
         hub = octokit.Octokit()
         template = hub.gitignore.get(lang='Python')
-        self.assertNotEqual(len(template), 0)
+        self.assertIn('source', template)
 
 
 class MetaTestCase(unittest.TestCase):
@@ -134,7 +134,7 @@ class MetaTestCase(unittest.TestCase):
     def test_get_github_meta(self):
         hub = octokit.Octokit()
         meta = hub.meta.get()
-        self.assertNotEqual(len(meta), 0)
+        self.assertIn('hooks', meta)
 
 
 class ServiceStatusTestCase(unittest.TestCase):
@@ -144,15 +144,15 @@ class ServiceStatusTestCase(unittest.TestCase):
     def test_get_status_links(self):
         hub = octokit.Octokit()
         service = hub.service_status.get()
-        self.assertNotEqual(len(service), 0)
+        self.assertIn('status_url', service)
 
     def test_status(self):
         hub = octokit.Octokit()
-        self.assertNotEqual(len(hub.service_status.status), 0)
+        self.assertIn('status', hub.service_status.status)
 
     def test_status(self):
         hub = octokit.Octokit()
-        self.assertNotEqual(len(hub.service_status.last_message), 0)
+        self.assertIn('body', hub.service_status.last_message)
 
     def test_messages(self):
         hub = octokit.Octokit()

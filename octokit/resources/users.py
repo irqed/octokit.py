@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 """Methods for the Users API
+http://developer.github.com/v3/users/
 """
 
 from octokit.resources.base import Resource
@@ -18,7 +19,6 @@ class User(Resource):
 
 class Users(Resource):
     """Users API resource
-    http://developer.github.com/v3/users/
     """
     url = '/users'
 
