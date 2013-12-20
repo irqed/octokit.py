@@ -17,6 +17,9 @@ class User(Resource):
         super(User, self).__init__(**kwargs)
 
     def update(self, **kwargs):
+        """Update the authenticated user
+        http://developer.github.com/v3/users/#update-the-authenticated-user
+        """
         return self._http.patch(self.url, **kwargs)
 
 
