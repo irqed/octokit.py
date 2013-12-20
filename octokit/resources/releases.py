@@ -4,6 +4,9 @@
 http://developer.github.com/v3/repos/releases/
 """
 
+from octokit.resources.base import Resource
+
+
 class Releases(Resource):
     """Releases API resource
     """

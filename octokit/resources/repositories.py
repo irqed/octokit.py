@@ -4,6 +4,9 @@
 http://developer.github.com/v3/repos/
 """
 
+from octokit.resources.base import Resource
+
+
 class Repositories(Resource):
     """Repositories API resource
     """
