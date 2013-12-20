@@ -15,3 +15,15 @@ class Resource(object):
 
     def get(self):
         return self._http.get(self.url)
+
+    def list(self):
+        raise NotImplementedError
+
+    def update(self):
+        raise NotImplementedError
+
+    def create(self):
+        raise NotImplementedError
+
+    def remove(self):
+        raise NotImplementedError
