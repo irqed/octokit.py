@@ -95,7 +95,7 @@ class UsersTestCase(unittest.TestCase):
         user = hub.users.get(login='irqed')
         self.assertEqual(user['login'], 'irqed')
 
-    def test_get_user_by_404(self):
+    def test_get_user_by_login_404(self):
         hub = octokit.Octokit()
         with self.assertRaises(octokit.OctokitError):
             user = hub.users.get(login='irqed_blah_irqed')
@@ -109,6 +109,16 @@ class Authorizations(unittest.TestCase):
         hub = octokit.Octokit()
         authorizations = hub.authorizations.get()
         self.assertEqual(len(authorizations), 1)
+
+    def test_get_single_authorization(self):
+        hub = octokit.Octokit()
+        authorization = hub.authorizations.get(id=4760713)
+        self.assertIn('token', authorization)
+
+    def test_get_single_authorization_404(self):
+        hub = octokit.Octokit()
+        with self.assertRaises(octokit.OctokitError):
+            authorization = hub.authorizations.get(id=666)
 
 
 class EmojisTestCase(unittest.TestCase):
