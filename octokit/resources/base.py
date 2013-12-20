@@ -7,23 +7,23 @@
 class Resource(object):
     """Base class for all GitHub API resources
     """
-    url = None
+    path = None
 
     def __init__(self, **kwargs):
         super(Resource, self).__init__()
         self._http = kwargs.get('http')
 
-    def get(self):
-        return self._http.get(self.url)
+    def _get(self, path):
+        return self._http.get(path)
 
-    def list(self):
+    def _list(self):
         raise NotImplementedError
 
-    def update(self):
+    def _update(self, path, **kwargs):
+        return self._http.patch(path, **kwargs)
+
+    def _create(self):
         raise NotImplementedError
 
-    def create(self):
-        raise NotImplementedError
-
-    def remove(self):
+    def _remove(self):
         raise NotImplementedError

@@ -33,7 +33,7 @@ from octokit.resources.search import Search
 from octokit.resources.service_status import ServiceStatus
 from octokit.resources.stats import Stats
 from octokit.resources.statuses import Statuses
-from octokit.resources.users import User, Users
+from octokit.resources.users import Users
 
 
 
@@ -42,5 +42,4 @@ __all__ = ['Authorizations', 'CommitComments', 'Commits', 'Contents', 'Emojis',
            'Labels', 'Labels', 'LegacySearch', 'Markdown', 'Meta', 'Milestones',
            'Notifications', 'Objects', 'Organizations', 'PubSubHubbub',
            'PullRequests', 'RateLimit', 'Refs', 'Releases', 'Repositories',
-           'Say', 'Search', 'ServiceStatus', 'Stats', 'Statuses', 'User',
-           'Users']
+           'Say', 'Search', 'ServiceStatus', 'Stats', 'Statuses', 'Users']

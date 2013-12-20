@@ -62,45 +62,40 @@ class AuthenticationTestCase(unittest.TestCase):
         self.assertEqual(hub_two.user_authenticated, True)
 
 
-class UserTestCase(unittest.TestCase):
+class UsersTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
 
+    def test_all_users(self):
+        hub = octokit.Octokit()
+        users = hub.users.all_users()
+        self.assertEqual(len(users), 100)
+
+    def test_user(self):
+        hub = octokit.Octokit()
+        user = hub.users.user('irqed')
+        self.assertEqual(user['login'], 'irqed')
+
     def test_current_user(self):
         hub = octokit.Octokit()
-        current_user = hub.user.get()
-        self.assertEqual(current_user['login'], 'octopy')
+        user = hub.users.user()
+        self.assertEqual(user['login'], 'octopy')
+
+    def test_user_404(self):
+        hub = octokit.Octokit()
+        with self.assertRaises(octokit.OctokitError):
+            user = hub.users.user('irqed_blah_irqed')
 
     def test_update_user(self):
         hub = octokit.Octokit()
-        current_user = hub.user.update(name='octo py', email='octo@irqed.com',
+        current_user = hub.users.update_user(name='octo py', email='octo@irqed.com',
                                        blog='octo blog', company='octo inc',
                                        location='moscow', hireable=True,
                                        bio='meh')
 
         self.assertEqual(current_user['location'], 'moscow')
 
-
-class UsersTestCase(unittest.TestCase):
-
-    _multiprocess_can_split_ = True
-
-    def test_list_users(self):
-        hub = octokit.Octokit()
-        users = hub.users.get()
-        self.assertEqual(len(users), 100)
-
-    def test_get_user_by_login(self):
-        hub = octokit.Octokit()
-        user = hub.users.get(login='irqed')
-        self.assertEqual(user['login'], 'irqed')
-
-    def test_get_user_by_login_404(self):
-        hub = octokit.Octokit()
-        with self.assertRaises(octokit.OctokitError):
-            user = hub.users.get(login='irqed_blah_irqed')
-
-
+"""
 class Authorizations(unittest.TestCase):
 
     _multiprocess_can_split_ = True
@@ -176,3 +171,4 @@ class ServiceStatusTestCase(unittest.TestCase):
     def test_messages(self):
         hub = octokit.Octokit()
         self.assertNotEqual(len(hub.service_status.messages), 0)
+"""

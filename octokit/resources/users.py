@@ -7,38 +7,11 @@ http://developer.github.com/v3/users/
 from octokit.resources.base import Resource
 
 
-class User(Resource):
-    """User API resource
-    http://developer.github.com/v3/users/#get-the-authenticated-user
-    """
-    url = '/user'
-
-    def __init__(self, **kwargs):
-        super(User, self).__init__(**kwargs)
-
-    def update(self, **kwargs):
-        """Update the authenticated user
-        http://developer.github.com/v3/users/#update-the-authenticated-user
-        """
-        return self._http.patch(self.url, **kwargs)
-
-
 class Users(Resource):
     """Users API resource
     """
-    url = '/users'
-
     def __init__(self, **kwargs):
         super(Users, self).__init__(**kwargs)
-
-    def get(self, **kwargs):
-        """Get a list if users, or get a single user by login
-        """
-        login = kwargs.get('login')
-        if login:
-            return self._http.get(self.url + "/%s" % login)
-        else:
-            return self._http.get(self.url)
 
     def all_users(self):
         """List all GitHub users
@@ -48,14 +21,17 @@ class Users(Resource):
 
         http://developer.github.com/v3/users/#get-all-users
         """
-        raise NotImplementedError
+        return self._get("/users")
 
-    def user(self):
+    def user(self, user=None):
         """Get a single user
+
         http://developer.github.com/v3/users/#get-a-single-user
-        http://developer.github.com/v3/users/#get-the-authenticated-user
         """
-        raise NotImplementedError
+        if user:
+            return self._get("/users/%s" % user)
+        else:
+            return self._get("/user")
 
     def exchange_code_for_token(self):
         """Retrieve the access_token
@@ -69,12 +45,12 @@ class Users(Resource):
         """
         raise NotImplementedError
 
-    def update_user(self):
+    def update_user(self, **user_data):
         """Update the authenticated user
 
         http://developer.github.com/v3/users/#update-the-authenticated-user
         """
-        raise NotImplementedError
+        return self._update("/user", **user_data)
 
     def followers(self):
         """Get a user's followers

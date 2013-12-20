@@ -4,7 +4,6 @@
 http://developer.github.com/v3/emojis/
 """
 
-
 from octokit.resources.base import Resource
 
 
