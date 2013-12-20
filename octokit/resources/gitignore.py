@@ -21,3 +21,18 @@ class Gitignore(Resource):
             return self._http.get(self.url + "/%s" % lang)
         else:
             return self._http.get(self.url)
+
+    def gitignore_templates(self):
+        """Listing available gitignore templates
+        http://developer.github.com/v3/gitignore/#listing-available-templates
+        """
+        raise NotImplementedError
+
+    def gitignore_template(self):
+        """Get a gitignore template
+
+        Use the raw {http://developer.github.com/v3/media/ media type} to get
+        the raw contents.
+        http://developer.github.com/v3/gitignore/#get-a-single-template
+        """
+        raise NotImplementedError
