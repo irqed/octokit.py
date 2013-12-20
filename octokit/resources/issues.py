@@ -4,6 +4,9 @@
 http://developer.github.com/v3/issues/
 """
 
+from octokit.resources.base import Resource
+
+
 class Issues(Resource):
     """Issues API resource
     """
