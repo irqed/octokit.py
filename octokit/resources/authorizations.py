@@ -16,6 +16,8 @@ class Authorizations(Resource):
         super(Authorizations, self).__init__(**kwargs)
 
     def get(self, **kwargs):
+        """ TODO: change to self.list() and self.get()
+        """
         auth_id = kwargs.get('id')
         if auth_id:
             return self._http.get(self.url + "/%s" % auth_id)
