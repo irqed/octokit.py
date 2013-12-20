@@ -4,6 +4,8 @@
 http://developer.github.com/v3/repos/comments/
 """
 
+from octokit.resources.base import Resource
+
 
 class CommitComments(Resource):
     """CommitComments API resource

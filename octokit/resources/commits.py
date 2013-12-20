@@ -4,6 +4,9 @@
 http://developer.github.com/v3/repos/commits/
 """
 
+from octokit.resources.base import Resource
+
+
 class Commits(Resource):
     """Commits API resource
     """
