@@ -5,6 +5,7 @@ http://developer.github.com/v3/activity/events/
 http://developer.github.com/v3/issues/events/
 """
 
+from octokit.resources.base import Resource
 
 class Events(Resource):
     """Events API resource
