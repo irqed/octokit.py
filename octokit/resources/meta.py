@@ -14,3 +14,9 @@ class Meta(Resource):
 
     def __init__(self, **kwargs):
         super(Meta, self).__init__(**kwargs)
+
+    def meta(self):
+        """Get meta information about GitHub.com, the service.
+        http://developer.github.com/v3/meta/#meta
+        """
+        raise NotImplementedError
