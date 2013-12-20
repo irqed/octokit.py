@@ -96,8 +96,8 @@ class UsersTestCase(unittest.TestCase):
         self.assertEqual(user['login'], 'irqed')
 
     def test_get_user_by_404(self):
+        hub = octokit.Octokit()
         with self.assertRaises(octokit.OctokitError):
-            hub = octokit.Octokit()
             user = hub.users.get(login='irqed_blah_irqed')
 
 
