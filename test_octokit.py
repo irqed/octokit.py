@@ -105,6 +105,18 @@ class UsersTestCase(unittest.TestCase):
         followers = hub.users.followers()
         self.assertEqual(type(followers), list)
 
+    def test_following(self):
+        hub = octokit.Octokit()
+        following = hub.users.following('irqed')
+        self.assertEqual(type(following), list)
+        self.assertNotEqual(len(following), 0)
+
+    def test_current_user_following(self):
+        hub = octokit.Octokit()
+        following = hub.users.following()
+        self.assertEqual(type(following), list)
+
+
 """
 class Authorizations(unittest.TestCase):
 

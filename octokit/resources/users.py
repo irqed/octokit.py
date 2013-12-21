@@ -62,12 +62,15 @@ class Users(Resource):
         else:
             return self._get("/user/followers")
 
-    def following(self):
+    def following(self, user=None):
         """Get list of users a user is following
 
         http://developer.github.com/v3/users/followers/#list-users-followed-by-another-user
         """
-        raise NotImplementedError
+        if user:
+            return self._get("/users/%s/following" % user)
+        else:
+            return self._get("/user/following")
 
     def follows(self):
         """Check if you are following a user. Alternatively, check if a given user
