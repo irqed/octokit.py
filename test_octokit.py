@@ -89,11 +89,21 @@ class UsersTestCase(unittest.TestCase):
     def test_update_user(self):
         hub = octokit.Octokit()
         current_user = hub.users.update_user(name='octo py', email='octo@irqed.com',
-                                       blog='octo blog', company='octo inc',
-                                       location='moscow', hireable=True,
-                                       bio='meh')
+                                             blog='octo blog', company='octo inc',
+                                             location='moscow', hireable=True,
+                                             bio='meh')
 
         self.assertEqual(current_user['location'], 'moscow')
+
+    def test_followers(self):
+        hub = octokit.Octokit()
+        followers = hub.users.followers('irqed')
+        self.assertEqual(type(followers), list)
+
+    def test_current_user_followers(self):
+        hub = octokit.Octokit()
+        followers = hub.users.followers()
+        self.assertEqual(type(followers), list)
 
 """
 class Authorizations(unittest.TestCase):

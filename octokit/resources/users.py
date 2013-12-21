@@ -52,12 +52,15 @@ class Users(Resource):
         """
         return self._update("/user", **user_data)
 
-    def followers(self):
+    def followers(self, user=None):
         """Get a user's followers
 
         http://developer.github.com/v3/users/followers/#list-followers-of-a-user
         """
-        raise NotImplementedError
+        if user:
+            return self._get("/users/%s/followers" % user)
+        else:
+            return self._get("/user/followers")
 
     def following(self):
         """Get list of users a user is following
