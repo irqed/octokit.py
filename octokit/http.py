@@ -6,14 +6,7 @@
 import json
 import requests
 
-
-class OctokitError(Exception):
-    """Custom exception to wrap API response errors
-    """
-    def __init__(self, code, message):
-        super(OctokitError, self).__init__(message)
-        self.code = code
-        self.message = message
+from octokit.errors import OctokitError, OctokitNotFoundError
 
 
 class HTTPBackend(object):
@@ -26,7 +19,6 @@ class HTTPBackend(object):
         self._s.proxies = self._settings.proxies
         self._s.trust_env = self._settings.trust_env
 
-        self.last_request = None
         self.last_response = None
 
         self.setup_headers()
@@ -50,12 +42,31 @@ class HTTPBackend(object):
     def auth(self):
         return self._s.auth if self._s.auth else None
 
-    def get(self, url, params=None):
-        url = url if 'https' in url else self._settings.api_endpoint + url
-        r = self._s.get(url, auth=self.auth, params=params)
-        if not r.ok:
-            raise OctokitError(r.status_code, r.json()['message'])
-        return r.json()
+    def raise_if_any(self):
+        if self.last_response.status_code == requests.codes.not_found:
+            raise OctokitNotFoundError(self.last_response.status_code,
+                                       self.last_response.json()['message'])
+        elif not self.last_response.ok:
+            raise OctokitError(self.last_response.status_code,
+                               self.last_response.json()['message'])
+
+    def _request(self, method, path, params=None, payload=None):
+        url = self._settings.api_endpoint + path
+        self.last_response = self._s.request(method, url, params=params,
+                                             data=json.dumps(payload))
+        self.raise_if_any()
+        return self.last_response
+
+    def boolean(self, method, path, params=None, payload=None):
+        try:
+            self._request(method, path, params, payload)
+            if self.last_response.status_code == requests.codes.no_content:
+                return True
+        except OctokitNotFoundError:
+            return False
+
+    def get(self, path, params=None):
+        return self._request('GET', path, params).json()
 
     def post(self):
         raise NotImplementedError
@@ -63,15 +74,11 @@ class HTTPBackend(object):
     def put(self):
         raise NotImplementedError
 
-    def patch(self, url, **payload):
+    def patch(self, path, **payload):
         data = {}
         for key, value in payload.items():
             data[key] = value
-        r = self._s.patch(self._settings.api_endpoint + url, auth=self.auth,
-                        data=json.dumps(data))
-        if not r.ok:
-            raise OctokitError(r.status_code, r.json()['message'])
-        return r.json()
+        return self._request('PATCH', path, payload=data).json()
 
     def delete(self):
         raise NotImplementedError

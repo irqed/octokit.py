@@ -83,7 +83,7 @@ class UsersTestCase(unittest.TestCase):
 
     def test_user_404(self):
         hub = octokit.Octokit()
-        with self.assertRaises(octokit.OctokitError):
+        with self.assertRaises(octokit.errors.OctokitError):
             user = hub.users.user('irqed_blah_irqed')
 
     def test_update_user(self):
@@ -116,6 +116,17 @@ class UsersTestCase(unittest.TestCase):
         following = hub.users.following()
         self.assertEqual(type(following), list)
 
+    def test_user_follows(self):
+        hub = octokit.Octokit()
+        self.assertEqual(hub.users.follows('octopy', 'irqed'), False)
+
+    def test_user_follows_true(self):
+        hub = octokit.Octokit()
+        self.assertEqual(hub.users.follows('sashka', 'irqed'), True)
+
+    def test_current_user_follows(self):
+        hub = octokit.Octokit()
+        self.assertEqual(hub.users.follows('irqed'), True)
 
 """
 class Authorizations(unittest.TestCase):

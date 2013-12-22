@@ -30,6 +30,5 @@ __copyright__ = 'Copyright 2013 Alexander Shchepetilnikov'
 
 
 from octokit.client import Octokit
-from octokit.http import OctokitError
 
-__all__ = ['Octokit', 'OctokitError']
+__all__ = ['Octokit', ]

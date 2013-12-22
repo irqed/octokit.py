@@ -72,7 +72,7 @@ class Users(Resource):
         else:
             return self._get("/user/following")
 
-    def follows(self):
+    def follows(self, target, user=None):
         """Check if you are following a user. Alternatively, check if a given user
         is following a target user.
 
@@ -81,7 +81,11 @@ class Users(Resource):
         http://developer.github.com/v3/users/followers/#check-if-you-are-following-a-user
         http://developer.github.com/v3/users/followers/#check-if-one-user-follows-another
         """
-        raise NotImplementedError
+        if user:
+            path = "/users/%s/following/%s" % (user, target)
+        else:
+            path = "/user/following/%s" % target
+        return self._http.boolean("GET", path)
 
     def follow(self):
         """Follow a user
