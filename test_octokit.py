@@ -126,12 +126,20 @@ class UsersTestCase(unittest.TestCase):
 
     def test_current_user_follows(self):
         hub = octokit.Octokit()
-        self.assertEqual(hub.users.follows('irqed'), True)
-
-    def test_follow_unfollow(self):
-        hub = octokit.Octokit()
         hub.users.follow('irqed')
+        self.assertEqual(hub.users.follows('irqed'), True)
         hub.users.unfollow('irqed')
+
+    def test_starred(self):
+        hub = octokit.Octokit()
+        starred = hub.users.starred()
+        self.assertEqual(type(starred), list)
+        self.assertEqual(len(starred), 0)
+
+    def test_user_starred(self):
+        hub = octokit.Octokit()
+        starred = hub.users.starred('irqed')
+        self.assertEqual(type(starred), list)
 
 """
 class Authorizations(unittest.TestCase):

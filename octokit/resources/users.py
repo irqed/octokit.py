@@ -107,12 +107,16 @@ class Users(Resource):
         return self._http.boolean_from_response("DELETE",
                                                "/user/following/%s" % target)
 
-    def starred(self):
+    def starred(self, user=None):
         """Get list of repos starred by a user
 
         http://developer.github.com/v3/activity/starring/#list-repositories-being-starred
         """
-        raise NotImplementedError
+        if user:
+            path = "/users/%s/starred" % user
+        else:
+            path = "/user/starred"
+        return self._http.get(path)
 
     def is_starred(self):
         """Check if you are starring a repo
