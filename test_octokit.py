@@ -92,7 +92,6 @@ class UsersTestCase(unittest.TestCase):
                        company='octo inc', location='moscow', hireable=True,
                        bio='meh')
         current_user = hub.users.update_user(**payload)
-
         self.assertEqual(current_user['location'], 'moscow')
 
     def test_followers(self):
@@ -140,6 +139,7 @@ class UsersTestCase(unittest.TestCase):
         hub = octokit.Octokit()
         starred = hub.users.starred('irqed')
         self.assertEqual(type(starred), list)
+        self.assertNotEqual(len(starred), 0)
 
 """
 class Authorizations(unittest.TestCase):
