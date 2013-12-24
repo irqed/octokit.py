@@ -85,7 +85,7 @@ class Users(Resource):
             path = "/users/%s/following/%s" % (user, target)
         else:
             path = "/user/following/%s" % target
-        return self._http.boolean("GET", path)
+        return self._http.boolean_from_response("GET", path)
 
     def follow(self):
         """Follow a user

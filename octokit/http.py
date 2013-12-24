@@ -6,7 +6,7 @@
 import json
 import requests
 
-from octokit.errors import OctokitError, OctokitNotFoundError
+from octokit.errors import error_from_response, OctokitNotFoundError
 
 
 class HTTPBackend(object):
@@ -42,22 +42,17 @@ class HTTPBackend(object):
     def auth(self):
         return self._s.auth if self._s.auth else None
 
-    def raise_if_any(self):
-        if self.last_response.status_code == requests.codes.not_found:
-            raise OctokitNotFoundError(self.last_response.status_code,
-                                       self.last_response.json()['message'])
-        elif not self.last_response.ok:
-            raise OctokitError(self.last_response.status_code,
-                               self.last_response.json()['message'])
 
     def _request(self, method, path, params=None, payload=None):
         url = self._settings.api_endpoint + path
-        self.last_response = self._s.request(method, url, params=params,
+        hooks = dict(response=error_from_response)
+        self.last_response = self._s.request(method, url,
+                                             params=params, hooks=hooks,
                                              data=json.dumps(payload))
-        self.raise_if_any()
+
         return self.last_response
 
-    def boolean(self, method, path, params=None, payload=None):
+    def boolean_from_response(self, method, path, params=None, payload=None):
         try:
             self._request(method, path, params, payload)
             if self.last_response.status_code == requests.codes.no_content:

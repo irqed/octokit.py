@@ -83,7 +83,7 @@ class UsersTestCase(unittest.TestCase):
 
     def test_user_404(self):
         hub = octokit.Octokit()
-        with self.assertRaises(octokit.errors.OctokitError):
+        with self.assertRaises(octokit.errors.OctokitNotFoundError):
             user = hub.users.user('irqed_blah_irqed')
 
     def test_update_user(self):
