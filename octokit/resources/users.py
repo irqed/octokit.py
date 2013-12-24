@@ -118,12 +118,12 @@ class Users(Resource):
             path = "/user/starred"
         return self._http.get(path)
 
-    def is_starred(self):
+    def is_starred(self, repo):
         """Check if you are starring a repo
 
         http://developer.github.com/v3/activity/starring/#check-if-you-are-starring-a-repository
         """
-        raise NotImplementedError
+        return self._http.boolean_from_response("GET", "/user/starred/%s" % repo)
 
     def key(self):
         """Get a public key
