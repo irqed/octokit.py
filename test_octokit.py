@@ -88,10 +88,10 @@ class UsersTestCase(unittest.TestCase):
 
     def test_update_user(self):
         hub = octokit.Octokit()
-        current_user = hub.users.update_user(name='octo py', email='octo@irqed.com',
-                                             blog='octo blog', company='octo inc',
-                                             location='moscow', hireable=True,
-                                             bio='meh')
+        payload = dict(name='octo py', email='octo@irqed.com', blog='octo blog',
+                       company='octo inc', location='moscow', hireable=True,
+                       bio='meh')
+        current_user = hub.users.update_user(**payload)
 
         self.assertEqual(current_user['location'], 'moscow')
 
