@@ -63,8 +63,11 @@ class HTTPBackend(object):
     def get(self, path, params=None):
         return self._request('GET', path, params).json()
 
-    def post(self):
-        raise NotImplementedError
+    def post(self, path, **payload):
+        data = {}
+        for key, value in payload.items():
+            data[key] = value
+        return self._request('POST', path, payload=data).json()
 
     def put(self):
         raise NotImplementedError

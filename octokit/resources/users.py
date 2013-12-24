@@ -147,14 +147,14 @@ class Users(Resource):
             path = "/user/keys"
         return self._http.get(path)
 
-    def add_key(self):
+    def add_key(self, **payload):
         """Add public key to user account
 
         Requires authenticated client.
 
         http://developer.github.com/v3/users/keys/#create-a-public-key
         """
-        raise NotImplementedError
+        return self._http.post("/user/keys", **payload)
 
     def update_key(self):
         """Update a public key
@@ -165,14 +165,15 @@ class Users(Resource):
         """
         raise NotImplementedError
 
-    def remove_key(self):
+    def remove_key(self, key_id):
         """Remove a public key from user account
 
         Requires authenticated client.
 
         http://developer.github.com/v3/users/keys/#delete-a-public-key
         """
-        raise NotImplementedError
+        return self._http.boolean_from_response("DELETE",
+                                                "/user/keys/%s" % key_id)
 
     def emails(self):
         """List email addresses for a user

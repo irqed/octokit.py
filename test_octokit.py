@@ -152,8 +152,16 @@ class UsersTestCase(unittest.TestCase):
 
     def test_current_user_keys(self):
         hub = octokit.Octokit()
-        starred = hub.users.keys()
-        self.assertEqual(type(starred), list)
+        keys = hub.users.keys()
+        self.assertEqual(type(keys), list)
+        self.assertEqual(len(keys), 1)
+
+    def test_add_key(self):
+        hub = octokit.Octokit()
+        key = hub.users.add_key(title="test_key", key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAB+wC/1cFsriBGEM2/krbfVRWMeL0xIs9W/B8H0vTTCiR3rI7QpBGGMlZeYPB8K5HlUZAq2ryRPphX0hMkGwCAAkhfVlohuZkMNOpeFANKdw3q2jdQjSH57KCpdj2wNjFZAgJvgsYPmTTH+DLVMpVUqtskJOsTYmU/O51//9X2EuUahSuS8pq48CmRgSo9PSKEqY63RLsFhwPYh+FW21L65i8mYep0/hhyI0kVuZmjwSN2HMk5X4dFXdCe2wX3kRo3d7EQ4d0ONnZNQtMgYGlYHknLfwLWWU+UFPeqjA8Su58KEdIji5nko2OW+afe+aaicsm9MloiopPR+XR39sGSlDibdaHtCcoVDXHNqDbnGfhyq/2+dAzo/b8vQ4ZyzudX86OqatjKMt2F0fJwcqwQll08sGCuYq+sb8RDjW0ybgTHmhAFgJ3pzwAVjhMdMz3OiqfhFCqk8KDZ9tn4xwBAXOM5W94HLmSZGxvhylopqGDhjnuk1d59L8JVcv4s5Aau+DhRl1h265YYxq6vsdrw7F7be3IqbSQEi6sPyg+tbpM9CJaOS7wokWCdzk6oeket/83QMdBa+QpEjmtr86oG+Ixa2KWQ9ecDM4sCQz24A+7InFDKnJjRoqScpdU5Cubf3QV3No+zO/HRgct4wUxWvkY1YkJDEUzk+JGLqQ== octopy_test_key")
+        self.assertEqual(type(key), dict)
+        self.assertEqual(hub.users.remove_key(key['id']), True)
+
 
 """
 class Authorizations(unittest.TestCase):
