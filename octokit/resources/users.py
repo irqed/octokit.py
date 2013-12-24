@@ -126,11 +126,7 @@ class Users(Resource):
         return self._http.boolean_from_response("GET", "/user/starred/%s" % repo)
 
     def key(self):
-        """Get a public key
-
-        Note, when using dot notation to retrieve the values, ruby will return
-        the hash key for the public keys value instead of the actual value, use
-        symbol or key string to retrieve the value. See example.
+        """Get a public keys
 
         Requires authenticated client.
 
@@ -138,14 +134,18 @@ class Users(Resource):
         """
         raise NotImplementedError
 
-    def keys(self):
+    def keys(self, user=None):
         """Get list of public keys for user
 
         Requires authenticated client.
 
         http://developer.github.com/v3/users/keys/#list-your-public-keys
         """
-        raise NotImplementedError
+        if user:
+            path = "/users/%s/keys" % user
+        else:
+            path = "/user/keys"
+        return self._http.get(path)
 
     def add_key(self):
         """Add public key to user account

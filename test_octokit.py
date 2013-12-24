@@ -145,6 +145,16 @@ class UsersTestCase(unittest.TestCase):
         hub = octokit.Octokit()
         self.assertEqual(hub.users.is_starred('irqed/tornado'), False)
 
+    def test_user_keys(self):
+        hub = octokit.Octokit()
+        starred = hub.users.keys('irqed')
+        self.assertEqual(type(starred), list)
+
+    def test_current_user_keys(self):
+        hub = octokit.Octokit()
+        starred = hub.users.keys()
+        self.assertEqual(type(starred), list)
+
 """
 class Authorizations(unittest.TestCase):
 
