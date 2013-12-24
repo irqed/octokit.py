@@ -29,9 +29,10 @@ class Users(Resource):
         http://developer.github.com/v3/users/#get-a-single-user
         """
         if user:
-            return self._get("/users/%s" % user)
+            path = "/users/%s" % user
         else:
-            return self._get("/user")
+            path = "/user"
+        return self._get(path)
 
     def exchange_code_for_token(self):
         """Retrieve the access_token
@@ -58,9 +59,10 @@ class Users(Resource):
         http://developer.github.com/v3/users/followers/#list-followers-of-a-user
         """
         if user:
-            return self._get("/users/%s/followers" % user)
+            path = "/users/%s/followers" % user
         else:
-            return self._get("/user/followers")
+            path = "/user/followers"
+        return self._get(path)
 
     def following(self, user=None):
         """Get list of users a user is following
@@ -68,9 +70,10 @@ class Users(Resource):
         http://developer.github.com/v3/users/followers/#list-users-followed-by-another-user
         """
         if user:
-            return self._get("/users/%s/following" % user)
+            path = "/users/%s/following" % user
         else:
-            return self._get("/user/following")
+            path = "/user/following"
+        return self._get(path)
 
     def follows(self, target, user=None):
         """Check if you are following a user. Alternatively, check if a given user
@@ -95,7 +98,7 @@ class Users(Resource):
         http://developer.github.com/v3/users/followers/#follow-a-user
         """
         return self._http.boolean_from_response("PUT",
-                                               "/user/following/%s" % target)
+                                                "/user/following/%s" % target)
 
     def unfollow(self, target):
         """Unfollow a user
@@ -105,7 +108,7 @@ class Users(Resource):
         http://developer.github.com/v3/users/followers/#unfollow-a-user
         """
         return self._http.boolean_from_response("DELETE",
-                                               "/user/following/%s" % target)
+                                                "/user/following/%s" % target)
 
     def starred(self, user=None):
         """Get list of repos starred by a user
@@ -123,7 +126,8 @@ class Users(Resource):
 
         http://developer.github.com/v3/activity/starring/#check-if-you-are-starring-a-repository
         """
-        return self._http.boolean_from_response("GET", "/user/starred/%s" % repo)
+        return self._http.boolean_from_response("GET",
+                                                "/user/starred/%s" % repo)
 
     def key(self):
         """Get a public keys
