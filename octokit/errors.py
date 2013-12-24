@@ -115,6 +115,7 @@ def error_from_response(r, *args, **kwargs):
     elif r.status_code == 401:
         raise OctokitUnauthorizedError(r)
     elif r.status_code == 403:
+        #TODO: check for custom headers and raise more detailed exception
         raise OctokitForbiddenError(r)
     elif r.status_code == 404:
         raise OctokitNotFoundError(r)
