@@ -156,14 +156,14 @@ class Users(Resource):
         """
         return self._http.post("/user/keys", **payload)
 
-    def update_key(self):
+    def update_key(self, key_id, **payload):
         """Update a public key
 
         Requires authenticated client.
 
         http://developer.github.com/v3/users/keys/#update-a-public-key
         """
-        raise NotImplementedError
+        return self._http.patch("/user/keys/%s" % key_id, **payload)
 
     def remove_key(self, key_id):
         """Remove a public key from user account
