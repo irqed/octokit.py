@@ -128,6 +128,11 @@ class UsersTestCase(unittest.TestCase):
         hub = octokit.Octokit()
         self.assertEqual(hub.users.follows('irqed'), True)
 
+    def test_follow_unfollow(self):
+        hub = octokit.Octokit()
+        hub.users.follow('irqed')
+        hub.users.unfollow('irqed')
+
 """
 class Authorizations(unittest.TestCase):
 

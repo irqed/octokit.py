@@ -109,7 +109,6 @@ class OctokitMissingContentTypeError(OctokitError):
 
 
 def error_from_response(r, *args, **kwargs):
-    print r
     if r.status_code == 400:
         raise OctokitBadRequestError(r)
     elif r.status_code == 401:
@@ -139,3 +138,5 @@ def error_from_response(r, *args, **kwargs):
         raise OctokitServiceUnavailableError(r)
     elif 500 <= r.status_code <= 599:
         raise OctokitServerError(r)
+
+    return r

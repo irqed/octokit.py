@@ -87,23 +87,25 @@ class Users(Resource):
             path = "/user/following/%s" % target
         return self._http.boolean_from_response("GET", path)
 
-    def follow(self):
+    def follow(self, target):
         """Follow a user
 
         Requires authenticatied client.
 
         http://developer.github.com/v3/users/followers/#follow-a-user
         """
-        raise NotImplementedError
+        return self._http.boolean_from_response("PUT",
+                                               "/user/following/%s" % target)
 
-    def unfollow(self):
+    def unfollow(self, target):
         """Unfollow a user
 
         Requires authenticated client.
 
         http://developer.github.com/v3/users/followers/#unfollow-a-user
         """
-        raise NotImplementedError
+        return self._http.boolean_from_response("DELETE",
+                                               "/user/following/%s" % target)
 
     def starred(self):
         """Get list of repos starred by a user
