@@ -99,6 +99,38 @@ class UserTestCase(unittest.TestCase):
         self.assertEqual(hub.user.follows('irqed'), True)
         self.assertEqual(hub.user.unfollow('irqed'), True)
 
+    def test_starred(self):
+        hub = octokit.Octokit()
+        starred = hub.user.starred()
+        self.assertEqual(type(starred), list)
+        self.assertEqual(len(starred), 0)
+
+    def test_is_starred(self):
+        hub = octokit.Octokit()
+        self.assertEqual(hub.user.is_starred('irqed/tornado'), False)
+
+    def test_key(self):
+        hub = octokit.Octokit()
+        key = hub.user.key(6620193)
+        self.assertEqual(type(key), dict)
+
+    def test_keys(self):
+        hub = octokit.Octokit()
+        keys = hub.user.keys()
+        self.assertEqual(type(keys), list)
+
+    def test_update_key(self):
+        hub = octokit.Octokit()
+        payload = dict(title="!test_key!")
+        key = hub.user.update_key(6620193, payload)
+        self.assertEqual(key['title'], "!test_key!")
+
+    def test_add_remove_key(self):
+        hub = octokit.Octokit()
+        payload = dict(title="test_key2", key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAB+wDCfyqs4CBjM5jav9GSInhO8xHPq6u2ftRs1IJDuPQI0RgeAwyIWT6Ve2FXMSkPC3USUv8yA/rE8/x/T2/6oq/QYAdyPiUpzyQwIe8JlacPrk9hjvjtcEIE5AdoRjrvXT9D+FDV1MobIEcexNmgRkdAcJOSV9sOfUjwH43F7p8exZ19SbQ4hoAhUlD0wXxufG+QDk0Mdov0tSMTtJaJcAn+NX+1EGylTtkLOCAQv2x3Lov6tkcyNAwC+MZMHLxgwz4d3vvnlQFlN6DdCwHzffrYk8lTgZ36RVCfg5Ik3kB8BgePllay87JsKfo7g48JIOm9Ho17LNpvXt/ce8LTELPG58pj2vQMFzfh2L8V6eq/4B3hu9CHc+45Z2KYX5q0hQ26KuIJdeAAygsLPFCVQL6kwM0lvQDJH0S8lSAFKxtqG/NVrlSZEOrh/VWOWZXZwNtl4khHP0gtwpiEhzw2bqulUR5b9A+GKRP35XrLlRR0PpeoG6vFrzglN05n/61J1zVGWFbU/dewIiyaYCPLgFlRYXzrX08oeYNVMfqtU5lk81s0G8o3/h033oxKtofhlQdY2mzhtJxUHHuGtqFBCsGFCZ8vc9PXZ+UodZvHxyAHlCcku4ItnCX3QiI7/cMB8bM1/C//baJ0lHCdFvNhxDm0Cs2g94F93ThFxw== octopy_test_key")
+        key = hub.user.add_key(payload)
+        self.assertEqual(type(key), dict)
+        self.assertEqual(hub.user.remove_key(key['id']), True)
 
 class UsersTestCase(unittest.TestCase):
 
@@ -130,11 +162,6 @@ class UsersTestCase(unittest.TestCase):
         self.assertEqual(type(following), list)
         self.assertNotEqual(len(following), 0)
 
-    def test_current_user_following(self):
-        hub = octokit.Octokit()
-        following = hub.users.following()
-        self.assertEqual(type(following), list)
-
     def test_user_follows(self):
         hub = octokit.Octokit()
         self.assertEqual(hub.users.follows('octopy', 'irqed'), False)
@@ -143,49 +170,16 @@ class UsersTestCase(unittest.TestCase):
         hub = octokit.Octokit()
         self.assertEqual(hub.users.follows('sashka', 'irqed'), True)
 
-    def test_current_user_follows(self):
-        hub = octokit.Octokit()
-        hub.users.follow('irqed')
-        self.assertEqual(hub.users.follows('irqed'), True)
-        hub.users.unfollow('irqed')
-
-    def test_starred(self):
-        hub = octokit.Octokit()
-        starred = hub.users.starred()
-        self.assertEqual(type(starred), list)
-        self.assertEqual(len(starred), 0)
-
     def test_user_starred(self):
         hub = octokit.Octokit()
         starred = hub.users.starred('irqed')
         self.assertEqual(type(starred), list)
         self.assertNotEqual(len(starred), 0)
 
-    def test_is_starred(self):
-        hub = octokit.Octokit()
-        self.assertEqual(hub.users.is_starred('irqed/tornado'), False)
-
     def test_user_keys(self):
         hub = octokit.Octokit()
         starred = hub.users.keys('irqed')
         self.assertEqual(type(starred), list)
-
-    def test_current_user_keys(self):
-        hub = octokit.Octokit()
-        keys = hub.users.keys()
-        self.assertEqual(type(keys), list)
-        self.assertEqual(len(keys), 1)
-
-    def test_add_remove_key(self):
-        hub = octokit.Octokit()
-        key = hub.users.add_key(title="test_key", key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAB+wC/1cFsriBGEM2/krbfVRWMeL0xIs9W/B8H0vTTCiR3rI7QpBGGMlZeYPB8K5HlUZAq2ryRPphX0hMkGwCAAkhfVlohuZkMNOpeFANKdw3q2jdQjSH57KCpdj2wNjFZAgJvgsYPmTTH+DLVMpVUqtskJOsTYmU/O51//9X2EuUahSuS8pq48CmRgSo9PSKEqY63RLsFhwPYh+FW21L65i8mYep0/hhyI0kVuZmjwSN2HMk5X4dFXdCe2wX3kRo3d7EQ4d0ONnZNQtMgYGlYHknLfwLWWU+UFPeqjA8Su58KEdIji5nko2OW+afe+aaicsm9MloiopPR+XR39sGSlDibdaHtCcoVDXHNqDbnGfhyq/2+dAzo/b8vQ4ZyzudX86OqatjKMt2F0fJwcqwQll08sGCuYq+sb8RDjW0ybgTHmhAFgJ3pzwAVjhMdMz3OiqfhFCqk8KDZ9tn4xwBAXOM5W94HLmSZGxvhylopqGDhjnuk1d59L8JVcv4s5Aau+DhRl1h265YYxq6vsdrw7F7be3IqbSQEi6sPyg+tbpM9CJaOS7wokWCdzk6oeket/83QMdBa+QpEjmtr86oG+Ixa2KWQ9ecDM4sCQz24A+7InFDKnJjRoqScpdU5Cubf3QV3No+zO/HRgct4wUxWvkY1YkJDEUzk+JGLqQ== octopy_test_key")
-        self.assertEqual(type(key), dict)
-        self.assertEqual(hub.users.remove_key(key['id']), True)
-
-    def test_update_key(self):
-        hub = octokit.Octokit()
-        key = hub.users.update_key(6620193, title="!test_key!")
-        self.assertEqual(key['title'], "!test_key!")
 
     def test_emails(self):
         hub = octokit.Octokit()
