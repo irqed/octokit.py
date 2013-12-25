@@ -194,13 +194,14 @@ class User(Resource):
         """
         return self._http.get('user/subscriptions')
 
+
 class Users(Resource):
     """Users API resource
     """
     def __init__(self, **kwargs):
         super(Users, self).__init__(**kwargs)
 
-    def all_users(self):
+    def all(self):
         """List all GitHub users
 
         This provides a dump of every user, in the order that they signed up
@@ -208,35 +209,35 @@ class Users(Resource):
 
         http://developer.github.com/v3/users/#get-all-users
         """
-        return self._get('users')
+        return self._http.get('users')
 
     def user(self, user):
         """Get a single user
 
         http://developer.github.com/v3/users/#get-a-single-user
         """
-        return self._get('users/%s' % user)
+        return self._http.get('users/%s' % user)
 
     def followers(self, user):
         """Get a user's followers
 
         http://developer.github.com/v3/users/followers/#list-followers-of-a-user
         """
-        return self._get('users/%s/followers' % user)
+        return self._http.get('users/%s/followers' % user)
 
     def following(self, user):
         """Get list of users a user is following
 
         http://developer.github.com/v3/users/followers/#list-users-followed-by-another-user
         """
-        return self._get('users/%s/following' % user)
+        return self._http.get('users/%s/following' % user)
 
     def follows(self, user, target):
         """Check if a given user is following a target user.
 
         http://developer.github.com/v3/users/followers/#check-if-one-user-follows-another
         """
-        path = "/users/%s/following/%s" % (user, target)
+        path = 'users/%s/following/%s' % (user, target)
         return self._http.boolean_from_response('GET', path)
 
     def starred(self, user):
@@ -244,22 +245,11 @@ class Users(Resource):
 
         http://developer.github.com/v3/activity/starring/#list-repositories-being-starred
         """
-        return self._http.get('/users/%s/starred' % user)
-
-    def key(self):
-        """Get a public keys
-
-        Requires authenticated client.
-
-        http://developer.github.com/v3/users/keys/#get-a-single-public-key
-        """
-        raise NotImplementedError
+        return self._http.get('users/%s/starred' % user)
 
     def keys(self, user):
         """Get list of public keys for user
 
-        Requires authenticated client.
-
         http://developer.github.com/v3/users/keys/#list-your-public-keys
         """
-        return self._http.get('users/%s/key' % user)
+        return self._http.get('users/%s/keys' % user)

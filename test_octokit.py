@@ -152,10 +152,10 @@ class UserTestCase(unittest.TestCase):
 class UsersTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
-"""
-    def test_all_users(self):
+
+    def test_all(self):
         hub = octokit.Octokit()
-        users = hub.users.all_users()
+        users = hub.users.all()
         self.assertEqual(len(users), 100)
 
     def test_user(self):
@@ -177,29 +177,22 @@ class UsersTestCase(unittest.TestCase):
         hub = octokit.Octokit()
         following = hub.users.following('irqed')
         self.assertEqual(type(following), list)
-        self.assertNotEqual(len(following), 0)
 
-    def test_user_follows(self):
+    def test_follows(self):
         hub = octokit.Octokit()
-        self.assertEqual(hub.users.follows('octopy', 'irqed'), False)
+        self.assertEqual(hub.users.follows('irqed', 'octopy'), False)
+        self.assertEqual(hub.users.follows('irqed', 'spoof'), True)
 
-    def test_user_follows_true(self):
-        hub = octokit.Octokit()
-        self.assertEqual(hub.users.follows('sashka', 'irqed'), True)
-
-    def test_user_starred(self):
+    def test_starred(self):
         hub = octokit.Octokit()
         starred = hub.users.starred('irqed')
         self.assertEqual(type(starred), list)
-        self.assertNotEqual(len(starred), 0)
 
-    def test_user_keys(self):
+    def test_keys(self):
         hub = octokit.Octokit()
         starred = hub.users.keys('irqed')
         self.assertEqual(type(starred), list)
 
-
-"""
 """
 class Authorizations(unittest.TestCase):
 
