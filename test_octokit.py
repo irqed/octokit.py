@@ -190,8 +190,13 @@ class UsersTestCase(unittest.TestCase):
 
     def test_keys(self):
         hub = octokit.Octokit()
-        starred = hub.users.keys('irqed')
-        self.assertEqual(type(starred), list)
+        keys = hub.users.keys('irqed')
+        self.assertEqual(type(keys), list)
+
+    def test_subscriptions(self):
+        hub = octokit.Octokit()
+        subscriptions = hub.users.subscriptions('irqed')
+        self.assertEqual(type(subscriptions), list)
 
 """
 class Authorizations(unittest.TestCase):

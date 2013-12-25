@@ -186,7 +186,7 @@ class User(Resource):
                                                 'user/emails', payload=emails)
 
     def subscriptions(self):
-        """List repositories being watched by a user
+        """List repositories being watched by you
 
         Requires authenticated client.
 
@@ -253,3 +253,10 @@ class Users(Resource):
         http://developer.github.com/v3/users/keys/#list-your-public-keys
         """
         return self._http.get('users/%s/keys' % user)
+
+    def subscriptions(self, user):
+        """List repositories being watched by a user
+
+        http://developer.github.com/v3/activity/watching/#list-repositories-being-watched
+        """
+        return self._http.get('users/%s/subscriptions' % user)
