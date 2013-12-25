@@ -185,6 +185,15 @@ class User(Resource):
         return self._http.boolean_from_response('DELETE',
                                                 'user/emails', payload=emails)
 
+    def subscriptions(self):
+        """List repositories being watched by a user
+
+        Requires authenticated client.
+
+        http://developer.github.com/v3/activity/watching/#list-repositories-being-watched
+        """
+        return self._http.get('user/subscriptions')
+
 class Users(Resource):
     """Users API resource
     """
@@ -254,10 +263,3 @@ class Users(Resource):
         http://developer.github.com/v3/users/keys/#list-your-public-keys
         """
         return self._http.get('users/%s/key' % user)
-
-    def subscriptions(self):
-        """List repositories being watched by a user
-
-        http://developer.github.com/v3/activity/watching/#list-repositories-being-watched
-        """
-        raise NotImplementedError

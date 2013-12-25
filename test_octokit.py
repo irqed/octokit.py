@@ -144,6 +144,11 @@ class UserTestCase(unittest.TestCase):
         self.assertEqual(type(emails), list)
         self.assertEqual(hub.user.remove_email(['octo_test@irqed.com', ]), True)
 
+    def test_subscriptions(self):
+        hub = octokit.Octokit()
+        subscriptions = hub.user.subscriptions()
+        self.assertEqual(type(subscriptions), list)
+
 class UsersTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
