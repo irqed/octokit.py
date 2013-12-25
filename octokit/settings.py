@@ -8,7 +8,7 @@ from octokit import __version__
 
 
 # Default API endpoint
-API_ENDPOINT = "https://api.github.com"
+API_ENDPOINT = "https://api.github.com/"
 
 # Default User Agent header string
 USER_AGENT = "Octokit.py/%s" % __version__

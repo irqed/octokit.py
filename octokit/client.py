@@ -6,7 +6,7 @@
 from octokit import http
 from octokit.settings import Settings
 from octokit.resources import (Authorizations, Emojis, Gitignore, Meta,
-                               ServiceStatus, Users)
+                               ServiceStatus, User, Users)
 
 
 def lazy_property(fn):
@@ -54,6 +54,10 @@ class Octokit(object):
     def application_authenticated(self):
         return (True if isinstance(self._http.auth, http.HTTPApplicationAuth)
                 else False)
+
+    @lazy_property
+    def user(self):
+        return User(http=self._http)
 
     @lazy_property
     def users(self):

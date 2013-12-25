@@ -62,10 +62,32 @@ class AuthenticationTestCase(unittest.TestCase):
         self.assertEqual(hub_two.user_authenticated, True)
 
 
-class UsersTestCase(unittest.TestCase):
+class UserTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
 
+    def test_info(self):
+        hub = octokit.Octokit()
+        user = hub.user.info()
+        self.assertEqual(user['login'], 'octopy')
+
+    def test_update(self):
+        hub = octokit.Octokit()
+        payload = dict(name='octo py', email='octo@irqed.com', blog='octo blog',
+                       company='octo inc', location='moscow', hireable=False,
+                       bio='meh')
+        user = hub.user.update(payload)
+        self.assertEqual(user['location'], 'moscow')
+
+    def test_followers(self):
+        hub = octokit.Octokit()
+        followers = hub.user.followers()
+        self.assertEqual(type(followers), list)
+
+class UsersTestCase(unittest.TestCase):
+
+    _multiprocess_can_split_ = True
+"""
     def test_all_users(self):
         hub = octokit.Octokit()
         users = hub.users.all_users()
@@ -76,32 +98,14 @@ class UsersTestCase(unittest.TestCase):
         user = hub.users.user('irqed')
         self.assertEqual(user['login'], 'irqed')
 
-    def test_current_user(self):
-        hub = octokit.Octokit()
-        user = hub.users.user()
-        self.assertEqual(user['login'], 'octopy')
-
     def test_user_404(self):
         hub = octokit.Octokit()
         with self.assertRaises(octokit.errors.OctokitNotFoundError):
             user = hub.users.user('irqed_blah_irqed')
 
-    def test_update_user(self):
-        hub = octokit.Octokit()
-        payload = dict(name='octo py', email='octo@irqed.com', blog='octo blog',
-                       company='octo inc', location='moscow', hireable=True,
-                       bio='meh')
-        current_user = hub.users.update_user(**payload)
-        self.assertEqual(current_user['location'], 'moscow')
-
     def test_followers(self):
         hub = octokit.Octokit()
         followers = hub.users.followers('irqed')
-        self.assertEqual(type(followers), list)
-
-    def test_current_user_followers(self):
-        hub = octokit.Octokit()
-        followers = hub.users.followers()
         self.assertEqual(type(followers), list)
 
     def test_following(self):
@@ -173,6 +177,13 @@ class UsersTestCase(unittest.TestCase):
         self.assertEqual(type(emails), list)
         self.assertNotEqual(len(emails), 0)
 
+    def test_add_remove_email(self):
+        hub = octokit.Octokit()
+        email = hub.users.add_email(email=['octo_test@irqed.com'])
+        self.assertEqual(type(emails), dict)
+        self.assertEqual(hub.users.remove_email(email=['octo_test@irqed.com']),
+                         True)
+"""
 """
 class Authorizations(unittest.TestCase):
 

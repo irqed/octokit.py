@@ -7,6 +7,43 @@ http://developer.github.com/v3/users/
 from octokit.resources.base import Resource
 
 
+class User(Resource):
+    """Users API resource, methods to work with authenticatied user
+    """
+    def __init__(self, **kwargs):
+        super(User, self).__init__(**kwargs)
+
+    def info(self):
+        """Get the authenticatied user info
+        """
+        return self._get('user')
+
+    def update(self, payload):
+        """Update the authenticated user
+
+        http://developer.github.com/v3/users/#update-the-authenticated-user
+        """
+        return self._update('user', payload)
+
+    def exchange_code_for_token(self):
+        """Retrieve the access_token
+
+        http://developer.github.com/v3/oauth/#web-application-flow
+        """
+        raise NotImplementedError
+
+    def validate_credentials(self):
+        """Validate user username and password
+        """
+        raise NotImplementedError
+
+    def followers(self):
+        """Get the authenticated user's followers
+
+        http://developer.github.com/v3/users/followers/#list-followers-of-a-user
+        """
+        return self._get('user/followers')
+
 class Users(Resource):
     """Users API resource
     """
@@ -21,48 +58,21 @@ class Users(Resource):
 
         http://developer.github.com/v3/users/#get-all-users
         """
-        return self._get("/users")
+        return self._get('users')
 
-    def user(self, user=None):
+    def user(self, user):
         """Get a single user
 
         http://developer.github.com/v3/users/#get-a-single-user
         """
-        if user:
-            path = "/users/%s" % user
-        else:
-            path = "/user"
-        return self._get(path)
+        return self._get('users/%s' % user)
 
-    def exchange_code_for_token(self):
-        """Retrieve the access_token
-
-        http://developer.github.com/v3/oauth/#web-application-flow
-        """
-        raise NotImplementedError
-
-    def validate_credentials(self):
-        """Validate user username and password
-        """
-        raise NotImplementedError
-
-    def update_user(self, **user_data):
-        """Update the authenticated user
-
-        http://developer.github.com/v3/users/#update-the-authenticated-user
-        """
-        return self._update("/user", **user_data)
-
-    def followers(self, user=None):
+    def followers(self, user):
         """Get a user's followers
 
         http://developer.github.com/v3/users/followers/#list-followers-of-a-user
         """
-        if user:
-            path = "/users/%s/followers" % user
-        else:
-            path = "/user/followers"
-        return self._get(path)
+        return self._get('users/%s/followers' % user)
 
     def following(self, user=None):
         """Get list of users a user is following
@@ -188,14 +198,14 @@ class Users(Resource):
         """
         return self._http.get("/user/emails")
 
-    def add_email(self):
+    def add_email(self, **payload):
         """Add email address to user
 
         Requires authenticated client.
 
         http://developer.github.com/v3/users/emails/#add-email-addresses
         """
-        raise NotImplementedError
+        return self._http.post("/user/emails", **payload)
 
     def remove_email(self):
         """Remove email from user
@@ -204,7 +214,8 @@ class Users(Resource):
 
         http://developer.github.com/v3/users/emails/#delete-email-addresses
         """
-        raise NotImplementedError
+        return self._http.boolean_from_response("DELETE",
+                                                "/user/emails", **payload)
 
     def subscriptions(self):
         """List repositories being watched by a user

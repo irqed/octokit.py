@@ -19,8 +19,8 @@ class Resource(object):
     def _list(self):
         raise NotImplementedError
 
-    def _update(self, path, **kwargs):
-        return self._http.patch(path, **kwargs)
+    def _update(self, path, payload):
+        return self._http.patch(path, payload)
 
     def _create(self):
         raise NotImplementedError

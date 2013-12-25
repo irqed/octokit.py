@@ -63,23 +63,17 @@ class HTTPBackend(object):
     def get(self, path, params=None):
         return self._request('GET', path, params).json()
 
-    def post(self, path, **payload):
-        data = {}
-        for key, value in payload.items():
-            data[key] = value
-        return self._request('POST', path, payload=data).json()
+    def post(self, path, payload):
+        return self._request('POST', path, payload=payload).json()
 
     def put(self):
-        raise NotImplementedError
+        return self._request('PUT', path, payload=payload).json()
 
-    def patch(self, path, **payload):
-        data = {}
-        for key, value in payload.items():
-            data[key] = value
-        return self._request('PATCH', path, payload=data).json()
+    def patch(self, path, payload):
+        return self._request('PATCH', path, payload=payload).json()
 
-    def delete(self):
-        raise NotImplementedError
+    def delete(self, payload=None):
+        return self._request('DELETE', path, payload=payload).json()
 
 
 class HTTPBasicAuth(requests.auth.HTTPBasicAuth):
