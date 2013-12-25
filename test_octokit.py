@@ -167,6 +167,11 @@ class UsersTestCase(unittest.TestCase):
         key = hub.users.update_key(6620193, title="!test_key!")
         self.assertEqual(key['title'], "!test_key!")
 
+    def test_emails(self):
+        hub = octokit.Octokit()
+        emails = hub.users.emails()
+        self.assertEqual(type(emails), list)
+        self.assertNotEqual(len(emails), 0)
 
 """
 class Authorizations(unittest.TestCase):

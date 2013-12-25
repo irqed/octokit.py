@@ -186,7 +186,7 @@ class Users(Resource):
 
         http://developer.github.com/v3/users/emails/#list-email-addresses-for-a-user
         """
-        raise NotImplementedError
+        return self._http.get("/user/emails")
 
     def add_email(self):
         """Add email address to user
