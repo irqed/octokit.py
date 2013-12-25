@@ -20,14 +20,14 @@ class User(Resource):
         """
         return self._http.get('user')
 
-    def update(self, payload):
+    def update(self, user_info):
         """Update the authenticated user.
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/users/#update-the-authenticated-user
         """
-        return self._http.patch('user', payload)
+        return self._http.patch('user', user_info)
 
     def exchange_code_for_token(self):
         """Retrieve the access_token.
@@ -129,23 +129,23 @@ class User(Resource):
         """
         return self._http.get('user/keys')
 
-    def add_key(self, payload):
-        """Add public key to user account
+    def add_key(self, key_info):
+        """Add public key to user account.
 
         Requires authenticated client.
 
         http://developer.github.com/v3/users/keys/#create-a-public-key
         """
-        return self._http.post('user/keys', payload)
+        return self._http.post('user/keys', key_info)
 
-    def update_key(self, key_id, payload):
-        """Update a public key
+    def update_key(self, key_id, key_info):
+        """Update a public key.
 
         Requires authenticated client.
 
         http://developer.github.com/v3/users/keys/#update-a-public-key
         """
-        return self._http.patch('user/keys/%s' % key_id, payload)
+        return self._http.patch('user/keys/%s' % key_id, key_info)
 
     def remove_key(self, key_id):
         """Remove a public key from user account
@@ -157,6 +157,33 @@ class User(Resource):
         return self._http.boolean_from_response('DELETE',
                                                 'user/keys/%s' % key_id)
 
+    def emails(self):
+        """List email addresses for the authenticated user.
+
+        Requires authenticated client.
+
+        http://developer.github.com/v3/users/emails/#list-email-addresses-for-a-user
+        """
+        return self._http.get('user/emails')
+
+    def add_email(self, emails):
+        """Add email address to the authenticated user.
+
+        Requires authenticated client.
+
+        http://developer.github.com/v3/users/emails/#add-email-addresses
+        """
+        return self._http.post('user/emails', emails)
+
+    def remove_email(self, emails):
+        """Remove email from the authenticated user.
+
+        Requires authenticated client.
+
+        http://developer.github.com/v3/users/emails/#delete-email-addresses
+        """
+        return self._http.boolean_from_response('DELETE',
+                                                'user/emails', payload=emails)
 
 class Users(Resource):
     """Users API resource
@@ -227,34 +254,6 @@ class Users(Resource):
         http://developer.github.com/v3/users/keys/#list-your-public-keys
         """
         return self._http.get('users/%s/key' % user)
-
-    def emails(self):
-        """List email addresses for a user
-
-        Requires authenticated client.
-
-        http://developer.github.com/v3/users/emails/#list-email-addresses-for-a-user
-        """
-        return self._http.get("/user/emails")
-
-    def add_email(self, **payload):
-        """Add email address to user
-
-        Requires authenticated client.
-
-        http://developer.github.com/v3/users/emails/#add-email-addresses
-        """
-        return self._http.post("/user/emails", **payload)
-
-    def remove_email(self):
-        """Remove email from user
-
-        Requires authenticated client.
-
-        http://developer.github.com/v3/users/emails/#delete-email-addresses
-        """
-        return self._http.boolean_from_response("DELETE",
-                                                "/user/emails", **payload)
 
     def subscriptions(self):
         """List repositories being watched by a user

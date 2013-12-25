@@ -132,6 +132,18 @@ class UserTestCase(unittest.TestCase):
         self.assertEqual(type(key), dict)
         self.assertEqual(hub.user.remove_key(key['id']), True)
 
+    def test_emails(self):
+        hub = octokit.Octokit()
+        emails = hub.user.emails()
+        self.assertEqual(type(emails), list)
+        self.assertNotEqual(len(emails), 0)
+
+    def test_add_remove_email(self):
+        hub = octokit.Octokit()
+        emails = hub.user.add_email(['octo_test@irqed.com', ])
+        self.assertEqual(type(emails), list)
+        self.assertEqual(hub.user.remove_email(['octo_test@irqed.com', ]), True)
+
 class UsersTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
@@ -181,18 +193,7 @@ class UsersTestCase(unittest.TestCase):
         starred = hub.users.keys('irqed')
         self.assertEqual(type(starred), list)
 
-    def test_emails(self):
-        hub = octokit.Octokit()
-        emails = hub.users.emails()
-        self.assertEqual(type(emails), list)
-        self.assertNotEqual(len(emails), 0)
 
-    def test_add_remove_email(self):
-        hub = octokit.Octokit()
-        email = hub.users.add_email(email=['octo_test@irqed.com'])
-        self.assertEqual(type(emails), dict)
-        self.assertEqual(hub.users.remove_email(email=['octo_test@irqed.com']),
-                         True)
 """
 """
 class Authorizations(unittest.TestCase):
