@@ -56,16 +56,16 @@ class Octokit(object):
                 else False)
 
     @lazy_property
+    def authorizations(self):
+        return Authorizations(http=self._http)
+
+    @lazy_property
     def user(self):
         return User(http=self._http)
 
     @lazy_property
     def users(self):
         return Users(http=self._http)
-
-    @lazy_property
-    def authorizations(self):
-        return Authorizations(http=self._http)
 
     @lazy_property
     def emojis(self):

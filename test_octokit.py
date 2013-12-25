@@ -62,6 +62,26 @@ class AuthenticationTestCase(unittest.TestCase):
         self.assertEqual(hub_two.user_authenticated, True)
 
 
+class Authorizations(unittest.TestCase):
+
+    _multiprocess_can_split_ = True
+
+    def test_all(self):
+        hub = octokit.Octokit()
+        authorizations = hub.authorizations.all()
+        self.assertEqual(type(authorizations), list)
+
+    def test_authorization(self):
+        hub = octokit.Octokit()
+        authorization = hub.authorizations.authorization(4760713)
+        self.assertIn('token', authorization)
+
+    def test_authorization_404(self):
+        hub = octokit.Octokit()
+        with self.assertRaises(octokit.errors.OctokitNotFoundError):
+            hub.authorizations.authorization(666)
+
+
 class UserTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
@@ -199,26 +219,6 @@ class UsersTestCase(unittest.TestCase):
         self.assertEqual(type(subscriptions), list)
 
 """
-class Authorizations(unittest.TestCase):
-
-    _multiprocess_can_split_ = True
-
-    def test_list_authorizations(self):
-        hub = octokit.Octokit()
-        authorizations = hub.authorizations.get()
-        self.assertEqual(len(authorizations), 1)
-
-    def test_get_single_authorization(self):
-        hub = octokit.Octokit()
-        authorization = hub.authorizations.get(id=4760713)
-        self.assertIn('token', authorization)
-
-    def test_get_single_authorization_404(self):
-        hub = octokit.Octokit()
-        with self.assertRaises(octokit.OctokitError):
-            authorization = hub.authorizations.get(id=666)
-
-
 class EmojisTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
