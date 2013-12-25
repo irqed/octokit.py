@@ -82,6 +82,16 @@ class Authorizations(unittest.TestCase):
             hub.authorizations.authorization(666)
 
 
+class EmojisTestCase(unittest.TestCase):
+
+    _multiprocess_can_split_ = True
+
+    def test_all(self):
+        hub = octokit.Octokit()
+        emojis = hub.emojis.all()
+        self.assertIn('+1', emojis)
+
+
 class UserTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
@@ -169,6 +179,7 @@ class UserTestCase(unittest.TestCase):
         subscriptions = hub.user.subscriptions()
         self.assertEqual(type(subscriptions), list)
 
+
 class UsersTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
@@ -219,15 +230,6 @@ class UsersTestCase(unittest.TestCase):
         self.assertEqual(type(subscriptions), list)
 
 """
-class EmojisTestCase(unittest.TestCase):
-
-    _multiprocess_can_split_ = True
-
-    def test_list_emojis(self):
-        hub = octokit.Octokit()
-        emojis = hub.emojis.get()
-        self.assertIn('+1', emojis)
-
 
 class GitignoreTestCase(unittest.TestCase):
 
