@@ -15,11 +15,15 @@ class User(Resource):
 
     def info(self):
         """Get the authenticatied user info
+
+        Requries an authenticated client.
         """
         return self._get('user')
 
     def update(self, payload):
         """Update the authenticated user
+
+        Requries an authenticated client.
 
         http://developer.github.com/v3/users/#update-the-authenticated-user
         """
@@ -28,21 +32,68 @@ class User(Resource):
     def exchange_code_for_token(self):
         """Retrieve the access_token
 
+        Requries an authenticated client.
+
         http://developer.github.com/v3/oauth/#web-application-flow
         """
         raise NotImplementedError
 
     def validate_credentials(self):
         """Validate user username and password
+
+        Requries an authenticated client.
+
         """
         raise NotImplementedError
 
     def followers(self):
         """Get the authenticated user's followers
 
+        Requries an authenticated client.
+
         http://developer.github.com/v3/users/followers/#list-followers-of-a-user
         """
         return self._get('user/followers')
+
+    def following(self):
+        """Get list of users the authenticated user is following
+
+        Requries an authenticated client.
+
+        http://developer.github.com/v3/users/followers/#list-users-followed-by-another-user
+        """
+        return self._get('user/following')
+
+    def follows(self, target):
+        """Check if you are following a user.
+
+        Requries an authenticated client.
+
+        http://developer.github.com/v3/users/followers/#check-if-you-are-following-a-user
+        """
+        return self._http.boolean_from_response('GET',
+                                                'user/following/%s' % target)
+
+    def follow(self, target):
+        """Follow a user
+
+        Requires authenticatied client.
+
+        http://developer.github.com/v3/users/followers/#follow-a-user
+        """
+        return self._http.boolean_from_response('PUT',
+                                                'user/following/%s' % target)
+
+    def unfollow(self, target):
+        """Unfollow a user
+
+        Requires authenticated client.
+
+        http://developer.github.com/v3/users/followers/#unfollow-a-user
+        """
+        return self._http.boolean_from_response('DELETE',
+                                                'user/following/%s' % target)
+
 
 class Users(Resource):
     """Users API resource
@@ -79,46 +130,15 @@ class Users(Resource):
 
         http://developer.github.com/v3/users/followers/#list-users-followed-by-another-user
         """
-        if user:
-            path = "/users/%s/following" % user
-        else:
-            path = "/user/following"
-        return self._get(path)
+        return self._get('users/%s/following' % user)
 
-    def follows(self, target, user=None):
-        """Check if you are following a user. Alternatively, check if a given user
-        is following a target user.
+    def follows(self, user, target):
+        """Check if a given user is following a target user.
 
-        Requries an authenticated client.
-
-        http://developer.github.com/v3/users/followers/#check-if-you-are-following-a-user
         http://developer.github.com/v3/users/followers/#check-if-one-user-follows-another
         """
-        if user:
-            path = "/users/%s/following/%s" % (user, target)
-        else:
-            path = "/user/following/%s" % target
-        return self._http.boolean_from_response("GET", path)
-
-    def follow(self, target):
-        """Follow a user
-
-        Requires authenticatied client.
-
-        http://developer.github.com/v3/users/followers/#follow-a-user
-        """
-        return self._http.boolean_from_response("PUT",
-                                                "/user/following/%s" % target)
-
-    def unfollow(self, target):
-        """Unfollow a user
-
-        Requires authenticated client.
-
-        http://developer.github.com/v3/users/followers/#unfollow-a-user
-        """
-        return self._http.boolean_from_response("DELETE",
-                                                "/user/following/%s" % target)
+        path = "/users/%s/following/%s" % (user, target)
+        return self._http.boolean_from_response('GET', path)
 
     def starred(self, user=None):
         """Get list of repos starred by a user

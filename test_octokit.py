@@ -84,6 +84,22 @@ class UserTestCase(unittest.TestCase):
         followers = hub.user.followers()
         self.assertEqual(type(followers), list)
 
+    def test_following(self):
+        hub = octokit.Octokit()
+        following = hub.user.following()
+        self.assertEqual(type(following), list)
+
+    def test_follows(self):
+        hub = octokit.Octokit()
+        self.assertEqual(hub.user.follows('spoof'), False)
+
+    def test_follow_unfollow(self):
+        hub = octokit.Octokit()
+        self.assertEqual(hub.user.follow('irqed'), True)
+        self.assertEqual(hub.user.follows('irqed'), True)
+        self.assertEqual(hub.user.unfollow('irqed'), True)
+
+
 class UsersTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
