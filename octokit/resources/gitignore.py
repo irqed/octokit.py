@@ -10,23 +10,21 @@ from octokit.resources.base import Resource
 class Gitignore(Resource):
     """Gitignore API resource
     """
-    url = '/gitignore/templates'
-
     def __init__(self, **kwargs):
         super(Gitignore, self).__init__(**kwargs)
 
-    def gitignore_templates(self):
+    def templates(self):
         """Listing available gitignore templates
 
         http://developer.github.com/v3/gitignore/#listing-available-templates
         """
-        raise NotImplementedError
+        return self._http.get('gitignore/templates')
 
-    def gitignore_template(self):
+    def template(self, name):
         """Get a gitignore template
 
         Use the raw {http://developer.github.com/v3/media/ media type} to get
         the raw contents.
         http://developer.github.com/v3/gitignore/#get-a-single-template
         """
-        raise NotImplementedError
+        return self._http.get('gitignore/templates/%s' % name)

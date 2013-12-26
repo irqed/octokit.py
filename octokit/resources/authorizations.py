@@ -38,7 +38,7 @@ class Authorizations(Resource):
         """
         return self._http.get('authorizations/%s' % auth_id)
 
-    def create_authorization(self):
+    def create(self, auth_data):
         """You can create your own tokens, and only through
 
         You can only access your own tokens, and only through 
@@ -49,7 +49,7 @@ class Authorizations(Resource):
         """
         raise NotImplementedError
 
-    def update_authorization(self):
+    def update(self, auth_id, auth_data):
         """Update an authorization for the authenticated user.
 
         You can only access your own tokens, and only through 
@@ -61,7 +61,7 @@ class Authorizations(Resource):
         """
         raise NotImplementedError
 
-    def delete_authorization(self):
+    def delete(self, auth_id):
         """Delete an authorization for the authenticated user
 
         You can only access your own tokens, and only through 
