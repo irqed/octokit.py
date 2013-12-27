@@ -5,7 +5,7 @@
 
 from octokit import http
 from octokit.settings import Settings
-from octokit.resources import (Authorizations, Emojis, Gitignore, Meta,
+from octokit.resources import (Authorizations, Emojis, Gists, Gitignore, Meta,
                                ServiceStatus, User, Users)
 
 
@@ -70,6 +70,10 @@ class Octokit(object):
     @lazy_property
     def emojis(self):
         return Emojis(http=self._http)
+
+    @lazy_property
+    def gists(self):
+        return Gists(http=self._http)
 
     @lazy_property
     def gitignore(self):

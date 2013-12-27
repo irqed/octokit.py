@@ -92,6 +92,20 @@ class EmojisTestCase(unittest.TestCase):
         self.assertIn('+1', emojis)
 
 
+class GistsTestCase(unittest.TestCase):
+
+    _multiprocess_can_split_ = True
+
+    def test_gists(self):
+        hub = octokit.Octokit()
+        gists = hub.gists.all()
+        self.assertEqual(type(gists), list)
+
+    def test_gists_for_user(self):
+        hub = octokit.Octokit()
+        gists = hub.gists.all('irqed')
+        self.assertEqual(type(gists), list)
+
 class GitignoreTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True

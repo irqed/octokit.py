@@ -15,11 +15,15 @@ class Gists(Resource):
     def __init__(self, **kwargs):
         super(Gists, self).__init__(**kwargs)
 
-    def gists(self):
+    def all(self, user=None):
         """List gists for a user or all public gists
         http://developer.github.com/v3/gists/#list-gists
         """
-        raise NotImplementedError
+        if user:
+            path = 'users/%s/gists' % user
+        else:
+            path = 'gists'
+        return self._http.get(path)
 
     def public_gists(self):
         """List public gists
