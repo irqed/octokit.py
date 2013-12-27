@@ -157,6 +157,12 @@ class GistsTestCase(unittest.TestCase):
         comment = hub.gists.comment('78bd57b297984caacb5a', 976024)
         self.assertEqual(type(comment), dict)
 
+    def test_edit_comment(self):
+        comment = dict(body='Just commenting for the sake of commenting')
+        hub = octokit.Octokit()
+        edited = hub.gists.edit_comment('78bd57b297984caacb5a', 976024, comment)
+        self.assertEqual(type(edited), dict)
+
 
 class GitignoreTestCase(unittest.TestCase):
 
