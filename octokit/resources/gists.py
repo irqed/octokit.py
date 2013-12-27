@@ -25,11 +25,11 @@ class Gists(Resource):
             path = 'gists'
         return self._http.get(path)
 
-    def public_gists(self):
+    def public(self):
         """List public gists
         http://developer.github.com/v3/gists/#list-gists
         """
-        raise NotImplementedError
+        return self._http.get('gists/public')
 
     def starred_gists(self):
         """List the authenticated user’s starred gists
