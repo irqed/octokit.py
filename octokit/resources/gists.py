@@ -31,11 +31,14 @@ class Gists(Resource):
         """
         return self._http.get('gists/public')
 
-    def starred_gists(self):
+    def starred(self):
         """List the authenticated user’s starred gists
+
+        Requries an authenticated client.
         http://developer.github.com/v3/gists/#list-gists
         """
-        raise NotImplementedError
+
+        return self._http.get('gists/starred')
 
     def gist(self):
         """Get a single gist

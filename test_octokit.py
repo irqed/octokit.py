@@ -111,7 +111,10 @@ class GistsTestCase(unittest.TestCase):
         gists = hub.gists.public()
         self.assertEqual(type(gists), list)
 
-
+    def test_starred(self):
+        hub = octokit.Octokit()
+        gists = hub.gists.starred()
+        self.assertEqual(type(gists), list)
 
 class GitignoreTestCase(unittest.TestCase):
 
