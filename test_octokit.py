@@ -169,6 +169,7 @@ class GistsTestCase(unittest.TestCase):
         r = hub.gists.remove_comment('78bd57b297984caacb5a', comment['id'])
         self.assertEqual(r, True)
 
+
 class GitignoreTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
@@ -183,6 +184,16 @@ class GitignoreTestCase(unittest.TestCase):
         hub = octokit.Octokit()
         template = hub.gitignore.template('Python')
         self.assertEqual(type(template), dict)
+
+
+class MetaTestCase(unittest.TestCase):
+
+    _multiprocess_can_split_ = True
+
+    def test_info(self):
+        hub = octokit.Octokit()
+        info = hub.meta.info()
+        self.assertEqual(type(info), dict)
 
 
 class UserTestCase(unittest.TestCase):

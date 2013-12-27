@@ -10,13 +10,12 @@ from octokit.resources.base import Resource
 class Meta(Resource):
     """Meta API resource
     """
-    url = '/meta'
-
     def __init__(self, **kwargs):
         super(Meta, self).__init__(**kwargs)
 
-    def meta(self):
+    def info(self):
         """Get meta information about GitHub.com, the service.
+
         http://developer.github.com/v3/meta/#meta
         """
-        raise NotImplementedError
+        return self._http.get('meta')
