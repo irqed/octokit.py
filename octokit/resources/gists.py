@@ -17,6 +17,7 @@ class Gists(Resource):
 
     def all(self, user=None):
         """List gists for a user or all public gists
+
         http://developer.github.com/v3/gists/#list-gists
         """
         if user:
@@ -27,6 +28,7 @@ class Gists(Resource):
 
     def public(self):
         """List public gists
+
         http://developer.github.com/v3/gists/#list-gists
         """
         return self._http.get('gists/public')
@@ -109,20 +111,23 @@ class Gists(Resource):
         return self._http.boolean_from_response('GET',
                                                 'gists/%s/star' % gist_id)
 
-    def fork_gist(self):
+    def fork(self, gist_id):
         """Fork a gist
+
         http://developer.github.com/v3/gists/#fork-a-gist
         """
-        raise NotImplementedError
+        return self._http.post('gists/%s/forks' % gist_id)
 
     def gist_comments(self):
         """List gist comments
+
         http://developer.github.com/v3/gists/comments/#list-comments-on-a-gist
         """
         raise NotImplementedError
 
     def gist_comment(self):
         """Get gist comment
+
         http://developer.github.com/v3/gists/comments/#get-a-single-comment
         """
         raise NotImplementedError
