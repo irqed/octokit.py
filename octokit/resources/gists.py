@@ -40,11 +40,11 @@ class Gists(Resource):
 
         return self._http.get('gists/starred')
 
-    def gist(self):
+    def gist(self, gist_id):
         """Get a single gist
         http://developer.github.com/v3/gists/#get-a-single-gist
         """
-        raise NotImplementedError
+        return self._http.get('gists/%s' % gist_id)
 
     def create_gist(self):
         """Create a gist

@@ -116,6 +116,11 @@ class GistsTestCase(unittest.TestCase):
         gists = hub.gists.starred()
         self.assertEqual(type(gists), list)
 
+    def test_gist(self):
+        hub = octokit.Octokit()
+        gists = hub.gists.gist(1)
+        self.assertIn('history', gists)
+
 class GitignoreTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
