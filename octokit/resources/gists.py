@@ -133,16 +133,17 @@ class Gists(Resource):
         path = 'gists/%s/comments/%s' % (gist_id, gist_comment_id)
         return self._http.get(path)
 
-    def create_comment(self):
+    def create_comment(self, gist_id, text):
         """Create gist comment
 
         Requires authenticated client.
 
         http://developer.github.com/v3/gists/comments/#create-a-comment
         """
-        raise NotImplementedError
+        path = 'gists/%s/comments' % gist_id
+        return self._http.post(path, dict(body=text))
 
-    def edit_comment(self, gist_id, gist_comment_id, comment):
+    def edit_comment(self, gist_id, gist_comment_id, text):
         """Update gist comment
 
         Requires authenticated client.
@@ -150,13 +151,14 @@ class Gists(Resource):
         http://developer.github.com/v3/gists/comments/#edit-a-comment
         """
         path = 'gists/%s/comments/%s' % (gist_id, gist_comment_id)
-        return self._http.patch(path, comment)
+        return self._http.patch(path, dict(body=text))
 
-    def remove_comment(self):
+    def remove_comment(self, gist_id, gist_comment_id):
         """Delete gist comment
 
         Requires authenticated client.
 
         http://developer.github.com/v3/gists/comments/#delete-a-comment
         """
-        raise NotImplementedError
+        path = 'gists/%s/comments/%s' % (gist_id, gist_comment_id)
+        return self._http.boolean_from_response('DELETE', path)

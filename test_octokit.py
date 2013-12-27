@@ -158,11 +158,16 @@ class GistsTestCase(unittest.TestCase):
         self.assertEqual(type(comment), dict)
 
     def test_edit_comment(self):
-        comment = dict(body='Just commenting for the sake of commenting')
         hub = octokit.Octokit()
-        edited = hub.gists.edit_comment('78bd57b297984caacb5a', 976024, comment)
+        edited = hub.gists.edit_comment('78bd57b297984caacb5a', 976024, ':+1:')
         self.assertEqual(type(edited), dict)
 
+    def test_create_remove_comment(self):
+        hub = octokit.Octokit()
+        comment = hub.gists.create_comment('78bd57b297984caacb5a', ':-1:')
+        self.assertIn('id', comment)
+        r = hub.gists.remove_comment('78bd57b297984caacb5a', comment['id'])
+        self.assertEqual(r, True)
 
 class GitignoreTestCase(unittest.TestCase):
 
