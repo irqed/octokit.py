@@ -69,36 +69,51 @@ class Gists(Resource):
         """
         return self._http.patch('gists/%s' % gist_id, gist)
 
-    def star_gist(self):
+    def remove(self, gist_id):
+        """Delete a gist
+
+        Requries an authenticated client.
+
+        http://developer.github.com/v3/gists/#delete-a-gist
+        """
+        return self._http.boolean_from_response('DELETE',
+                                                'gists/%s' % gist_id)
+
+    def star(self, gist_id):
         """Star a gist
+
+        Requries an authenticated client.
+
         http://developer.github.com/v3/gists/#star-a-gist
         """
-        raise NotImplementedError
+        return self._http.boolean_from_response('PUT',
+                                                'gists/%s/star' % gist_id)
 
-    def unstar_gist(self):
+    def unstar(self, gist_id):
         """Unstar a gist
+
+        Requries an authenticated client.
+
         http://developer.github.com/v3/gists/#unstar-a-gist
         """
-        raise NotImplementedError
+        return self._http.boolean_from_response('DELETE',
+                                                'gists/%s/star' % gist_id)
 
-    def gist_starred(self):
+    def is_starred(self, gist_id):
         """Check if a gist is starred
+
+        Requries an authenticated client.
+
         http://developer.github.com/v3/gists/#check-if-a-gist-is-starred
         """
-        raise NotImplementedError
+        return self._http.boolean_from_response('GET',
+                                                'gists/%s/star' % gist_id)
 
     def fork_gist(self):
         """Fork a gist
         http://developer.github.com/v3/gists/#fork-a-gist
         """
         raise NotImplementedError
-
-    def remove(self, gist_id):
-        """Delete a gist
-        http://developer.github.com/v3/gists/#delete-a-gist
-        """
-        return self._http.boolean_from_response('DELETE',
-                                               'gists/%s' % gist_id)
 
     def gist_comments(self):
         """List gist comments
@@ -116,6 +131,7 @@ class Gists(Resource):
         """Create gist comment
 
         Requires authenticated client.
+
         http://developer.github.com/v3/gists/comments/#create-a-comment
         """
         raise NotImplementedError
@@ -124,6 +140,7 @@ class Gists(Resource):
         """Update gist comment
 
         Requires authenticated client.
+
         http://developer.github.com/v3/gists/comments/#edit-a-comment
         """
         raise NotImplementedError
@@ -132,6 +149,7 @@ class Gists(Resource):
         """Delete gist comment
 
         Requires authenticated client.
+
         http://developer.github.com/v3/gists/comments/#delete-a-comment
         """
         raise NotImplementedError

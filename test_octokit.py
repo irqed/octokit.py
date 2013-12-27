@@ -135,6 +135,12 @@ class GistsTestCase(unittest.TestCase):
         gist = hub.gists.edit('78bd57b297984caacb5a', gist)
         self.assertIn('history', gist)
 
+    def test_star_unstar(self):
+        hub = octokit.Octokit()
+        self.assertEqual(hub.gists.star('78bd57b297984caacb5a'), True)
+        self.assertEqual(hub.gists.is_starred('78bd57b297984caacb5a'), True)
+        self.assertEqual(hub.gists.unstar('78bd57b297984caacb5a'), True)
+
 
 class GitignoreTestCase(unittest.TestCase):
 
