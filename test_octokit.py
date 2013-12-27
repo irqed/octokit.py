@@ -118,8 +118,23 @@ class GistsTestCase(unittest.TestCase):
 
     def test_gist(self):
         hub = octokit.Octokit()
-        gists = hub.gists.gist(1)
-        self.assertIn('history', gists)
+        gist = hub.gists.gist(1)
+        self.assertIn('history', gist)
+
+    def test_create_remove(self):
+        gist = dict(description='just another test gist', public=False,
+                    files=dict(test_file=dict(content='blah blah blah')))
+        hub = octokit.Octokit()
+        gist = hub.gists.create(gist)
+        self.assertIn('history', gist)
+        self.assertEqual(hub.gists.remove(gist['id']), True)
+
+    def test_edit(self):
+        gist = dict(description='blah', public=True)
+        hub = octokit.Octokit()
+        gist = hub.gists.edit('78bd57b297984caacb5a', gist)
+        self.assertIn('history', gist)
+
 
 class GitignoreTestCase(unittest.TestCase):
 

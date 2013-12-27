@@ -35,6 +35,7 @@ class Gists(Resource):
         """List the authenticated user’s starred gists
 
         Requries an authenticated client.
+
         http://developer.github.com/v3/gists/#list-gists
         """
 
@@ -46,17 +47,27 @@ class Gists(Resource):
         """
         return self._http.get('gists/%s' % gist_id)
 
-    def create_gist(self):
+    def create(self, gist):
         """Create a gist
+
+        Requries an authenticated client.
+
         http://developer.github.com/v3/gists/#create-a-gist
         """
-        raise NotImplementedError
+        return self._http.post('gists', gist)
 
-    def edit_gist(self):
+    def edit(self, gist_id, gist):
         """Edit a gist
+
+        Requries an authenticated client.
+
+        NOTE: All files from the previous version of the
+        gist are carried over by default if not included in the hash. Deletes
+        can be performed by including the filename with a null hash.
+
         http://developer.github.com/v3/gists/#edit-a-gist
         """
-        raise NotImplementedError
+        return self._http.patch('gists/%s' % gist_id, gist)
 
     def star_gist(self):
         """Star a gist
@@ -82,11 +93,12 @@ class Gists(Resource):
         """
         raise NotImplementedError
 
-    def delete_gist(self):
+    def remove(self, gist_id):
         """Delete a gist
         http://developer.github.com/v3/gists/#delete-a-gist
         """
-        raise NotImplementedError
+        return self._http.boolean_from_response('DELETE',
+                                               'gists/%s' % gist_id)
 
     def gist_comments(self):
         """List gist comments
