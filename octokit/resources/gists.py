@@ -118,19 +118,20 @@ class Gists(Resource):
         """
         return self._http.post('gists/%s/forks' % gist_id)
 
-    def gist_comments(self):
+    def comments(self, gist_id):
         """List gist comments
 
         http://developer.github.com/v3/gists/comments/#list-comments-on-a-gist
         """
-        raise NotImplementedError
+        return self._http.get('gists/%s/comments' % gist_id)
 
-    def gist_comment(self):
+    def comment(self, gist_id, gist_comment_id):
         """Get gist comment
 
         http://developer.github.com/v3/gists/comments/#get-a-single-comment
         """
-        raise NotImplementedError
+        path = 'gists/%s/comments/%s' % (gist_id, gist_comment_id)
+        return self._http.get(path)
 
     def create_gist_comment(self):
         """Create gist comment

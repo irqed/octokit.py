@@ -147,6 +147,16 @@ class GistsTestCase(unittest.TestCase):
         self.assertIn('id', gist)
         self.assertEqual(hub.gists.remove(gist['id']), True)
 
+    def test_comments(self):
+        hub = octokit.Octokit()
+        comments = hub.gists.comments('78bd57b297984caacb5a')
+        self.assertEqual(type(comments), list)
+
+    def test_comment(self):
+        hub = octokit.Octokit()
+        comment = hub.gists.comment('78bd57b297984caacb5a', 976024)
+        self.assertEqual(type(comment), dict)
+
 
 class GitignoreTestCase(unittest.TestCase):
 
