@@ -205,6 +205,13 @@ class NotificationsTestCase(unittest.TestCase):
         notifications = hub.notifications.all()
         self.assertEqual(type(notifications), list)
 
+    def test_mark_as_read(self):
+        hub = octokit.Octokit()
+        self.assertEqual(hub.notifications.mark_as_read(), True)
+
+    def test_mark_as_unread(self):
+        hub = octokit.Octokit()
+        self.assertEqual(hub.notifications.mark_as_read(unread=True), False)
 
 class SayTestCase(unittest.TestCase):
 

@@ -33,14 +33,25 @@ class Notifications(Resource):
         """
         raise NotImplementedError
 
-    def mark_as_read(self):
+    def mark_as_read(self, unread=False, last_read_at=None):
         """Mark notifications as read
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/activity/notifications/#mark-as-read
         """
-        raise NotImplementedError
+        payload = dict(read=True, unread=False)
+        if unread:
+            payload['read'] = False
+            payload['unread'] = True
+
+        if last_read_at:
+            payload['last_read_at'] = last_read_at
+
+        url = self._http._settings.api_endpoint + 'notifications'
+
+        r = self._http._request('PUT', url, payload=payload)
+        return True if r.status_code == 205 else False
 
     def mark_repository_as_read(self):
         """Mark notifications from a specific repository as read
