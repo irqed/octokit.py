@@ -218,6 +218,12 @@ class NotificationsTestCase(unittest.TestCase):
         hub = octokit.Octokit()
         self.assertEqual(hub.notifications.mark_as_read(unread=True), False)
 
+    def test_mark_repository_as_read(self):
+        hub = octokit.Octokit()
+        r = hub.notifications.mark_repository_as_read('octokit/octokit.rb')
+        self.assertEqual(r, True)
+
+
 class SayTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True

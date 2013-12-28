@@ -2,7 +2,7 @@ init:
 	pip install -r requirements.txt
 
 test:
-	py.test --verbose
+	py.test --verbose -x
 
 lint:
 	pylint -r n octokit

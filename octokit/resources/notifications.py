@@ -15,6 +15,19 @@ class Notifications(Resource):
     def __init__(self, **kwargs):
         super(Notifications, self).__init__(**kwargs)
 
+    def _mark_methods_payload(self, unread=False, last_read_at=None):
+        """Returns a payload for mark_* Methods
+        """
+        payload = dict(read=True, unread=False)
+        if unread:
+            payload['read'] = False
+            payload['unread'] = True
+
+        if last_read_at:
+            payload['last_read_at'] = last_read_at
+
+        return payload
+
     def all(self):
         """List your notifications
 
@@ -40,27 +53,22 @@ class Notifications(Resource):
 
         http://developer.github.com/v3/activity/notifications/#mark-as-read
         """
-        payload = dict(read=True, unread=False)
-        if unread:
-            payload['read'] = False
-            payload['unread'] = True
-
-        if last_read_at:
-            payload['last_read_at'] = last_read_at
-
+        payload = self._mark_methods_payload(unread, last_read_at)
         url = self._http._settings.api_endpoint + 'notifications'
-
         r = self._http._request('PUT', url, payload=payload)
         return True if r.status_code == 205 else False
 
-    def mark_repository_as_read(self):
+    def mark_repository_as_read(self, repo, unread=False, last_read_at=None):
         """Mark notifications from a specific repository as read
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/activity/notifications/#mark-notifications-as-read-in-a-repository
         """
-        raise NotImplementedError
+        payload = self._mark_methods_payload(unread, last_read_at)
+        url = self._http._settings.api_endpoint + 'repos/%s/notifications' % repo
+        r = self._http._request('PUT', url, payload=payload)
+        return True if r.status_code == 205 else False
 
     def thread(self):
         """List notifications for a specific thread
