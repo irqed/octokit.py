@@ -196,11 +196,21 @@ class MetaTestCase(unittest.TestCase):
         self.assertEqual(type(info), dict)
 
 
+class NotificationsTestCase(unittest.TestCase):
+
+    _multiprocess_can_split_ = True
+
+    def test_all(self):
+        hub = octokit.Octokit()
+        notifications = hub.notifications.all()
+        self.assertEqual(type(notifications), list)
+
+
 class SayTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
 
-    def test_info(self):
+    def test_octocat(self):
         hub = octokit.Octokit()
         octocat = hub.say.octocat("It's a trap!")
         self.assertEqual(type(octocat), unicode)

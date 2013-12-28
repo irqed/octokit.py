@@ -15,11 +15,11 @@ class Notifications(Resource):
     def __init__(self, **kwargs):
         super(Notifications, self).__init__(**kwargs)
 
-    def notifications(self):
+    def all(self):
         """List your notifications
         http://developer.github.com/v3/activity/notifications/#list-your-notifications
         """
-        raise NotImplementedError
+        return self._http.get('notifications')
 
     def repository_notifications(self):
         """List your notifications in a repository
