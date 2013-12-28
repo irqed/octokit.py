@@ -17,54 +17,81 @@ class Notifications(Resource):
 
     def all(self):
         """List your notifications
+
+        Requries an authenticated client.
+
         http://developer.github.com/v3/activity/notifications/#list-your-notifications
         """
         return self._http.get('notifications')
 
-    def repository_notifications(self):
+    def repository(self):
         """List your notifications in a repository
+
+        Requries an authenticated client.
+
         http://developer.github.com/v3/activity/notifications/#list-your-notifications-in-a-repository
         """
         raise NotImplementedError
 
-    def mark_notifications_as_read(self):
+    def mark_as_read(self):
         """Mark notifications as read
+
+        Requries an authenticated client.
+
         http://developer.github.com/v3/activity/notifications/#mark-as-read
         """
         raise NotImplementedError
 
-    def mark_repository_notifications_as_read(self):
+    def mark_repository_as_read(self):
         """Mark notifications from a specific repository as read
+
+        Requries an authenticated client.
+
         http://developer.github.com/v3/activity/notifications/#mark-notifications-as-read-in-a-repository
         """
         raise NotImplementedError
 
-    def thread_notifications(self):
+    def thread(self):
         """List notifications for a specific thread
+
+        Requries an authenticated client.
+
         http://developer.github.com/v3/activity/notifications/#view-a-single-thread
         """
         raise NotImplementedError
 
     def mark_thread_as_read(self):
         """Mark thread as read
+
+        Requries an authenticated client.
+
         http://developer.github.com/v3/activity/notifications/#mark-a-thread-as-read
         """
         raise NotImplementedError
 
     def thread_subscription(self):
         """Get thread subscription
+
+        Requries an authenticated client.
+
         http://developer.github.com/v3/activity/notifications/#get-a-thread-subscription
         """
         raise NotImplementedError
 
     def update_thread_subscription(self):
         """Update thread subscription
+
+        Requries an authenticated client.
+
         http://developer.github.com/v3/activity/notifications/#set-a-thread-subscription
         """
         raise NotImplementedError
 
-    def delete_thread_subscription(self):
+    def remove_thread_subscription(self):
         """Delete a thread subscription
+
+        Requries an authenticated client.
+
         http://developer.github.com/v3/activity/notifications/#delete-a-thread-subscription
         """
         raise NotImplementedError
