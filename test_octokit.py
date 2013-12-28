@@ -196,6 +196,24 @@ class MetaTestCase(unittest.TestCase):
         self.assertEqual(type(info), dict)
 
 
+class ServiceStatusTestCase(unittest.TestCase):
+
+    _multiprocess_can_split_ = True
+
+    def test_status(self):
+        hub = octokit.Octokit()
+        status = hub.service_status.status
+        self.assertEqual(type(hub.service_status.status), dict)
+
+    def test_last_message(self):
+        hub = octokit.Octokit()
+        self.assertEqual(type(hub.service_status.last_message), dict)
+
+    def test_messages(self):
+        hub = octokit.Octokit()
+        self.assertEqual(type(hub.service_status.messages), list)
+
+
 class UserTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True

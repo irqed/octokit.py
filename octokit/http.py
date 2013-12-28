@@ -42,9 +42,10 @@ class HTTPBackend(object):
     def auth(self):
         return self._s.auth if self._s.auth else None
 
+    def full_url(self, path):
+        return self._settings.api_endpoint + path
 
-    def _request(self, method, path, params=None, payload=None):
-        url = self._settings.api_endpoint + path
+    def _request(self, method, url, params=None, payload=None):
         hooks = dict(response=error_from_response)
         self.last_response = self._s.request(method, url,
                                              params=params, hooks=hooks,
@@ -54,26 +55,26 @@ class HTTPBackend(object):
 
     def boolean_from_response(self, method, path, params=None, payload=None):
         try:
-            self._request(method, path, params, payload)
+            self._request(method, self.full_url(path), params, payload)
             if self.last_response.status_code == requests.codes.no_content:
                 return True
         except OctokitNotFoundError:
             return False
 
     def get(self, path, params=None):
-        return self._request('GET', path, params).json()
+        return self._request('GET', self.full_url(path), params).json()
 
     def post(self, path, payload=None):
-        return self._request('POST', path, payload=payload).json()
+        return self._request('POST', self.full_url(path), payload=payload).json()
 
     def put(self):
-        return self._request('PUT', path, payload=payload).json()
+        return self._request('PUT', self.full_url(path), payload=payload).json()
 
     def patch(self, path, payload):
-        return self._request('PATCH', path, payload=payload).json()
+        return self._request('PATCH', self.full_url(path), payload=payload).json()
 
     def delete(self, payload=None):
-        return self._request('DELETE', path, payload=payload).json()
+        return self._request('DELETE', self.full_url(path), payload=payload).json()
 
 
 class HTTPBasicAuth(requests.auth.HTTPBasicAuth):

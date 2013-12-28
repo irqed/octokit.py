@@ -17,12 +17,15 @@ class ServiceStatus(Resource):
 
     @property
     def status(self):
-        return self._http.get('https://status.github.com/api/status.json')
+        return self._http._request('GET',
+                    'https://status.github.com/api/status.json').json()
 
     @property
     def last_message(self):
-        return self._http.get('https://status.github.com/api/last-message.json')
+        return self._http._request('GET',
+                    'https://status.github.com/api/last-message.json').json()
 
     @property
     def messages(self):
-        return self._http.get('https://status.github.com/api/messages.json')
+        return self._http._request('GET',
+                    'https://status.github.com/api/messages.json').json()
