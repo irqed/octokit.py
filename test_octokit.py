@@ -205,6 +205,11 @@ class NotificationsTestCase(unittest.TestCase):
         notifications = hub.notifications.all()
         self.assertEqual(type(notifications), list)
 
+    def test_repository(self):
+        hub = octokit.Octokit()
+        notifications = hub.notifications.repository('octokit/octokit.rb')
+        self.assertEqual(type(notifications), list)
+
     def test_mark_as_read(self):
         hub = octokit.Octokit()
         self.assertEqual(hub.notifications.mark_as_read(), True)

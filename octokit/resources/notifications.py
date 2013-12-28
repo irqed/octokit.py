@@ -24,14 +24,14 @@ class Notifications(Resource):
         """
         return self._http.get('notifications')
 
-    def repository(self):
+    def repository(self, repo):
         """List your notifications in a repository
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/activity/notifications/#list-your-notifications-in-a-repository
         """
-        raise NotImplementedError
+        return self._http.get('repos/%s/notifications' % repo)
 
     def mark_as_read(self, unread=False, last_read_at=None):
         """Mark notifications as read
