@@ -28,23 +28,34 @@ class Notifications(Resource):
 
         return payload
 
-    def all(self):
+    def _get_params(self, **kwargs):
+        params = dict()
+        for key, value in kwargs.items():
+            if value:
+                params[key] = 'true' if type(value) is bool else value
+        return params
+
+    def all(self, all=False, participating=False, since=None):
         """List your notifications
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/activity/notifications/#list-your-notifications
         """
-        return self._http.get('notifications')
+        params = self._get_params(all=all, participating=participating,
+                                  since=since)
+        return self._http.get('notifications', params=params)
 
-    def repository(self, repo):
+    def repository(self, repo, all=False, participating=False, since=None):
         """List your notifications in a repository
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/activity/notifications/#list-your-notifications-in-a-repository
         """
-        return self._http.get('repos/%s/notifications' % repo)
+        params = self._get_params(all=all, participating=participating,
+                                  since=since)
+        return self._http.get('repos/%s/notifications' % repo, params=params)
 
     def mark_as_read(self, unread=False, last_read_at=None):
         """Mark notifications as read
@@ -70,14 +81,14 @@ class Notifications(Resource):
         r = self._http._request('PUT', url, payload=payload)
         return True if r.status_code == 205 else False
 
-    def thread(self):
+    def thread(self, thread_id):
         """List notifications for a specific thread
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/activity/notifications/#view-a-single-thread
         """
-        raise NotImplementedError
+        return self._http.get('notifications/threads/%s' % thread_id)
 
     def mark_thread_as_read(self):
         """Mark thread as read

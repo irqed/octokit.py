@@ -200,28 +200,31 @@ class NotificationsTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
 
+    def setUp(self):
+        self.hub = octokit.Octokit()
+        self.thread_id = self.hub.notifications.repository('octokit/octokit.rb', all=True)[-1]['id']
+
     def test_all(self):
-        hub = octokit.Octokit()
-        notifications = hub.notifications.all()
+        notifications = self.hub.notifications.all(all=True)
         self.assertEqual(type(notifications), list)
 
     def test_repository(self):
-        hub = octokit.Octokit()
-        notifications = hub.notifications.repository('octokit/octokit.rb')
+        notifications = self.hub.notifications.repository('octokit/octokit.rb', all=True)
         self.assertEqual(type(notifications), list)
 
     def test_mark_as_read(self):
-        hub = octokit.Octokit()
-        self.assertEqual(hub.notifications.mark_as_read(), True)
+        self.assertEqual(self.hub.notifications.mark_as_read(), True)
 
     def test_mark_as_unread(self):
-        hub = octokit.Octokit()
-        self.assertEqual(hub.notifications.mark_as_read(unread=True), False)
+        self.assertEqual(self.hub.notifications.mark_as_read(unread=True), False)
 
-    def test_mark_repository_as_read(self):
-        hub = octokit.Octokit()
-        r = hub.notifications.mark_repository_as_read('octokit/octokit.rb')
+    def test_mark_repository_as_read(self): 
+        r = self.hub.notifications.mark_repository_as_read('octokit/octokit.rb')
         self.assertEqual(r, True)
+
+    def test_thread(self):
+        thread = self.hub.notifications.thread(self.thread_id)
+        self.assertEqual(type(thread), dict)
 
 
 class SayTestCase(unittest.TestCase):
@@ -293,7 +296,6 @@ class UserTestCase(unittest.TestCase):
         hub = octokit.Octokit()
         starred = hub.user.starred()
         self.assertEqual(type(starred), list)
-        self.assertEqual(len(starred), 0)
 
     def test_is_starred(self):
         hub = octokit.Octokit()
