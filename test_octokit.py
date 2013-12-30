@@ -89,9 +89,14 @@ class CommitCommentsTestCase(unittest.TestCase):
     def setUp(self):
         self.hub = octokit.Octokit()
         self.repo = 'octopy/test_repo'
+        self.sha = '11d72ed05ce2b8f5ae9326aa7af946bcf015ac2a'
 
     def test_all(self):
         comments = self.hub.commit_comments.all(self.repo)
+        self.assertEqual(type(comments), list)
+
+    def test_commit(self):
+        comments = self.hub.commit_comments.commit(self.repo, self.sha)
         self.assertEqual(type(comments), list)
 
 
