@@ -73,12 +73,12 @@ class Commits(Resource):
         """
         return self._http.get('repos/%s/commits/%s' % (repo, sha))
 
-    def git_commit(self):
+    def git_commit(self, repo, sha):
         """Get a detailed git commit
 
         http://developer.github.com/v3/git/commits/#get-a-commit
         """
-        raise NotImplementedError
+        return self._http.get('repos/%s/git/commits/%s' % (repo, sha))
 
     def create_commit(self):
         """Create a commit

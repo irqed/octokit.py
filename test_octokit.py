@@ -153,6 +153,10 @@ class CommitsTestCase(unittest.TestCase):
         commit = self.hub.commits.commit(self.repo, self.sha)
         self.assertEqual(type(commit), dict)
 
+    def test_git_commit(self):
+        commit = self.hub.commits.git_commit(self.repo, self.sha)
+        self.assertEqual(type(commit), dict)
+
 
 class EmojisTestCase(unittest.TestCase):
 
