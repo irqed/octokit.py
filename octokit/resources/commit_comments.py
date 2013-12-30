@@ -16,8 +16,6 @@ class CommitComments(Resource):
     def all(self, repo):
         """List all commit comments
 
-        Requries an authenticated client.
-
         http://developer.github.com/v3/repos/comments/#list-commit-comments-for-a-repository
         """
         return self._http.get('repos/%s/comments' % repo)
@@ -25,16 +23,12 @@ class CommitComments(Resource):
     def commit(self, repo, sha):
         """List comments for a single commit
 
-        Requries an authenticated client.
-
         http://developer.github.com/v3/repos/comments/#list-comments-for-a-single-commit
         """
         return self._http.get('repos/%s/commits/%s/comments' % (repo, sha))
 
     def comment(self, repo, comment_id):
         """Get a single commit comment
-
-        Requries an authenticated client.
 
         http://developer.github.com/v3/repos/comments/#get-a-single-commit-comment
         """

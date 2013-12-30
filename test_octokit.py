@@ -116,6 +116,24 @@ class CommitCommentsTestCase(unittest.TestCase):
         self.assertEqual(type(comment), dict)
 
 
+class CommitsTestCase(unittest.TestCase):
+
+    _multiprocess_can_split_ = True
+
+    def setUp(self):
+        self.hub = octokit.Octokit()
+        self.repo = 'octopy/test_repo'
+
+    def test_all(self):
+        commits = self.hub.commits.all(self.repo)
+        self.assertEqual(type(commits), list)
+
+    def test_since(self):
+        commits = self.hub.commits.since(self.repo, '2013-12-29')
+        self.assertEqual(type(commits), list)
+        self.assertNotEqual(len(commits), 0)
+
+
 class EmojisTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True

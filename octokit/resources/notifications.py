@@ -27,13 +27,6 @@ class Notifications(Resource):
 
         return payload
 
-    def _get_params(self, **kwargs):
-        params = dict()
-        for key, value in kwargs.items():
-            if value:
-                params[key] = 'true' if type(value) is bool else value
-        return params
-
     def all(self, all=False, participating=False, since=None):
         """List your notifications
 
