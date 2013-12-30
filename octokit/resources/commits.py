@@ -36,12 +36,12 @@ class Commits(Resource):
         """
         return self.all(repo, sha_or_branch, until=date)
 
-    def commits_on(self):
+    def on(self, repo, date, sha_or_branch=None):
         """Get commits on a specified date
 
         http://developer.github.com/v3/repos/commits/#list-commits-on-a-repository
         """
-        raise NotImplementedError
+        return self.all(repo, sha_or_branch, since=date, until=date)
 
     def commits_between(self):
         """Get commits made between two nominated dates
