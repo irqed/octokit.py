@@ -124,11 +124,12 @@ class Notifications(Resource):
         return self._http.put('notifications/threads/%s/subscription' % thread_id,
                               payload=payload)
 
-    def remove_thread_subscription(self):
+    def remove_thread_subscription(self, thread_id):
         """Delete a thread subscription
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/activity/notifications/#delete-a-thread-subscription
         """
-        raise NotImplementedError
+        path = 'notifications/threads/%s/subscription' % thread_id
+        return self._http.boolean_from_response('DELETE', path)
