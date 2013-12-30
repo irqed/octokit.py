@@ -203,23 +203,21 @@ class NotificationsTestCase(unittest.TestCase):
     def setUp(self):
         self.hub = octokit.Octokit()
         self.thread_id = 22584104
+        self.repo = 'octokit/octokit.rb'
 
     def test_all(self):
         notifications = self.hub.notifications.all(all=True)
         self.assertEqual(type(notifications), list)
 
     def test_repository(self):
-        notifications = self.hub.notifications.repository('octokit/octokit.rb', all=True)
+        notifications = self.hub.notifications.repository(self.repo, all=True)
         self.assertEqual(type(notifications), list)
 
     def test_mark_as_read(self):
         self.assertEqual(self.hub.notifications.mark_as_read(), True)
 
-    def test_mark_as_unread(self):
-        self.assertEqual(self.hub.notifications.mark_as_read(unread=True), False)
-
     def test_mark_repository_as_read(self): 
-        r = self.hub.notifications.mark_repository_as_read('octokit/octokit.rb')
+        r = self.hub.notifications.mark_repository_as_read(self.repo)
         self.assertEqual(r, True)
 
     def test_thread(self):
@@ -227,7 +225,8 @@ class NotificationsTestCase(unittest.TestCase):
         self.assertEqual(type(thread), dict)
 
     def test_mark_thread_as_read(self):
-        self.assertEqual(self.hub.notifications.mark_thread_as_read(self.thread_id), True)
+        r = self.hub.notifications.mark_thread_as_read(self.thread_id)
+        self.assertEqual(r, True)
 
     def test_thread_subscription(self):
         subs = self.hub.notifications.thread_subscription(self.thread_id)
