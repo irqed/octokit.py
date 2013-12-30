@@ -123,6 +123,7 @@ class CommitsTestCase(unittest.TestCase):
     def setUp(self):
         self.hub = octokit.Octokit()
         self.repo = 'octopy/test_repo'
+        self.sha = '11d72ed05ce2b8f5ae9326aa7af946bcf015ac2a'
 
     def test_all(self):
         commits = self.hub.commits.all(self.repo)
@@ -147,6 +148,10 @@ class CommitsTestCase(unittest.TestCase):
         commits = self.hub.commits.between(self.repo, '2013-12-29', '2013-12-31')
         self.assertEqual(type(commits), list)
         self.assertNotEqual(len(commits), 0)
+
+    def test_commit(self):
+        commit = self.hub.commits.commit(self.repo, self.sha)
+        self.assertEqual(type(commit), dict)
 
 
 class EmojisTestCase(unittest.TestCase):

@@ -66,12 +66,12 @@ class Commits(Resource):
         return self.all(repo, sha_or_branch,
                         since=date, until=end_date)
 
-    def commit(self):
+    def commit(self, repo, sha):
         """Get a single commit
 
         http://developer.github.com/v3/repos/commits/#get-a-single-commit
         """
-        raise NotImplementedError
+        return self._http.get('repos/%s/commits/%s' % (repo, sha))
 
     def git_commit(self):
         """Get a detailed git commit
