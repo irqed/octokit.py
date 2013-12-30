@@ -102,14 +102,15 @@ class Notifications(Resource):
         r = self._http._request('PATCH', url, payload=payload)
         return True if r.status_code == 205 else False
 
-    def thread_subscription(self):
+    def thread_subscription(self, thread_id):
         """Get thread subscription
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/activity/notifications/#get-a-thread-subscription
         """
-        raise NotImplementedError
+        print 'notifications/threads/%s/subscription' % thread_id
+        return self._http.get('notifications/threads/%s/subscription' % thread_id)
 
     def update_thread_subscription(self):
         """Update thread subscription
