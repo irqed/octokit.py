@@ -40,14 +40,17 @@ class CommitComments(Resource):
         """
         return self._http.get('repos/%s/comments/%s' % (repo, comment_id))
 
-    def create_commit_comment(self):
+    def create_comment(self, repo, sha, body, path=None, line=None, position=None):
         """Create a commit comment
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/repos/comments/#create-a-commit-comment
         """
-        raise NotImplementedError
+        comment = dict(body=body, commit_id=sha, path=path, line=line,
+                       position=position)
+        return self._http.post('repos/%s/commits/%s/comments' % (repo, sha),
+                               payload=comment)
 
     def update_commit_comment(self):
         """Update a commit comment:

@@ -104,6 +104,10 @@ class CommitCommentsTestCase(unittest.TestCase):
         comment = self.hub.commit_comments.comment(self.repo, self.comment_id)
         self.assertEqual(type(comment), dict)
 
+    def test_create_comment(self):
+        comment = self.hub.commit_comments.create_comment(self.repo, self.sha,
+                                                          "It's a trap!")
+        self.assertEqual(type(comment), dict)
 
 class EmojisTestCase(unittest.TestCase):
 
