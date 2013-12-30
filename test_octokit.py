@@ -133,6 +133,11 @@ class CommitsTestCase(unittest.TestCase):
         self.assertEqual(type(commits), list)
         self.assertNotEqual(len(commits), 0)
 
+    def test_before(self):
+        commits = self.hub.commits.before(self.repo, '2014-12-29')
+        self.assertEqual(type(commits), list)
+        self.assertNotEqual(len(commits), 0)
+
 
 class EmojisTestCase(unittest.TestCase):
 

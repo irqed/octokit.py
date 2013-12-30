@@ -29,12 +29,12 @@ class Commits(Resource):
         """
         return self.all(repo, sha_or_branch, since=date)
 
-    def commits_before(self):
+    def before(self, repo, date, sha_or_branch=None):
         """Get commits before a specified date
 
         http://developer.github.com/v3/repos/commits/#list-commits-on-a-repository
         """
-        raise NotImplementedError
+        return self.all(repo, sha_or_branch, until=date)
 
     def commits_on(self):
         """Get commits on a specified date
