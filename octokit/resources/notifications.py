@@ -90,14 +90,17 @@ class Notifications(Resource):
         """
         return self._http.get('notifications/threads/%s' % thread_id)
 
-    def mark_thread_as_read(self):
+    def mark_thread_as_read(self, thread_id, unread=False):
         """Mark thread as read
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/activity/notifications/#mark-a-thread-as-read
         """
-        raise NotImplementedError
+        payload = self._mark_methods_payload(unread)
+        url = self._http._settings.api_endpoint + 'notifications/threads/%s' % thread_id
+        r = self._http._request('PATCH', url, payload=payload)
+        return True if r.status_code == 205 else False
 
     def thread_subscription(self):
         """Get thread subscription

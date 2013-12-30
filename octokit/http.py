@@ -27,6 +27,7 @@ class HTTPBackend(object):
     def setup_headers(self):
         self._s.headers['Accept'] = self._settings.media_type
         self._s.headers['User-Agent'] = self._settings.user_agent
+        self._s.headers['Content-Type'] = 'application/json'
 
     def setup_auth(self):
         if self._settings.login and self._settings.password:

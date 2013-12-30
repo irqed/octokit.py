@@ -226,6 +226,9 @@ class NotificationsTestCase(unittest.TestCase):
         thread = self.hub.notifications.thread(self.thread_id)
         self.assertEqual(type(thread), dict)
 
+    def test_mark_thread_as_read(self):
+        self.assertEqual(self.hub.notifications.mark_thread_as_read(self.thread_id), True)
+
 
 class SayTestCase(unittest.TestCase):
 
