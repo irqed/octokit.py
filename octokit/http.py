@@ -68,7 +68,7 @@ class HTTPBackend(object):
     def post(self, path, payload=None):
         return self._request('POST', self.full_url(path), payload=payload).json()
 
-    def put(self):
+    def put(self, path, payload):
         return self._request('PUT', self.full_url(path), payload=payload).json()
 
     def patch(self, path, payload):

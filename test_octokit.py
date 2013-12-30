@@ -232,6 +232,10 @@ class NotificationsTestCase(unittest.TestCase):
         subs = self.hub.notifications.thread_subscription(self.thread_id)
         self.assertEqual(type(subs), dict)
 
+    def test_update_thread_subscription(self):
+        subs = self.hub.notifications.update_thread_subscription(self.thread_id)
+        self.assertEqual(type(subs), dict)
+
 
 class SayTestCase(unittest.TestCase):
 

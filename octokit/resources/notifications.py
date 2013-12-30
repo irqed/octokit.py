@@ -21,7 +21,6 @@ class Notifications(Resource):
         payload = dict(read=True, unread=False)
         if unread:
             payload['read'] = False
-            payload['unread'] = True
 
         if last_read_at:
             payload['last_read_at'] = last_read_at
@@ -109,17 +108,21 @@ class Notifications(Resource):
 
         http://developer.github.com/v3/activity/notifications/#get-a-thread-subscription
         """
-        print 'notifications/threads/%s/subscription' % thread_id
         return self._http.get('notifications/threads/%s/subscription' % thread_id)
 
-    def update_thread_subscription(self):
+    def update_thread_subscription(self, thread_id, subscribed=True):
         """Update thread subscription
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/activity/notifications/#set-a-thread-subscription
         """
-        raise NotImplementedError
+        payload = dict(subscribed=True, ignored=False)
+        if not subscribed:
+            payload['ignored'] = True
+
+        return self._http.put('notifications/threads/%s/subscription' % thread_id,
+                              payload=payload)
 
     def remove_thread_subscription(self):
         """Delete a thread subscription
