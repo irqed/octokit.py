@@ -31,14 +31,14 @@ class CommitComments(Resource):
         """
         return self._http.get('repos/%s/commits/%s/comments' % (repo, sha))
 
-    def commit_comment(self):
+    def comment(self, repo, comment_id):
         """Get a single commit comment
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/repos/comments/#get-a-single-commit-comment
         """
-        raise NotImplementedError
+        return self._http.get('repos/%s/comments/%s' % (repo, comment_id))
 
     def create_commit_comment(self):
         """Create a commit comment

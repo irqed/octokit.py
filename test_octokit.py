@@ -90,6 +90,7 @@ class CommitCommentsTestCase(unittest.TestCase):
         self.hub = octokit.Octokit()
         self.repo = 'octopy/test_repo'
         self.sha = '11d72ed05ce2b8f5ae9326aa7af946bcf015ac2a'
+        self.comment_id = 4955563
 
     def test_all(self):
         comments = self.hub.commit_comments.all(self.repo)
@@ -98,6 +99,10 @@ class CommitCommentsTestCase(unittest.TestCase):
     def test_commit(self):
         comments = self.hub.commit_comments.commit(self.repo, self.sha)
         self.assertEqual(type(comments), list)
+
+    def test_comment(self):
+        comment = self.hub.commit_comments.comment(self.repo, self.comment_id)
+        self.assertEqual(type(comment), dict)
 
 
 class EmojisTestCase(unittest.TestCase):
