@@ -5,8 +5,9 @@
 
 from octokit import http
 from octokit.settings import Settings
-from octokit.resources import (Authorizations, Emojis, Gists, Gitignore, Meta,
-                               Notifications, Say, ServiceStatus, User, Users)
+from octokit.resources import (Authorizations, CommitComments, Emojis, Gists,
+                               Gitignore, Meta, Notifications, Say,
+                               ServiceStatus, User, Users)
 
 
 def lazy_property(fn):
@@ -58,6 +59,10 @@ class Octokit(object):
     @lazy_property
     def authorizations(self):
         return Authorizations(http=self._http)
+
+    @lazy_property
+    def commit_comments(self):
+        return CommitComments(http=self._http)
 
     @lazy_property
     def user(self):

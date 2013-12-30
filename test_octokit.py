@@ -62,7 +62,7 @@ class AuthenticationTestCase(unittest.TestCase):
         self.assertEqual(hub_two.user_authenticated, True)
 
 
-class Authorizations(unittest.TestCase):
+class AuthorizationsTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
 
@@ -80,6 +80,19 @@ class Authorizations(unittest.TestCase):
         hub = octokit.Octokit()
         with self.assertRaises(octokit.errors.OctokitNotFoundError):
             hub.authorizations.authorization(666)
+
+
+class CommitCommentsTestCase(unittest.TestCase):
+
+    _multiprocess_can_split_ = True
+
+    def setUp(self):
+        self.hub = octokit.Octokit()
+        self.repo = 'octopy/test_repo'
+
+    def test_all(self):
+        comments = self.hub.commit_comments.all(self.repo)
+        self.assertEqual(type(comments), list)
 
 
 class EmojisTestCase(unittest.TestCase):
