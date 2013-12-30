@@ -63,9 +63,6 @@ class Commits(Resource):
 
         http://developer.github.com/v3/repos/commits/#list-commits-on-a-repository
         """
-        date = datetime.strptime(date, "%Y-%m-%d")
-        end_date = datetime.strptime(end_date, "%Y-%m-%d")
-
         return self.all(repo, sha_or_branch,
                         since=date, until=end_date)
 
