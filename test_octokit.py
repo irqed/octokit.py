@@ -129,17 +129,22 @@ class CommitsTestCase(unittest.TestCase):
         self.assertEqual(type(commits), list)
 
     def test_since(self):
-        commits = self.hub.commits.since(self.repo, '2013-12-30T13:02:33Z')
+        commits = self.hub.commits.since(self.repo, '2013-12-30')
         self.assertEqual(type(commits), list)
         self.assertNotEqual(len(commits), 0)
 
     def test_before(self):
-        commits = self.hub.commits.before(self.repo, '2014-12-30T13:02:33Z')
+        commits = self.hub.commits.before(self.repo, '2014-12-30')
         self.assertEqual(type(commits), list)
         self.assertNotEqual(len(commits), 0)
 
-    def test_before(self):
-        commits = self.hub.commits.on(self.repo, '2013-12-30T13:02:33Z')
+    def test_on(self):
+        commits = self.hub.commits.on(self.repo, '2013-12-30')
+        self.assertEqual(type(commits), list)
+        self.assertNotEqual(len(commits), 0)
+
+    def test_between(self):
+        commits = self.hub.commits.between(self.repo, '2013-12-29', '2013-12-31')
         self.assertEqual(type(commits), list)
         self.assertNotEqual(len(commits), 0)
 

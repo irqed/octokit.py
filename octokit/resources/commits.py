@@ -4,6 +4,7 @@
 http://developer.github.com/v3/repos/commits/
 """
 
+from datetime import datetime, timedelta
 from octokit.resources.base import Resource
 
 
@@ -18,8 +19,19 @@ class Commits(Resource):
 
         http://developer.github.com/v3/repos/commits/#list-commits-on-a-repository
         """
+        if isinstance(since, datetime):
+            since = since.isoformat()
+        elif since:
+            since = datetime.strptime(since, "%Y-%m-%d").isoformat()
+
+        if isinstance(until, datetime):
+            until = until.isoformat()
+        elif until:
+            until = datetime.strptime(until, "%Y-%m-%d").isoformat()
+
         params = self._get_params(sha=sha_or_branch, path=path, author=author,
                                   since=since, until=until)
+
         return self._http.get('repos/%s/commits' % repo, params=params)
 
     def since(self, repo, date, sha_or_branch=None):
@@ -41,14 +53,21 @@ class Commits(Resource):
 
         http://developer.github.com/v3/repos/commits/#list-commits-on-a-repository
         """
-        return self.all(repo, sha_or_branch, since=date, until=date)
+        date = datetime.strptime(date, "%Y-%m-%d")
+        end_date = date + timedelta(days=1)
+        return self.all(repo, sha_or_branch,
+                        since=date, until=end_date)
 
-    def commits_between(self):
+    def between(self, repo, date, end_date, sha_or_branch=None):
         """Get commits made between two nominated dates
 
         http://developer.github.com/v3/repos/commits/#list-commits-on-a-repository
         """
-        raise NotImplementedError
+        date = datetime.strptime(date, "%Y-%m-%d")
+        end_date = datetime.strptime(end_date, "%Y-%m-%d")
+
+        return self.all(repo, sha_or_branch,
+                        since=date, until=end_date)
 
     def commit(self):
         """Get a single commit
