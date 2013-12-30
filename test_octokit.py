@@ -90,7 +90,7 @@ class CommitCommentsTestCase(unittest.TestCase):
         self.hub = octokit.Octokit()
         self.repo = 'octopy/test_repo'
         self.sha = '11d72ed05ce2b8f5ae9326aa7af946bcf015ac2a'
-        self.comment_id = 4955563
+        self.comment_id = 4955654
 
     def test_all(self):
         comments = self.hub.commit_comments.all(self.repo)
@@ -104,10 +104,17 @@ class CommitCommentsTestCase(unittest.TestCase):
         comment = self.hub.commit_comments.comment(self.repo, self.comment_id)
         self.assertEqual(type(comment), dict)
 
-    def test_create_comment(self):
-        comment = self.hub.commit_comments.create_comment(self.repo, self.sha,
-                                                          "It's a trap!")
+    def test_create_remove(self):
+        comment = self.hub.commit_comments.create(self.repo, self.sha,
+                                                  "It's a trap!")
         self.assertEqual(type(comment), dict)
+        self.assertEqual(self.hub.commit_comments.remove(self.repo, comment['id']), True)
+
+    def test_update(self):
+        comment = self.hub.commit_comments.create(self.repo, self.sha,
+                                                  "It's an updated trap!")
+        self.assertEqual(type(comment), dict)
+
 
 class EmojisTestCase(unittest.TestCase):
 

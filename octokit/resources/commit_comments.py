@@ -40,7 +40,7 @@ class CommitComments(Resource):
         """
         return self._http.get('repos/%s/comments/%s' % (repo, comment_id))
 
-    def create_comment(self, repo, sha, body, path=None, line=None, position=None):
+    def create(self, repo, sha, body, path=None, line=None, position=None):
         """Create a commit comment
 
         Requries an authenticated client.
@@ -52,20 +52,22 @@ class CommitComments(Resource):
         return self._http.post('repos/%s/commits/%s/comments' % (repo, sha),
                                payload=comment)
 
-    def update_commit_comment(self):
+    def update(self, repo, comment_id, body):
         """Update a commit comment:
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/repos/comments/#update-a-commit-comment
         """
-        raise NotImplementedError
+        return self._http.patch('repos/%s/comments/%s' % (repo, comment_id),
+                                payload=dict(body=body))
 
-    def delete_commit_comment(self):
+    def remove(self, repo, comment_id):
         """Delete a commit comment
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/repos/comments/#delete-a-commit-comment
         """
-        raise NotImplementedError
+        path = 'repos/%s/comments/%s' % (repo, comment_id)
+        return self._http.boolean_from_response('DELETE', path)
