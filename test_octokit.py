@@ -158,6 +158,18 @@ class CommitsTestCase(unittest.TestCase):
         self.assertEqual(type(commit), dict)
 
 
+class ContentsTestCase(unittest.TestCase):
+
+    _multiprocess_can_split_ = True
+
+    def setUp(self):
+        self.hub = octokit.Octokit()
+        self.repo = 'octopy/test_repo'
+
+    def test_readme(self):
+        readme = self.hub.contents.readme(self.repo)
+        self.assertEqual(type(readme), dict)
+
 class EmojisTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True

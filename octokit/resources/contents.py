@@ -15,11 +15,11 @@ class Contents(Resource):
     def __init__(self, **kwargs):
         super(Contents, self).__init__(**kwargs)
 
-    def readme(self):
+    def readme(self, repo):
         """Receive the default Readme for a repository
         http://developer.github.com/v3/repos/contents/#get-the-readme
         """
-        raise NotImplementedError
+        return self._http.get('repos/%s/readme' % repo)
 
     def contents(self):
         """Receive a listing of a repository folder or the contents of a file
