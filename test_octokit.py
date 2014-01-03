@@ -178,6 +178,10 @@ class ContentsTestCase(unittest.TestCase):
         contents = self.hub.contents.contents(self.repo, 'README.md')
         self.assertEqual(type(contents), dict)
 
+    def test_archive_link(self):
+        link = self.hub.contents.archive_link(self.repo)
+        self.assertEqual(type(link), str)
+
 class EmojisTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True

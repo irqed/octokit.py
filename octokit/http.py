@@ -46,11 +46,13 @@ class HTTPBackend(object):
     def full_url(self, path):
         return self._settings.api_endpoint + path
 
-    def _request(self, method, url, params=None, payload=None):
+    def _request(self, method, url, params=None, payload=None, **kwargs):
         hooks = dict(response=error_from_response)
+        allow_redirects = kwargs.get('allow_redirects')
         self.last_response = self._s.request(method, url,
                                              params=params, hooks=hooks,
-                                             data=json.dumps(payload))
+                                             data=json.dumps(payload),
+                                             allow_redirects=allow_redirects)
 
         return self.last_response
 
@@ -66,17 +68,24 @@ class HTTPBackend(object):
         return self._request('GET', self.full_url(path), params=params).json()
 
     def post(self, path, payload=None):
-        return self._request('POST', self.full_url(path), payload=payload).json()
+        return self._request('POST', self.full_url(path),
+                             payload=payload).json()
 
     def put(self, path, payload):
-        return self._request('PUT', self.full_url(path), payload=payload).json()
+        return self._request('PUT', self.full_url(path),
+                             payload=payload).json()
 
     def patch(self, path, payload):
-        return self._request('PATCH', self.full_url(path), payload=payload).json()
+        return self._request('PATCH', self.full_url(path),
+                             payload=payload).json()
 
-    def delete(self, payload=None):
-        return self._request('DELETE', self.full_url(path), payload=payload).json()
+    def delete(self, path, payload=None):
+        return self._request('DELETE', self.full_url(path),
+                             payload=payload).json()
 
+    def head(self, path, params=None, allow_redirects=True):
+        return self._request('HEAD', self.full_url(path),
+                             params=params, allow_redirects=allow_redirects)
 
 class HTTPBasicAuth(requests.auth.HTTPBasicAuth):
     """Class to use with GitHub basic auth
