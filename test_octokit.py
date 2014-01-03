@@ -178,6 +178,22 @@ class ContentsTestCase(unittest.TestCase):
         contents = self.hub.contents.contents(self.repo, 'README.md')
         self.assertEqual(type(contents), dict)
 
+    def test_create_update_remove_contents(self):
+        created = self.hub.contents.create_contents(self.repo, 'test_file.md',
+                                                   'Creating contents',
+                                                   'Created content')
+        updated = self.hub.contents.update_contents(self.repo, 'test_file.md',
+                                                   'Updating contents',
+                                                   'Updated content',
+                                                   sha=created['content']['sha'])
+        removed = self.hub.contents.remove_contents(self.repo, 'test_file.md',
+                                                   'Removing contents',
+                                                   sha=updated['content']['sha'])
+
+        self.assertEqual(type(created), dict)
+        self.assertEqual(type(updated), dict)
+        self.assertEqual(type(removed), dict)
+
     def test_archive_link(self):
         link = self.hub.contents.archive_link(self.repo)
         self.assertEqual(type(link), str)

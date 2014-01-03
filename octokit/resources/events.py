@@ -10,8 +10,6 @@ from octokit.resources.base import Resource
 class Events(Resource):
     """Events API resource
     """
-    url = '/events'
-
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
 

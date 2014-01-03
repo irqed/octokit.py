@@ -1,8 +1,11 @@
 # encoding: utf-8
 
 """Methods for the Repo Contents API
+
 http://developer.github.com/v3/repos/contents/
 """
+
+import base64
 
 from octokit.resources.base import Resource
 
@@ -10,8 +13,6 @@ from octokit.resources.base import Resource
 class Contents(Resource):
     """Contents API resource
     """
-    url = None
-
     def __init__(self, **kwargs):
         super(Contents, self).__init__(**kwargs)
 
@@ -35,32 +36,37 @@ class Contents(Resource):
             path = 'repos/%s/contents' % repo
         return self._http.get(path, params=params)
 
-    def create_contents(self):
+    def create_contents(self, repo, path, message, content=None, branch='master', sha=None):
         """Add content to a repository
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/repos/contents/#create-a-file
         """
-        raise NotImplementedError
+        payload = self._get_params(message=message, branch=branch, sha=sha,
+                                   content=base64.b64encode(content))
+        return self._http.put('repos/%s/contents/%s' % (repo, path),
+                              payload=payload)
 
-    def update_contents(self):
+    def update_contents(self, repo, path, message, content, sha, branch='master'):
         """Update content in a repository
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/repos/contents/#update-a-file
         """
-        raise NotImplementedError
+        return self.create_contents(repo, path, message, content, branch, sha)
 
-    def delete_contents(self):
+    def remove_contents(self, repo, path, message, sha, branch='master'):
         """Delete content in a repository
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/repos/contents/#delete-a-file
         """
-        raise NotImplementedError
+        payload = self._get_params(message=message, sha=sha, branch=branch)
+        return self._http.delete('repos/%s/contents/%s' % (repo, path),
+                                 payload=payload)
 
     def archive_link(self, repo, format='tarball', ref='master'):
         """This method will provide a URL to download a tarball or zipball
