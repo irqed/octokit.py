@@ -170,6 +170,14 @@ class ContentsTestCase(unittest.TestCase):
         readme = self.hub.contents.readme(self.repo)
         self.assertEqual(type(readme), dict)
 
+    def test_contents(self):
+        contents = self.hub.contents.contents(self.repo)
+        self.assertEqual(type(contents), list)
+
+    def test_contents_readme(self):
+        contents = self.hub.contents.contents(self.repo, 'README.md')
+        self.assertEqual(type(contents), dict)
+
 class EmojisTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True

@@ -22,11 +22,16 @@ class Contents(Resource):
         params = self._get_params(ref=ref)
         return self._http.get('repos/%s/readme' % repo, params=params)
 
-    def contents(self):
+    def contents(self, repo, path=None, ref='master'):
         """Receive a listing of a repository folder or the contents of a file
         http://developer.github.com/v3/repos/contents/#get-contents
         """
-        raise NotImplementedError
+        params = self._get_params(ref=ref)
+        if path:
+            path = 'repos/%s/contents/%s' % (repo, path)
+        else:
+            path = 'repos/%s/contents' % repo
+        return self._http.get(path, params=params)
 
     def create_contents(self):
         """Add content to a repository
