@@ -6,7 +6,7 @@
 from octokit import http
 from octokit.settings import Settings
 from octokit.resources import (Authorizations, CommitComments, Commits,
-                               Contents, Emojis,Gists, Gitignore, Meta,
+                               Contents, Emojis, Gists, Gitignore, Meta,
                                Notifications, Say, ServiceStatus, User, Users)
 
 
