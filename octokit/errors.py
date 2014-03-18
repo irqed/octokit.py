@@ -8,11 +8,16 @@ class OctokitError(Exception):
     """Base class to wrap up an API response error
     """
     def __init__(self, r):
-        self.code = r.status_code
-        self.headers = r.headers
         self.body = r.json()
-        self.message = self.body.get('message')
-        self.errors = self.body.get('errors')
+        self.headers = r.headers
+        self.code = r.status_code
+
+        if 'message' in self.body:
+            self.message = self.body.get('message')
+
+        if 'errors' in self.body:
+            self.errors = self.body.get('errors')
+
         super(OctokitError, self).__init__("%s %s" % (self.code, self.message))
 
 

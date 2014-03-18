@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 from base import OctokitTestCase
+from octokit.errors import OctokitNotFoundError
 
 
 class AuthorizationsTestCase(OctokitTestCase):
@@ -22,5 +23,5 @@ class AuthorizationsTestCase(OctokitTestCase):
     def test_authorization_404(self):
         """Test not found response for a single authorization
         """
-        with self.assertRaises(octokit.errors.OctokitNotFoundError):
+        with self.assertRaises(OctokitNotFoundError):
             self.hub.authorizations.authorization('auth_id_404')
