@@ -90,15 +90,16 @@ class Authorizations(Resource):
 
         return self._http.patch('authorizations/%d' % auth_id, payload=payload)
 
-    def delete(self, auth_id):
+    def remove(self, auth_id):
         """Delete an authorization for the authenticated user
 
         You can only access your own tokens, and only through
         Basic Authentication.
 
-        http://developer.github.com/v3/oauth/#delete-an-authorization
+        http://developer.github.com/v3/oauth_authorizations/#delete-an-authorization
         """
-        raise NotImplementedError
+        path = '/authorizations/%d' % auth_id
+        return self._http.boolean_from_response('DELETE', path)
 
     def scopes(self):
         """Check scopes for a token

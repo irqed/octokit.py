@@ -42,3 +42,9 @@ class AuthorizationsTestCase(OctokitTestCase):
         authorization = self.hub.authorizations.update(1, add_scopes=['repo',])
         self.assertIn('id', authorization)
         self.assertIn('token', authorization)
+
+    def test_remove(self):
+        """Test remove an existing authorization response
+        """
+        is_deleted = self.hub.authorizations.remove(1)
+        self.assertEqual(is_deleted, True)
