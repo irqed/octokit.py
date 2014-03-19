@@ -45,7 +45,7 @@ class Authorizations(Resource):
         You can only access your own tokens, and only through
         Basic Authentication.
 
-        http://developer.github.com/v3/oauth/#create-a-new-authorization
+        http://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization
         http://developer.github.com/v3/oauth/#scopes
         """
         payload = dict(scopes=scopes, note=note)
@@ -61,17 +61,34 @@ class Authorizations(Resource):
 
         return self._http.post('authorizations', payload=payload)
 
-    def update(self, auth_id, auth_data):
+    def update(self, auth_id, scopes=None, add_scopes=None, remove_scopes=None,
+               note=None, note_url=None):
         """Update an authorization for the authenticated user.
 
         You can only access your own tokens, and only through
         Basic Authentication.
 
-
-        http://developer.github.com/v3/oauth/#update-a-new-authorization
+        http://developer.github.com/v3/oauth_authorizations/#update-an-existing-authorization
         http://developer.github.com/v3/oauth/#scopes
         """
-        raise NotImplementedError
+        payload = dict()
+
+        if scopes:
+            payload['scopes'] = scopes
+
+        if add_scopes:
+            payload['add_scopes'] = add_scopes
+
+        if remove_scopes:
+            payload['remove_scopes'] = remove_scopes
+
+        if note:
+            payload['note'] = note
+
+        if note:
+            payload['note'] = note
+
+        return self._http.patch('authorizations/%d' % auth_id, payload=payload)
 
     def delete(self, auth_id):
         """Delete an authorization for the authenticated user

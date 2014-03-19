@@ -35,3 +35,10 @@ class AuthorizationsTestCase(OctokitTestCase):
         authorization = self.hub.authorizations.create(['public_repo',], 'test')
         self.assertIn('id', authorization)
         self.assertIn('token', authorization)
+
+    def test_update(self):
+        """Test update an existing authorization response
+        """
+        authorization = self.hub.authorizations.update(1, add_scopes=['repo',])
+        self.assertIn('id', authorization)
+        self.assertIn('token', authorization)
