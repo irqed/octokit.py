@@ -9,27 +9,43 @@ class CommitCommentsTestCase(OctokitTestCase):
     """
 
     def test_all(self):
-        """Test collection of repo comments response
+        """Test all(): get a list of repo comments
         """
         comments = self.hub.commit_comments.all('octocat/Hello-World')
         self.assertEqual(type(comments), list)
         self.assertEqual(comments[0]['body'], 'Great stuff')
 
     def test_commit(self):
-        comments = self.hub.commit_comments.commit(self.repo, self.sha)
+        """Test commit(): get a list of commit comments
+        """
+        comments = self.hub.commit_comments.commit('octocat/Hello-World',
+                                                   '7a3d89be4b')
         self.assertEqual(type(comments), list)
+        self.assertEqual(comments[0]['body'], 'Great stuff')
 
     def test_comment(self):
-        comment = self.hub.commit_comments.comment(self.repo, self.comment_id)
+        """Test comment(): get a single commit comment
+        """
+        comment = self.hub.commit_comments.comment('octocat/Hello-World', 1)
         self.assertEqual(type(comment), dict)
 
-    def test_create_remove(self):
-        comment = self.hub.commit_comments.create(self.repo, self.sha,
-                                                  "It's a trap!")
+    def test_create(self):
+        """Test create(): create a single commit comment
+        """
+        comment = self.hub.commit_comments.create('octocat/Hello-World',
+                                                  '7a3d89be4b',
+                                                  'It\'s a trap!')
         self.assertEqual(type(comment), dict)
-        self.assertEqual(self.hub.commit_comments.remove(self.repo, comment['id']), True)
 
     def test_update(self):
-        comment = self.hub.commit_comments.create(self.repo, self.sha,
-                                                  "It's an updated trap!")
+        """Test update(): create a single commit comment
+        """
+        comment = self.hub.commit_comments.update('octocat/Hello-World', 1,
+                                                  'It\'s an updated trap!')
         self.assertEqual(type(comment), dict)
+
+    def test_remove(self):
+        """Test remove(): remove a single commit comment
+        """
+        is_deleted = self.hub.commit_comments.remove('octocat/Hello-World', 1)
+        self.assertEqual(is_deleted, True)
