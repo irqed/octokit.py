@@ -2,7 +2,7 @@ init:
 	pip install -r requirements.txt
 
 test:
-	nosetests -xv tests
+	nosetests -xv --rednose tests
 
 lint:
 	pylint -r n octokit
@@ -11,7 +11,7 @@ flake:
 	flake8 octokit
 
 coverage:
-	nosetests --with-coverage tests
+	nosetests --with-coverage --rednose tests
 
 publish:
 	python setup.py sdist upload
