@@ -62,26 +62,6 @@ class AuthenticationTestCase(unittest.TestCase):
         self.assertEqual(hub_two.user_authenticated, True)
 
 
-class AuthorizationsTestCase(unittest.TestCase):
-
-    _multiprocess_can_split_ = True
-
-    def test_all(self):
-        hub = octokit.Octokit()
-        authorizations = hub.authorizations.all()
-        self.assertEqual(type(authorizations), list)
-
-    def test_authorization(self):
-        hub = octokit.Octokit()
-        authorization = hub.authorizations.authorization(4760713)
-        self.assertIn('token', authorization)
-
-    def test_authorization_404(self):
-        hub = octokit.Octokit()
-        with self.assertRaises(octokit.errors.OctokitNotFoundError):
-            hub.authorizations.authorization(666)
-
-
 class CommitCommentsTestCase(unittest.TestCase):
 
     _multiprocess_can_split_ = True
@@ -332,7 +312,7 @@ class NotificationsTestCase(unittest.TestCase):
     def test_mark_as_read(self):
         self.assertEqual(self.hub.notifications.mark_as_read(), True)
 
-    def test_mark_repository_as_read(self): 
+    def test_mark_repository_as_read(self):
         r = self.hub.notifications.mark_repository_as_read(self.repo)
         self.assertEqual(r, True)
 

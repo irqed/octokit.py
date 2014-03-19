@@ -35,7 +35,6 @@ def fake_request(self, method, url, params=None, data=None, headers=None,
     parsed_url = urlparse(url)
     path = 'tests/fixtures%s_%s.json' % (parsed_url.path, method.lower())
     resource_path = os.path.normpath(path)
-
     if not os.path.isfile(resource_path):
         resource_path = os.path.normpath('tests/fixtures/404.json')
 

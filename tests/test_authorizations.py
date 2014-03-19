@@ -5,7 +5,7 @@ from octokit.errors import OctokitNotFoundError
 
 
 class AuthorizationsTestCase(OctokitTestCase):
-    """Test case for the authorizations resource.
+    """Test case for the authorizations resource
     """
 
     def test_all(self):
