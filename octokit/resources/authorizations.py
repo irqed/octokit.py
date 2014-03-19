@@ -38,7 +38,8 @@ class Authorizations(Resource):
         """
         return self._http.get('authorizations/%s' % auth_id)
 
-    def create(self, auth_data):
+    def create(self, scopes, note, note_url=None, client_id=None,
+               client_secret=None):
         """You can create your own tokens, and only through
 
         You can only access your own tokens, and only through
@@ -47,7 +48,18 @@ class Authorizations(Resource):
         http://developer.github.com/v3/oauth/#create-a-new-authorization
         http://developer.github.com/v3/oauth/#scopes
         """
-        raise NotImplementedError
+        payload = dict(scopes=scopes, note=note)
+
+        if note_url:
+            payload['note_url'] = note_url
+
+        if client_id:
+            payload['client_id'] = client_id
+
+        if client_secret:
+            payload['client_secret'] = client_secret
+
+        return self._http.post('authorizations', payload=payload)
 
     def update(self, auth_id, auth_data):
         """Update an authorization for the authenticated user.

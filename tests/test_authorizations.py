@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-from base import OctokitTestCase
+from .base import OctokitTestCase
 from octokit.errors import OctokitNotFoundError
 
 
@@ -13,15 +13,25 @@ class AuthorizationsTestCase(OctokitTestCase):
         """
         authorizations = self.hub.authorizations.all()
         self.assertEqual(type(authorizations), list)
+        self.assertIn('id', authorizations[0])
+        self.assertIn('token', authorizations[0])
 
     def test_authorization(self):
         """Test single authorization response
         """
-        authorization = self.hub.authorizations.authorization('auth_id')
+        authorization = self.hub.authorizations.authorization(1)
+        self.assertIn('id', authorization)
         self.assertIn('token', authorization)
 
     def test_authorization_404(self):
         """Test not found response for a single authorization
         """
         with self.assertRaises(OctokitNotFoundError):
-            self.hub.authorizations.authorization('auth_id_404')
+            self.hub.authorizations.authorization(666)
+
+    def test_create(self):
+        """Test create a new authorization response
+        """
+        authorization = self.hub.authorizations.create(['public_repo',], 'test')
+        self.assertIn('id', authorization)
+        self.assertIn('token', authorization)

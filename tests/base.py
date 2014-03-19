@@ -33,7 +33,8 @@ def fake_request(self, method, url, params=None, data=None, headers=None,
     """A request() implementation that loads json responses from the filesystem.
     """
     parsed_url = urlparse(url)
-    resource_path = os.path.normpath('tests/fixtures%s.json' % parsed_url.path)
+    path = 'tests/fixtures%s_%s.json' % (parsed_url.path, method.lower())
+    resource_path = os.path.normpath(path)
 
     if not os.path.isfile(resource_path):
         resource_path = os.path.normpath('tests/fixtures/404.json')
