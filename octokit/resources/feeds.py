@@ -24,3 +24,4 @@ class Feeds(Resource):
     def feed(self):
         """Get a Feed by name
         """
+        raise NotImplementedError

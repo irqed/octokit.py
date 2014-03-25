@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 """Methods for the Gists API
+
 http://developer.github.com/v3/gists/
 """
 
@@ -10,21 +11,22 @@ from octokit.resources.base import Resource
 class Gists(Resource):
     """Gists API resource
     """
-    url = None
-
     def __init__(self, **kwargs):
         super(Gists, self).__init__(**kwargs)
 
     def all(self, user=None):
-        """List gists for a user or all public gists
+        """List gists for authenticated user or all public gists
 
         http://developer.github.com/v3/gists/#list-gists
         """
-        if user:
-            path = 'users/%s/gists' % user
-        else:
-            path = 'gists'
-        return self._http.get(path)
+        return self._http.get('gists')
+
+    def user(self, user):
+        """List gists for given user
+
+        http://developer.github.com/v3/gists/#list-gists
+        """
+        return self._http.get('users/%s/gists' % user)
 
     def public(self):
         """List public gists
@@ -40,7 +42,6 @@ class Gists(Resource):
 
         http://developer.github.com/v3/gists/#list-gists
         """
-
         return self._http.get('gists/starred')
 
     def gist(self, gist_id):
