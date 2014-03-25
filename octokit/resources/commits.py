@@ -80,23 +80,35 @@ class Commits(Resource):
         """
         return self._http.get('repos/%s/git/commits/%s' % (repo, sha))
 
-    def create_commit(self):
+    def create(self, repo, message, tree, parents, author=None, committer=None):
         """Create a commit
 
         http://developer.github.com/v3/git/commits/#create-a-commit
         """
-        raise NotImplementedError
+        commit = dict(message=message, tree=tree, parents=parents)
 
-    def compare(self):
+        if author:
+            commit['author'] = author
+
+        if committer:
+            commit['committer'] = committer
+
+        return self._http.post('repos/%s/git/commits' % repo, payload=commit)
+
+    def compare(self, repo, base, head):
         """Compare two commits
 
         http://developer.github.com/v3/repos/commits/#compare-two-commits
         """
-        raise NotImplementedError
+        return self._http.get('repos/%s/compare/%s...%s' % (repo, base, head))
 
-    def merge(self):
+    def merge(self, repo, base, head, commit_message=None):
         """Merge a branch or sha
 
         http://developer.github.com/v3/repos/merging/#perform-a-merge
         """
-        raise NotImplementedError
+        commit = dict(base=base, head=head)
+        if commit_message:
+            commit['commit_message'] = commit_message
+
+        return self._http.post('repos/%s/merges' % repo, payload=commit)
