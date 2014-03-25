@@ -21,19 +21,14 @@ class Events(Resource):
         """
         return self._http.get('events')
 
-    def user_events(self):
+    def performed_by(self, user, public=False):
         """List all user events
 
         http://developer.github.com/v3/activity/events/#list-events-performed-by-a-user
-        """
-        raise NotImplementedError
-
-    def user_public_events(self):
-        """List public user events
-
         http://developer.github.com/v3/activity/events/#list-public-events-performed-by-a-user
         """
-        raise NotImplementedError
+        path = 'users/%s/events/public' if public else 'users/%s/events'
+        return self._http.get(path % user)
 
     def received_events(self):
         """List events that a user has received

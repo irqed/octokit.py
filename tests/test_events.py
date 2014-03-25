@@ -13,3 +13,9 @@ class EventsTestCase(OctokitTestCase):
         """
         events = self.hub.events.public()
         self.assertEqual(type(events), list)
+
+    def test_performed_by(self):
+        """Get a list of events performed by octocat test
+        """
+        events = self.hub.events.performed_by('octocat')
+        self.assertEqual(type(events), list)
