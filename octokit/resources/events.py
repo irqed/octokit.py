@@ -61,7 +61,7 @@ class Events(Resource):
             path = 'orgs/%s/events' % org
         return self._http.get(path)
 
-    def repository_issues(self, repo):
+    def issues(self, repo):
         """Get all Issue Events for a given Repository
 
         http://developer.github.com/v3/issues/events/#list-events-for-a-repository
@@ -69,12 +69,12 @@ class Events(Resource):
         """
         return self._http.get('repos/%s/issues/events' % repo)
 
-    def issue_events(self):
+    def issue(self, repo, issue):
         """List events for an Issue
 
         http://developer.github.com/v3/issues/events/#list-events-for-an-issue
         """
-        raise NotImplementedError
+        return self._http.get('repos/%s/issues/%s/events' % (repo, issue))
 
     def issue_event(self):
         """Get information on a single Issue Event
