@@ -48,19 +48,18 @@ class Events(Resource):
         path = 'networks/%s/events' if network else 'repos/%s/events'
         return self._http.get(path % repo)
 
-    def organization_events(self):
-        """List all events for an organization
+    def organization(self, org, user=None):
+        """List all events for an organization or user's organization dashboard.
+        You must be authenticated as the user to view this.
 
         http://developer.github.com/v3/activity/events/#list-events-for-an-organization
-        """
-        raise NotImplementedError
-
-    def organization_public_events(self):
-        """List an organization's public events
-
         http://developer.github.com/v3/activity/events/#list-public-events-for-an-organization
         """
-        raise NotImplementedError
+        if user:
+            path = 'users/%s/events/orgs/%s' % (user, org)
+        else:
+            path = 'orgs/%s/events' % org
+        return self._http.get(path)
 
     def repository_issue_events(self):
         """Get all Issue Events for a given Repository

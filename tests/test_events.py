@@ -37,3 +37,15 @@ class EventsTestCase(OctokitTestCase):
         """
         events = self.hub.events.repository('octocat/Hello-World', True)
         self.assertEqual(type(events), list)
+
+    def test_organization(self):
+        """Get a list of event for organization
+        """
+        events = self.hub.events.organization('octocats')
+        self.assertEqual(type(events), list)
+
+    def test_user_organization(self):
+        """Get user’s organization dashboard
+        """
+        events = self.hub.events.organization('octocats', 'octocat')
+        self.assertEqual(type(events), list)
