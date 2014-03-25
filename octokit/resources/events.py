@@ -39,12 +39,12 @@ class Events(Resource):
         path = 'users/%s/received_events/public' if public else 'users/%s/received_events'
         return self._http.get(path % user)
 
-    def repository_events(self):
+    def repository(self, repo):
         """List events for a repository
 
         http://developer.github.com/v3/activity/events/#list-repository-events
         """
-        raise NotImplementedError
+        return self._http.get('repos/%s/events' % repo)
 
     def repository_network_events(self):
         """List public events for a repository's network
