@@ -46,6 +46,7 @@ class Gists(Resource):
 
     def gist(self, gist_id):
         """Get a single gist
+
         http://developer.github.com/v3/gists/#get-a-single-gist
         """
         return self._http.get('gists/%s' % gist_id)

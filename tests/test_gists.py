@@ -30,3 +30,9 @@ class GistsTestCase(OctokitTestCase):
         """
         gists = self.hub.gists.starred()
         self.assertEqual(type(gists), list)
+
+    def test_gist(self):
+        """Get a single gist test
+        """
+        gist = self.hub.gists.gist(1)
+        self.assertIn('description', gist)
