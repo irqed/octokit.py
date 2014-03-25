@@ -76,9 +76,9 @@ class Events(Resource):
         """
         return self._http.get('repos/%s/issues/%s/events' % (repo, issue))
 
-    def issue_event(self):
+    def event(self, repo, event):
         """Get information on a single Issue Event
 
         http://developer.github.com/v3/issues/events/#get-a-single-event
         """
-        raise NotImplementedError
+        return self._http.get('repos/%s/issues/events/%s' % (repo, event))
