@@ -1,0 +1,7 @@
+{
+    "body": "",
+    "headers": {
+        "Location": "https://codeload.github.com/me/myprivate/legacy.zip/master?login=me&token=thistokenexpires"
+    },
+    "status_code": 302
+}

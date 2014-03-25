@@ -92,12 +92,12 @@ class Contents(Resource):
         return self._http.delete('repos/%s/contents/%s' % (repo, path),
                                  payload=payload)
 
-    def archive_link(self, repo, format='tarball', ref='master'):
+    def archive_link(self, repo, ball='tarball', ref='master'):
         """This method will provide a URL to download a tarball or zipball
         archive for a repository.
 
         http://developer.github.com/v3/repos/contents/#get-archive-link
         """
-        self._http.head('repos/%s/%s/%s' % (repo, format, ref),
+        self._http.head('repos/%s/%s/%s' % (repo, ball, ref),
                         allow_redirects=False)
         return self._http.last_response.headers['Location']

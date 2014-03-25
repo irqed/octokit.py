@@ -53,3 +53,9 @@ class ContentsTestCase(OctokitTestCase):
                                            author=author)
 
         self.assertIn('commit', content)
+
+    def test_archive_link(self):
+        """Get an archive link for a repo
+        """
+        link = self.hub.contents.archive_link('octocat/Hello-World')
+        self.assertEqual(type(link), unicode)

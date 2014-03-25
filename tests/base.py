@@ -45,6 +45,9 @@ def fake_request(self, method, url, params=None, data=None, headers=None,
     response._content = json.dumps(response_data['body'])
     response.status_code = response_data['status_code']
 
+    if 'headers' in response_data:
+        response.headers = response_data['headers']
+
     if hooks:
         response = dispatch_hook('response', hooks, response)
 
