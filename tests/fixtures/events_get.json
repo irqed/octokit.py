@@ -1,0 +1,32 @@
+{
+    "body": [
+        {
+            "actor": {
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "somehexcode",
+                "id": 1,
+                "login": "octocat",
+                "url": "https://api.github.com/users/octocat"
+            },
+            "created_at": "2011-09-06T17:26:27Z",
+            "id": "12345",
+            "org": {
+                "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+                "gravatar_id": "somehexcode",
+                "id": 1,
+                "login": "github",
+                "url": "https://api.github.com/orgs/github"
+            },
+            "payload": {
+            },
+            "public": true,
+            "repo": {
+                "id": 3,
+                "name": "octocat/Hello-World",
+                "url": "https://api.github.com/repos/octocat/Hello-World"
+            },
+            "type": "Event"
+        }
+    ],
+    "status_code": 200
+}
