@@ -36,35 +36,59 @@ class Contents(Resource):
             path = 'repos/%s/contents' % repo
         return self._http.get(path, params=params)
 
-    def create_contents(self, repo, path, message, content=None, branch='master', sha=None):
+    def create(self, repo, path, message, content, branch=None, sha=None,
+               author=None, committer=None):
         """Add content to a repository
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/repos/contents/#create-a-file
         """
-        payload = self._get_params(message=message, branch=branch, sha=sha,
-                                   content=base64.b64encode(content))
+        payload = dict(message=message, content=base64.b64encode(content))
+        if branch:
+            payload['branch'] = branch
+
+        if sha:
+            payload['sha'] = sha
+
+        if author:
+            payload['author'] = author
+
+        if committer:
+            payload['committer'] = committer
+
         return self._http.put('repos/%s/contents/%s' % (repo, path),
                               payload=payload)
 
-    def update_contents(self, repo, path, message, content, sha, branch='master'):
+    def update(self, repo, path, sha, message, content, branch=None,
+               author=None, committer=None):
         """Update content in a repository
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/repos/contents/#update-a-file
         """
-        return self.create_contents(repo, path, message, content, branch, sha)
+        return self.create(repo, path, message, content, branch, sha,
+                           author, committer)
 
-    def remove_contents(self, repo, path, message, sha, branch='master'):
+    def remove(self, repo, path, sha, message, branch=None,
+               author=None, committer=None):
         """Delete content in a repository
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/repos/contents/#delete-a-file
         """
-        payload = self._get_params(message=message, sha=sha, branch=branch)
+        payload = dict(message=message, sha=sha)
+        if branch:
+            payload['branch'] = branch
+
+        if author:
+            payload['author'] = author
+
+        if committer:
+            payload['committer'] = committer
+
         return self._http.delete('repos/%s/contents/%s' % (repo, path),
                                  payload=payload)
 
