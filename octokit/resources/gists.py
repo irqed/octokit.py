@@ -65,7 +65,7 @@ class Gists(Resource):
 
         return self._http.post('gists', payload=payload)
 
-    def edit(self, gist_id, gist):
+    def edit(self, gist_id, files, description=None):
         """Edit a gist
 
         Requries an authenticated client.
@@ -76,7 +76,12 @@ class Gists(Resource):
 
         http://developer.github.com/v3/gists/#edit-a-gist
         """
-        return self._http.patch('gists/%s' % gist_id, gist)
+        payload = dict(files=files)
+
+        if description:
+            payload['description'] = description
+
+        return self._http.patch('gists/%s' % gist_id, payload=payload)
 
     def remove(self, gist_id):
         """Delete a gist

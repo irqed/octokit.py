@@ -45,3 +45,23 @@ class GistsTestCase(OctokitTestCase):
         gist = self.hub.gists.create(files, True,
                                      'the description for this gist')
         self.assertIn('description', gist)
+
+    def test_edit(self):
+        """Edit a gist test
+        """
+        files = {
+            "file1.txt": {
+                "content": "updated file contents"
+            },
+            "old_name.txt": {
+                "filename": "new_name.txt",
+                "content": "modified contents"
+            },
+            "new_file.txt": {
+                "content": "a new file"
+            },
+            "delete_this_file.txt": None
+        }
+
+        gist = self.hub.gists.edit(1, files, 'the description for this gist')
+        self.assertIn('description', gist)
