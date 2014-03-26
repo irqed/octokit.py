@@ -1,0 +1,4646 @@
+{
+    "body": [
+        {
+            "events": [
+                "push"
+            ],
+            "name": "activecollab",
+            "schema": [
+                [
+                    "string",
+                    "url"
+                ],
+                [
+                    "string",
+                    "token"
+                ],
+                [
+                    "string",
+                    "project_id"
+                ],
+                [
+                    "string",
+                    "milestone_id"
+                ],
+                [
+                    "string",
+                    "category_id"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "acunote",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "agilebench",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ],
+                [
+                    "string",
+                    "project_id"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "agilezen",
+            "schema": [
+                [
+                    "string",
+                    "api_key"
+                ],
+                [
+                    "string",
+                    "project_id"
+                ],
+                [
+                    "string",
+                    "branches"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "amazonsns",
+            "schema": [
+                [
+                    "string",
+                    "aws_key"
+                ],
+                [
+                    "string",
+                    "sns_topic"
+                ],
+                [
+                    "string",
+                    "sns_region"
+                ],
+                [
+                    "password",
+                    "aws_secret"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "apiary",
+            "schema": [
+                [
+                    "string",
+                    "branch"
+                ],
+                [
+                    "string",
+                    "domain"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "issues"
+            ],
+            "name": "apoio",
+            "schema": [
+                [
+                    "string",
+                    "subdomain"
+                ],
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "issues"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "appharbor",
+            "schema": [
+                [
+                    "string",
+                    "application_slug"
+                ],
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "commit_comment",
+                "issues",
+                "issue_comment",
+                "pull_request",
+                "push"
+            ],
+            "name": "apropos",
+            "schema": [
+                [
+                    "string",
+                    "project_id"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "asana",
+            "schema": [
+                [
+                    "string",
+                    "auth_token"
+                ],
+                [
+                    "string",
+                    "restrict_to_branch"
+                ],
+                [
+                    "boolean",
+                    "restrict_to_last_commit"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "awsopsworks",
+            "schema": [
+                [
+                    "string",
+                    "stack_id"
+                ],
+                [
+                    "string",
+                    "app_id"
+                ],
+                [
+                    "string",
+                    "branch_name"
+                ],
+                [
+                    "string",
+                    "aws_access_key_id"
+                ],
+                [
+                    "password",
+                    "aws_secret_access_key"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "backlog",
+            "schema": [
+                [
+                    "string",
+                    "api_url"
+                ],
+                [
+                    "string",
+                    "user_id"
+                ],
+                [
+                    "password",
+                    "password"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "bamboo",
+            "schema": [
+                [
+                    "string",
+                    "base_url"
+                ],
+                [
+                    "string",
+                    "build_key"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "password",
+                    "password"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "basecamp",
+            "schema": [
+                [
+                    "string",
+                    "url"
+                ],
+                [
+                    "string",
+                    "project"
+                ],
+                [
+                    "string",
+                    "category"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "password",
+                    "password"
+                ],
+                [
+                    "boolean",
+                    "ssl"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push",
+                "pull_request",
+                "issues"
+            ],
+            "name": "bcx",
+            "schema": [
+                [
+                    "string",
+                    "project_url"
+                ],
+                [
+                    "string",
+                    "email_address"
+                ],
+                [
+                    "password",
+                    "password"
+                ]
+            ],
+            "supported_events": [
+                "issues",
+                "pull_request",
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "issues",
+                "issue_comment"
+            ],
+            "name": "blimp",
+            "schema": [
+                [
+                    "string",
+                    "project_url"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "string",
+                    "goal_title"
+                ],
+                [
+                    "password",
+                    "api_key"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "boxcar",
+            "schema": [
+                [
+                    "string",
+                    "subscribers"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "buddycloud",
+            "schema": [
+                [
+                    "string",
+                    "buddycloud_base_api"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "string",
+                    "password"
+                ],
+                [
+                    "string",
+                    "channel"
+                ],
+                [
+                    "password",
+                    "password"
+                ],
+                [
+                    "boolean",
+                    "show_commit_summary"
+                ],
+                [
+                    "boolean",
+                    "show_commit_detail"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "issues",
+                "issue_comment",
+                "push"
+            ],
+            "name": "bugherd",
+            "schema": [
+                [
+                    "string",
+                    "project_key"
+                ]
+            ],
+            "supported_events": [
+                "issue_comment",
+                "issues",
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "bugly",
+            "schema": [
+                [
+                    "string",
+                    "project_id"
+                ],
+                [
+                    "string",
+                    "account_name"
+                ],
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "bugzilla",
+            "schema": [
+                [
+                    "string",
+                    "server_url"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "string",
+                    "integration_branch"
+                ],
+                [
+                    "password",
+                    "password"
+                ],
+                [
+                    "boolean",
+                    "central_repository"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push",
+                "pull_request",
+                "issues"
+            ],
+            "name": "campfire",
+            "schema": [
+                [
+                    "string",
+                    "subdomain"
+                ],
+                [
+                    "string",
+                    "room"
+                ],
+                [
+                    "string",
+                    "token"
+                ],
+                [
+                    "string",
+                    "sound"
+                ],
+                [
+                    "boolean",
+                    "master_only"
+                ],
+                [
+                    "boolean",
+                    "play_sound"
+                ],
+                [
+                    "boolean",
+                    "long_url"
+                ]
+            ],
+            "supported_events": [
+                "gollum",
+                "issues",
+                "public",
+                "pull_request",
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "cia",
+            "schema": [
+                [
+                    "string",
+                    "address"
+                ],
+                [
+                    "string",
+                    "project"
+                ],
+                [
+                    "string",
+                    "branch"
+                ],
+                [
+                    "string",
+                    "module"
+                ],
+                [
+                    "boolean",
+                    "long_url"
+                ],
+                [
+                    "boolean",
+                    "full_commits"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ],
+            "name": "circleci",
+            "schema": [
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push",
+                "pull_request"
+            ],
+            "name": "codeclimate",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "codeportingcsharp2java",
+            "schema": [
+                [
+                    "string",
+                    "project_name"
+                ],
+                [
+                    "string",
+                    "repo_key"
+                ],
+                [
+                    "string",
+                    "target_repo_key"
+                ],
+                [
+                    "string",
+                    "codeporting_username"
+                ],
+                [
+                    "password",
+                    "codeporting_password"
+                ],
+                [
+                    "string",
+                    "github_access_token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "codeship",
+            "schema": [
+                [
+                    "string",
+                    "project_uuid"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "coffeedocinfo",
+            "schema": [
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "conductor",
+            "schema": [
+                [
+                    "string",
+                    "api_key"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "coop",
+            "schema": [
+                [
+                    "string",
+                    "group_id"
+                ],
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "copperegg",
+            "schema": [
+                [
+                    "string",
+                    "url"
+                ],
+                [
+                    "string",
+                    "tag"
+                ],
+                [
+                    "boolean",
+                    "master_only"
+                ],
+                [
+                    "string",
+                    "api_key"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "crocagile",
+            "schema": [
+                [
+                    "string",
+                    "project_key"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "cube",
+            "schema": [
+                [
+                    "string",
+                    "domain"
+                ],
+                [
+                    "string",
+                    "project"
+                ],
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "depending",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "deployhq",
+            "schema": [
+                [
+                    "string",
+                    "deploy_hook_url"
+                ],
+                [
+                    "boolean",
+                    "email_pusher"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push",
+                "member",
+                "public",
+                "issues",
+                "gollum"
+            ],
+            "name": "devaria",
+            "schema": [
+                [
+                    "string",
+                    "project_id"
+                ],
+                [
+                    "string",
+                    "username"
+                ]
+            ],
+            "supported_events": [
+                "gollum",
+                "issues",
+                "member",
+                "public",
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "docker",
+            "schema": [
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push",
+                "issues",
+                "fork",
+                "watch"
+            ],
+            "name": "ducksboard",
+            "schema": [
+                [
+                    "string",
+                    "webhook_key"
+                ]
+            ],
+            "supported_events": [
+                "fork",
+                "issues",
+                "push",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "email",
+            "schema": [
+                [
+                    "string",
+                    "address"
+                ],
+                [
+                    "password",
+                    "secret"
+                ],
+                [
+                    "boolean",
+                    "send_from_author"
+                ]
+            ],
+            "supported_events": [
+                "public",
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "firebase",
+            "schema": [
+                [
+                    "string",
+                    "firebase"
+                ],
+                [
+                    "string",
+                    "secret"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "fisheye",
+            "schema": [
+                [
+                    "string",
+                    "url_base"
+                ],
+                [
+                    "string",
+                    "token"
+                ],
+                [
+                    "string",
+                    "repository_name"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "commit_comment",
+                "gollum",
+                "issues",
+                "issue_comment",
+                "pull_request",
+                "push",
+                "pull_request_review_comment"
+            ],
+            "name": "flowdock",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "fogbugz",
+            "schema": [
+                [
+                    "string",
+                    "cvssubmit_url"
+                ],
+                [
+                    "string",
+                    "fb_repoid"
+                ],
+                [
+                    "string",
+                    "fb_version"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "freckle",
+            "schema": [
+                [
+                    "string",
+                    "subdomain"
+                ],
+                [
+                    "string",
+                    "project"
+                ],
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "friendfeed",
+            "schema": [
+                [
+                    "string",
+                    "nickname"
+                ],
+                [
+                    "string",
+                    "remotekey"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "gemini",
+            "schema": [
+                [
+                    "string",
+                    "server_url"
+                ],
+                [
+                    "string",
+                    "api_key"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "gemnasium",
+            "schema": [
+                [
+                    "string",
+                    "user"
+                ],
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "geocommit",
+            "schema": [
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "getlocalization",
+            "schema": [
+                [
+                    "string",
+                    "project_name"
+                ],
+                [
+                    "string",
+                    "project_token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ],
+            "name": "gitter",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ],
+                [
+                    "boolean",
+                    "mute_fork"
+                ],
+                [
+                    "boolean",
+                    "mute_watch"
+                ],
+                [
+                    "boolean",
+                    "mute_comments"
+                ],
+                [
+                    "boolean",
+                    "mute_wiki"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "grmble",
+            "schema": [
+                [
+                    "string",
+                    "room_api_url"
+                ],
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "grouptalent",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "commit_comment",
+                "gollum",
+                "issues",
+                "issue_comment",
+                "pull_request",
+                "push"
+            ],
+            "name": "grove",
+            "schema": [
+                [
+                    "string",
+                    "channel_token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "habitualist",
+            "schema": [
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "hakiri",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ],
+                [
+                    "string",
+                    "project_id"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "commit_comment",
+                "gollum",
+                "issues",
+                "issue_comment",
+                "pull_request",
+                "push"
+            ],
+            "name": "hall",
+            "schema": [
+                [
+                    "string",
+                    "room_token"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "harvest",
+            "schema": [
+                [
+                    "string",
+                    "subdomain"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "password",
+                    "password"
+                ],
+                [
+                    "boolean",
+                    "ssl"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "commit_comment",
+                "download",
+                "fork",
+                "fork_apply",
+                "gollum",
+                "issues",
+                "issue_comment",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "watch"
+            ],
+            "name": "hipchat",
+            "schema": [
+                [
+                    "string",
+                    "auth_token"
+                ],
+                [
+                    "string",
+                    "room"
+                ],
+                [
+                    "string",
+                    "restrict_to_branch"
+                ],
+                [
+                    "string",
+                    "color"
+                ],
+                [
+                    "string",
+                    "server"
+                ],
+                [
+                    "boolean",
+                    "notify"
+                ],
+                [
+                    "boolean",
+                    "quiet_fork"
+                ],
+                [
+                    "boolean",
+                    "quiet_watch"
+                ],
+                [
+                    "boolean",
+                    "quiet_comments"
+                ],
+                [
+                    "boolean",
+                    "quiet_wiki"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push",
+                "issues",
+                "issue_comment",
+                "commit_comment",
+                "create",
+                "delete",
+                "pull_request",
+                "gollum",
+                "watch",
+                "release",
+                "fork",
+                "member",
+                "public",
+                "team_add",
+                "status",
+                "deployment",
+                "deployment_status"
+            ],
+            "name": "honbu",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "hostedgraphite",
+            "schema": [
+                [
+                    "string",
+                    "api_key"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "hubcap",
+            "schema": [
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "hubci",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "issue_comment",
+                "issues"
+            ],
+            "name": "huboard",
+            "schema": [
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "push",
+                "team_add",
+                "watch",
+                "pull_request_review_comment",
+                "status"
+            ],
+            "name": "humbug",
+            "schema": [
+                [
+                    "string",
+                    "email"
+                ],
+                [
+                    "string",
+                    "api_key"
+                ],
+                [
+                    "string",
+                    "stream"
+                ],
+                [
+                    "string",
+                    "commit_stream"
+                ],
+                [
+                    "string",
+                    "issue_stream"
+                ],
+                [
+                    "string",
+                    "branches"
+                ],
+                [
+                    "string",
+                    "alternative_endpoint"
+                ],
+                [
+                    "boolean",
+                    "exclude_pull_requests"
+                ],
+                [
+                    "boolean",
+                    "exclude_issues"
+                ],
+                [
+                    "boolean",
+                    "exclude_commits"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "icescrum",
+            "schema": [
+                [
+                    "string",
+                    "base_url"
+                ],
+                [
+                    "string",
+                    "project_key"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "password",
+                    "password"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push",
+                "pull_request"
+            ],
+            "name": "irc",
+            "schema": [
+                [
+                    "string",
+                    "server"
+                ],
+                [
+                    "string",
+                    "port"
+                ],
+                [
+                    "string",
+                    "room"
+                ],
+                [
+                    "string",
+                    "nick"
+                ],
+                [
+                    "string",
+                    "branch_regexes"
+                ],
+                [
+                    "string",
+                    "nickserv_password"
+                ],
+                [
+                    "password",
+                    "password"
+                ],
+                [
+                    "boolean",
+                    "ssl"
+                ],
+                [
+                    "boolean",
+                    "message_without_join"
+                ],
+                [
+                    "boolean",
+                    "no_colors"
+                ],
+                [
+                    "boolean",
+                    "long_url"
+                ],
+                [
+                    "boolean",
+                    "notice"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "issue_comment",
+                "issues",
+                "pull_request",
+                "pull_request_review_comment",
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "irker",
+            "schema": [
+                [
+                    "string",
+                    "address"
+                ],
+                [
+                    "string",
+                    "project"
+                ],
+                [
+                    "string",
+                    "branch"
+                ],
+                [
+                    "string",
+                    "module"
+                ],
+                [
+                    "string",
+                    "channels"
+                ],
+                [
+                    "boolean",
+                    "long_url"
+                ],
+                [
+                    "boolean",
+                    "color"
+                ],
+                [
+                    "boolean",
+                    "full_commits"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "commit_comment",
+                "download",
+                "fork",
+                "fork_apply",
+                "gollum",
+                "issues",
+                "issue_comment",
+                "member",
+                "public",
+                "pull_request",
+                "push",
+                "watch"
+            ],
+            "name": "ironmq",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ],
+                [
+                    "string",
+                    "project_id"
+                ],
+                [
+                    "string",
+                    "queue_name"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "commit_comment",
+                "download",
+                "fork",
+                "fork_apply",
+                "gollum",
+                "issues",
+                "issue_comment",
+                "member",
+                "public",
+                "pull_request",
+                "push",
+                "watch"
+            ],
+            "name": "ironworker",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ],
+                [
+                    "string",
+                    "project_id"
+                ],
+                [
+                    "string",
+                    "code_name"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "jabber",
+            "schema": [
+                [
+                    "string",
+                    "user"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "commit_comment",
+                "download",
+                "fork",
+                "fork_apply",
+                "gollum",
+                "issues",
+                "issue_comment",
+                "member",
+                "public",
+                "pull_request",
+                "push",
+                "watch"
+            ],
+            "name": "jaconda",
+            "schema": [
+                [
+                    "string",
+                    "subdomain"
+                ],
+                [
+                    "string",
+                    "room_id"
+                ],
+                [
+                    "string",
+                    "room_token"
+                ],
+                [
+                    "boolean",
+                    "digest"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push",
+                "pull_request",
+                "commit_comment"
+            ],
+            "name": "jeapie",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "jenkins",
+            "schema": [
+                [
+                    "string",
+                    "jenkins_hook_url"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "jenkinsgit",
+            "schema": [
+                [
+                    "string",
+                    "jenkins_url"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "jira",
+            "schema": [
+                [
+                    "string",
+                    "server_url"
+                ],
+                [
+                    "string",
+                    "api_version"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "password",
+                    "password"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "jqueryplugins",
+            "schema": [
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "kanbanery",
+            "schema": [
+                [
+                    "string",
+                    "project_id"
+                ],
+                [
+                    "string",
+                    "project_token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "kickoff",
+            "schema": [
+                [
+                    "string",
+                    "project_id"
+                ],
+                [
+                    "string",
+                    "project_token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "landscape",
+            "schema": [
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "leanpub",
+            "schema": [
+                [
+                    "string",
+                    "api_key"
+                ],
+                [
+                    "string",
+                    "slug"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "leanto",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ],
+            "name": "lechat",
+            "schema": [
+                [
+                    "string",
+                    "webhook_url"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "lighthouse",
+            "schema": [
+                [
+                    "string",
+                    "subdomain"
+                ],
+                [
+                    "string",
+                    "project_id"
+                ],
+                [
+                    "string",
+                    "token"
+                ],
+                [
+                    "boolean",
+                    "private"
+                ],
+                [
+                    "boolean",
+                    "send_only_ticket_commits"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "lingohub",
+            "schema": [
+                [
+                    "string",
+                    "project_token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "loggly",
+            "schema": [
+                [
+                    "string",
+                    "input_token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "mantisbt",
+            "schema": [
+                [
+                    "string",
+                    "url"
+                ],
+                [
+                    "string",
+                    "api_key"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "masterbranch",
+            "schema": [
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "mqttpub",
+            "schema": [
+                [
+                    "string",
+                    "broker"
+                ],
+                [
+                    "string",
+                    "port"
+                ],
+                [
+                    "string",
+                    "topic"
+                ],
+                [
+                    "string",
+                    "clientid"
+                ],
+                [
+                    "string",
+                    "user"
+                ],
+                [
+                    "password",
+                    "pass"
+                ],
+                [
+                    "boolean",
+                    "retain"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "myget",
+            "schema": [
+                [
+                    "string",
+                    "hook_url"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "namecast",
+            "schema": [
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "nma",
+            "schema": [
+                [
+                    "string",
+                    "apikey"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "nodejitsu",
+            "schema": [
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "password",
+                    "password"
+                ],
+                [
+                    "string",
+                    "branch"
+                ],
+                [
+                    "string",
+                    "endpoint"
+                ],
+                [
+                    "boolean",
+                    "email_success_deploys"
+                ],
+                [
+                    "boolean",
+                    "email_errors"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "obs",
+            "schema": [
+                [
+                    "string",
+                    "url"
+                ],
+                [
+                    "string",
+                    "token"
+                ],
+                [
+                    "string",
+                    "project"
+                ],
+                [
+                    "string",
+                    "package"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "ontime",
+            "schema": [
+                [
+                    "string",
+                    "ontime_url"
+                ],
+                [
+                    "string",
+                    "api_key"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "pachube",
+            "schema": [
+                [
+                    "string",
+                    "api_key"
+                ],
+                [
+                    "string",
+                    "feed_id"
+                ],
+                [
+                    "string",
+                    "track_branch"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "packagist",
+            "schema": [
+                [
+                    "string",
+                    "user"
+                ],
+                [
+                    "password",
+                    "token"
+                ],
+                [
+                    "string",
+                    "domain"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "phraseapp",
+            "schema": [
+                [
+                    "string",
+                    "auth_token"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "pivotaltracker",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ],
+                [
+                    "string",
+                    "branch"
+                ],
+                [
+                    "string",
+                    "endpoint"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "piwikplugins",
+            "schema": [
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "planbox",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "planio",
+            "schema": [
+                [
+                    "string",
+                    "address"
+                ],
+                [
+                    "string",
+                    "project"
+                ],
+                [
+                    "string",
+                    "api_key"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "prowl",
+            "schema": [
+                [
+                    "string",
+                    "apikey"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "puppetlinter",
+            "schema": [
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "pushalot",
+            "schema": [
+                [
+                    "string",
+                    "authorization_token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push",
+                "issues",
+                "pull_request"
+            ],
+            "name": "pushbullet",
+            "schema": [
+                [
+                    "string",
+                    "api_key"
+                ],
+                [
+                    "string",
+                    "device_iden"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "pushover",
+            "schema": [
+                [
+                    "string",
+                    "user_key"
+                ],
+                [
+                    "string",
+                    "device_name"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "pythonpackages",
+            "schema": [
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "railsbp",
+            "schema": [
+                [
+                    "string",
+                    "railsbp_url"
+                ],
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "railsbrakeman",
+            "schema": [
+                [
+                    "string",
+                    "rails_brakeman_url"
+                ],
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "rally",
+            "schema": [
+                [
+                    "string",
+                    "server"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "string",
+                    "workspace"
+                ],
+                [
+                    "string",
+                    "repository"
+                ],
+                [
+                    "password",
+                    "password"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "rapidpush",
+            "schema": [
+                [
+                    "string",
+                    "apikey"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "rationaljazzhub",
+            "schema": [
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "password",
+                    "password"
+                ],
+                [
+                    "string",
+                    "override_server_url"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "rationalteamconcert",
+            "schema": [
+                [
+                    "string",
+                    "server_url"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "string",
+                    "project_area_uuid"
+                ],
+                [
+                    "password",
+                    "password"
+                ],
+                [
+                    "boolean",
+                    "basic_authentication"
+                ],
+                [
+                    "boolean",
+                    "no_verify_ssl"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "rdocinfo",
+            "schema": [
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "readthedocs",
+            "schema": [
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "redmine",
+            "schema": [
+                [
+                    "string",
+                    "address"
+                ],
+                [
+                    "string",
+                    "project"
+                ],
+                [
+                    "string",
+                    "api_key"
+                ],
+                [
+                    "boolean",
+                    "fetch_commits"
+                ],
+                [
+                    "boolean",
+                    "update_redmine_issues_about_commits"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "issues",
+                "issue_comment",
+                "push"
+            ],
+            "name": "robustest",
+            "schema": [
+                [
+                    "string",
+                    "project_key"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "rubyforge",
+            "schema": [
+                [
+                    "string",
+                    "groupid"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "password",
+                    "password"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "scrumdo",
+            "schema": [
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "string",
+                    "project_slug"
+                ],
+                [
+                    "password",
+                    "password"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "shiningpanda",
+            "schema": [
+                [
+                    "string",
+                    "workspace"
+                ],
+                [
+                    "string",
+                    "job"
+                ],
+                [
+                    "string",
+                    "token"
+                ],
+                [
+                    "string",
+                    "branches"
+                ],
+                [
+                    "string",
+                    "parameters"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "sifter",
+            "schema": [
+                [
+                    "string",
+                    "subdomain"
+                ],
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push",
+                "issues",
+                "issue_comment",
+                "commit_comment",
+                "pull_request",
+                "pull_request_review_comment",
+                "watch",
+                "fork",
+                "fork_apply",
+                "member",
+                "public",
+                "team_add",
+                "status"
+            ],
+            "name": "simperium",
+            "schema": [
+                [
+                    "string",
+                    "app_id"
+                ],
+                [
+                    "string",
+                    "token"
+                ],
+                [
+                    "string",
+                    "bucket"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "skydeskprojects",
+            "schema": [
+                [
+                    "string",
+                    "project_id"
+                ],
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "slatebox",
+            "schema": [
+                [
+                    "string",
+                    "app_id"
+                ],
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "snowyevening",
+            "schema": [
+                [
+                    "string",
+                    "project"
+                ],
+                [
+                    "string",
+                    "api_key"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "socialcast",
+            "schema": [
+                [
+                    "string",
+                    "api_domain"
+                ],
+                [
+                    "string",
+                    "group_id"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "password",
+                    "password"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "softlayermessaging",
+            "schema": [
+                [
+                    "string",
+                    "account"
+                ],
+                [
+                    "string",
+                    "user"
+                ],
+                [
+                    "string",
+                    "name"
+                ],
+                [
+                    "password",
+                    "key"
+                ],
+                [
+                    "boolean",
+                    "topic"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "sourcemint",
+            "schema": [
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "splendidbacon",
+            "schema": [
+                [
+                    "string",
+                    "project_id"
+                ],
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "push",
+                "team_add",
+                "watch",
+                "pull_request_review_comment",
+                "status"
+            ],
+            "name": "sprintly",
+            "schema": [
+                [
+                    "string",
+                    "email"
+                ],
+                [
+                    "string",
+                    "api_key"
+                ],
+                [
+                    "string",
+                    "product_id"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "sqsqueue",
+            "schema": [
+                [
+                    "string",
+                    "aws_access_key"
+                ],
+                [
+                    "string",
+                    "aws_sqs_arn"
+                ],
+                [
+                    "password",
+                    "aws_secret_key"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ],
+            "name": "sqwiggle",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ],
+                [
+                    "string",
+                    "room"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "stackmob",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "statusnet",
+            "schema": [
+                [
+                    "string",
+                    "server"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "password",
+                    "password"
+                ],
+                [
+                    "boolean",
+                    "digest"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "talker",
+            "schema": [
+                [
+                    "string",
+                    "url"
+                ],
+                [
+                    "string",
+                    "token"
+                ],
+                [
+                    "boolean",
+                    "digest"
+                ]
+            ],
+            "supported_events": [
+                "issues",
+                "pull_request",
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "targetprocess",
+            "schema": [
+                [
+                    "string",
+                    "base_url"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "password",
+                    "password"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ],
+            "name": "tddium",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ],
+                [
+                    "string",
+                    "override_url"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "teamcity",
+            "schema": [
+                [
+                    "string",
+                    "base_url"
+                ],
+                [
+                    "string",
+                    "build_type_id"
+                ],
+                [
+                    "string",
+                    "branches"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "password",
+                    "password"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "issues"
+            ],
+            "name": "tender",
+            "schema": [
+                [
+                    "string",
+                    "domain"
+                ],
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "issues",
+                "pull_request"
+            ]
+        },
+        {
+            "events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ],
+            "name": "tenxer",
+            "schema": [
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "testpilot",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "toggl",
+            "schema": [
+                [
+                    "string",
+                    "project"
+                ],
+                [
+                    "string",
+                    "api_token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "trac",
+            "schema": [
+                [
+                    "string",
+                    "url"
+                ],
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "trajectory",
+            "schema": [
+                [
+                    "string",
+                    "api_key"
+                ]
+            ],
+            "supported_events": [
+                "pull_request",
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push",
+                "pull_request",
+                "issue_comment",
+                "public",
+                "member"
+            ],
+            "name": "travis",
+            "schema": [
+                [
+                    "string",
+                    "user"
+                ],
+                [
+                    "password",
+                    "token"
+                ],
+                [
+                    "string",
+                    "domain"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push",
+                "pull_request"
+            ],
+            "name": "trello",
+            "schema": [
+                [
+                    "string",
+                    "push_list_id"
+                ],
+                [
+                    "string",
+                    "pull_request_list_id"
+                ],
+                [
+                    "string",
+                    "ignore_regex"
+                ],
+                [
+                    "boolean",
+                    "master_only"
+                ],
+                [
+                    "password",
+                    "consumer_token"
+                ]
+            ],
+            "supported_events": [
+                "pull_request",
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "twilio",
+            "schema": [
+                [
+                    "string",
+                    "account_sid"
+                ],
+                [
+                    "string",
+                    "from_phone"
+                ],
+                [
+                    "string",
+                    "to_phone"
+                ],
+                [
+                    "boolean",
+                    "master_only"
+                ],
+                [
+                    "password",
+                    "auth_token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "twitter",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ],
+                [
+                    "string",
+                    "secret"
+                ],
+                [
+                    "boolean",
+                    "digest"
+                ],
+                [
+                    "boolean",
+                    "short_format"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "unfuddle",
+            "schema": [
+                [
+                    "string",
+                    "subdomain"
+                ],
+                [
+                    "string",
+                    "repo_id"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "password",
+                    "password"
+                ],
+                [
+                    "boolean",
+                    "httponly"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "versioneye",
+            "schema": [
+                [
+                    "string",
+                    "api_key"
+                ],
+                [
+                    "string",
+                    "project_id"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "web",
+            "schema": [
+                [
+                    "string",
+                    "url"
+                ],
+                [
+                    "string",
+                    "secret"
+                ],
+                [
+                    "string",
+                    "content_type"
+                ],
+                [
+                    "string",
+                    "ssl_version"
+                ],
+                [
+                    "boolean",
+                    "insecure_ssl"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "weblate",
+            "schema": [
+                [
+                    "string",
+                    "url"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "webtranslateit",
+            "schema": [
+                [
+                    "string",
+                    "api_key"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "windowsazure",
+            "schema": [
+                [
+                    "string",
+                    "hostname"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "string",
+                    "password"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push",
+                "commit_comment",
+                "pull_request",
+                "pull_request_review_comment",
+                "public"
+            ],
+            "name": "yammer",
+            "schema": [
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "youtrack",
+            "schema": [
+                [
+                    "string",
+                    "base_url"
+                ],
+                [
+                    "string",
+                    "committers"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "string",
+                    "branch"
+                ],
+                [
+                    "boolean",
+                    "process_distinct"
+                ],
+                [
+                    "password",
+                    "password"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        },
+        {
+            "events": [
+                "commit_comment",
+                "issues",
+                "issue_comment",
+                "pull_request",
+                "push"
+            ],
+            "name": "zendesk",
+            "schema": [
+                [
+                    "string",
+                    "subdomain"
+                ],
+                [
+                    "string",
+                    "username"
+                ],
+                [
+                    "password",
+                    "password"
+                ]
+            ],
+            "supported_events": [
+                "commit_comment",
+                "create",
+                "delete",
+                "deployment",
+                "deployment_status",
+                "download",
+                "follow",
+                "fork",
+                "fork_apply",
+                "gist",
+                "gollum",
+                "issue_comment",
+                "issues",
+                "member",
+                "public",
+                "pull_request",
+                "pull_request_review_comment",
+                "push",
+                "release",
+                "status",
+                "team_add",
+                "watch"
+            ]
+        },
+        {
+            "events": [
+                "push"
+            ],
+            "name": "zohoprojects",
+            "schema": [
+                [
+                    "string",
+                    "project_id"
+                ],
+                [
+                    "string",
+                    "token"
+                ]
+            ],
+            "supported_events": [
+                "push"
+            ]
+        }
+    ],
+    "status_code": 200
+}
