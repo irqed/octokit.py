@@ -51,14 +51,19 @@ class Gists(Resource):
         """
         return self._http.get('gists/%s' % gist_id)
 
-    def create(self, gist):
+    def create(self, files, public=False, description=None):
         """Create a gist
 
         Requries an authenticated client.
 
         http://developer.github.com/v3/gists/#create-a-gist
         """
-        return self._http.post('gists', gist)
+        payload = dict(files=files, public=public)
+
+        if description:
+            payload['description'] = description
+
+        return self._http.post('gists', payload=payload)
 
     def edit(self, gist_id, gist):
         """Edit a gist

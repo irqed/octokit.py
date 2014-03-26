@@ -36,3 +36,12 @@ class GistsTestCase(OctokitTestCase):
         """
         gist = self.hub.gists.gist(1)
         self.assertIn('description', gist)
+
+    def test_create(self):
+        """Create a gist test
+        """
+        files = {'file1.txt': { 'content': 'String file contents'} }
+
+        gist = self.hub.gists.create(files, True,
+                                     'the description for this gist')
+        self.assertIn('description', gist)
