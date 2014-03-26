@@ -95,4 +95,33 @@ class GistsTestCase(OctokitTestCase):
         """
         gist = self.hub.gists.fork(1)
         self.assertIn('description', gist)
-    
+
+    def test_comments(self):
+        """Get a list of comments for a gist test
+        """
+        comments = self.hub.gists.comments(1)
+        self.assertEqual(type(comments), list)
+
+    def test_comment(self):
+        """Get a single comment for a gist test
+        """
+        comment = self.hub.gists.comment(1, 1)
+        self.assertEqual(comment['body'], 'Just commenting for the sake of commenting')
+
+    def test_create_comment(self):
+        """Create a single comment for a gist test
+        """
+        comment = self.hub.gists.create_comment(1, 'Just commenting for the sake of commenting)')
+        self.assertEqual(comment['body'], 'Just commenting for the sake of commenting')
+
+    def test_edit_comment(self):
+        """Edit a single comment for a gist test
+        """
+        comment = self.hub.gists.edit_comment(1, 1, 'Just commenting for the sake of commenting)')
+        self.assertEqual(comment['body'], 'Just commenting for the sake of commenting')
+
+    def test_remove_comment(self):
+        """Remove a single comment for a gist test
+        """
+        is_removed = self.hub.gists.remove_comment(1, 1)
+        self.assertEqual(is_removed, True)
