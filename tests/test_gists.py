@@ -65,3 +65,9 @@ class GistsTestCase(OctokitTestCase):
 
         gist = self.hub.gists.edit(1, files, 'the description for this gist')
         self.assertIn('description', gist)
+
+    def test_remove(self):
+        """Remove a gist test
+        """
+        is_removed = self.hub.gists.remove(1)
+        self.assertEqual(is_removed, True)
