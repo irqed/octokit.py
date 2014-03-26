@@ -7,7 +7,7 @@ from octokit import http
 from octokit.settings import Settings
 from octokit.resources import (Authorizations, CommitComments, Commits,
                                Contents, Emojis, Events, Feeds, Gists,
-                               Gitignore, Hooks, Meta, Notifications, Say,
+                               Gitignore, Hooks, Issues, Meta, Notifications, Say,
                                ServiceStatus, User, Users)
 
 
@@ -104,6 +104,10 @@ class Octokit(object):
     @lazy_property
     def hooks(self):
         return Hooks(http=self._http)
+
+    @lazy_property
+    def issues(self):
+        return Issues(http=self._http)
 
     @lazy_property
     def meta(self):
