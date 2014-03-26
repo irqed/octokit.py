@@ -71,3 +71,21 @@ class GistsTestCase(OctokitTestCase):
         """
         is_removed = self.hub.gists.remove(1)
         self.assertEqual(is_removed, True)
+
+    def test_star(self):
+        """Star a gist test
+        """
+        is_starred = self.hub.gists.star(1)
+        self.assertEqual(is_starred, True)
+
+    def test_unstar(self):
+        """Unstar a gist test
+        """
+        is_unstarred = self.hub.gists.unstar(1)
+        self.assertEqual(is_unstarred, True)
+
+    def test_is_starred(self):
+        """Is gist starred test
+        """
+        is_starred = self.hub.gists.is_starred(1)
+        self.assertEqual(is_starred, True)
