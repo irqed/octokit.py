@@ -1,0 +1,45 @@
+{
+    "body": {
+        "comments": 0,
+        "comments_url": "https://api.github.com/gists/ec74e09c25a7aebbf7d5/comments/",
+        "commits_url": "https://api.github.com/gists/d480e4c43937f0ede0f0/commits",
+        "created_at": "2010-04-14T02:15:15Z",
+        "description": "description of gist",
+        "files": {
+            "ring.erl": {
+                "language": "Erlang",
+                "raw_url": "https://gist.githubusercontent.com/raw/365370/8c4d2d43d178df44f4c03a7f2ac0ff512853564e/ring.erl",
+                "size": 932,
+                "type": "text/plain"
+            }
+        },
+        "forks_url": "https://api.github.com/gists/b64395ba2bb09cbccd88/forks",
+        "git_pull_url": "git://gist.github.com/1.git",
+        "git_push_url": "git@gist.github.com:1.git",
+        "html_url": "https://gist.github.com/1",
+        "id": "1",
+        "public": true,
+        "updated_at": "2011-06-20T11:34:15Z",
+        "url": "https://api.github.com/gists/6ad6e27573c990224efe",
+        "user": {
+            "avatar_url": "https://github.com/images/error/octocat_happy.gif",
+            "events_url": "https://api.github.com/users/octocat/events{/privacy}",
+            "followers_url": "https://api.github.com/users/octocat/followers",
+            "following_url": "https://api.github.com/users/octocat/following{/other_user}",
+            "gists_url": "https://api.github.com/users/octocat/gists{/gist_id}",
+            "gravatar_id": "somehexcode",
+            "html_url": "https://github.com/octocat",
+            "id": 1,
+            "login": "octocat",
+            "organizations_url": "https://api.github.com/users/octocat/orgs",
+            "received_events_url": "https://api.github.com/users/octocat/received_events",
+            "repos_url": "https://api.github.com/users/octocat/repos",
+            "site_admin": false,
+            "starred_url": "https://api.github.com/users/octocat/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/octocat/subscriptions",
+            "type": "User",
+            "url": "https://api.github.com/users/octocat"
+        }
+    },
+    "status_code": 201
+}

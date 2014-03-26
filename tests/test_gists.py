@@ -89,3 +89,10 @@ class GistsTestCase(OctokitTestCase):
         """
         is_starred = self.hub.gists.is_starred(1)
         self.assertEqual(is_starred, True)
+
+    def test_fork(self):
+        """Fork a gist test
+        """
+        gist = self.hub.gists.fork(1)
+        self.assertIn('description', gist)
+    
