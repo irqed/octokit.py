@@ -87,6 +87,7 @@ class HTTPBackend(object):
         return self._request('HEAD', self.full_url(path),
                              params=params, allow_redirects=allow_redirects)
 
+
 class HTTPBasicAuth(requests.auth.HTTPBasicAuth):
     """Class to use with GitHub basic auth
     """

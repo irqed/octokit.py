@@ -20,13 +20,13 @@ class Issues(Resource):
         """
         return self._http.get('issues', params=options)
 
-    def user_issues(self):
+    def user(self, options=None):
         """List all issues across owned and member repositories for
         the authenticated user
 
         http://developer.github.com/v3/issues/#list-issues
         """
-        raise NotImplementedError
+        return self._http.get('user/issues', params=options)
 
     def org_issues(self):
         """List all issues for a given organization for the authenticated user
