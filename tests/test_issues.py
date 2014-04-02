@@ -19,3 +19,10 @@ class IssuesTestCase(OctokitTestCase):
         issues = self.hub.issues.user()
         self.assertEqual(type(issues), list)
         self.assertNotEqual(len(issues), 0)
+
+    def test_org(self):
+        """Get a list of all issues for a given org test
+        """
+        issues = self.hub.issues.org('octocats')
+        self.assertEqual(type(issues), list)
+        self.assertNotEqual(len(issues), 0)

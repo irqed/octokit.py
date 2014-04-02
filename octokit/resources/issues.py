@@ -28,12 +28,12 @@ class Issues(Resource):
         """
         return self._http.get('user/issues', params=options)
 
-    def org_issues(self):
+    def org(self, org, options=None):
         """List all issues for a given organization for the authenticated user
 
         http://developer.github.com/v3/issues/#list-issues
         """
-        raise NotImplementedError
+        return self._http.get('orgs/%s/issues' % org, params=options)
 
     def create_issue(self):
         """Create an issue for a repository
