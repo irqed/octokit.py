@@ -19,10 +19,6 @@ if sys.argv[-1] == 'publish':
     sys.exit()
 
 
-packages = [
-    'octokit',
-]
-
 requires = [
     'requests>=2.0.1',
 ]
@@ -35,14 +31,15 @@ with open('LICENSE') as f:
     license = f.read()
 
 setup(
-    name='octokit',
+    name='octokit.py',
+    packages = ['octokit'],
     version=octokit.__version__,
     description='Missing Python toolkit for the GitHub API.',
     long_description=readme + '\n\n' + history,
     author='Alexander Shchepetilnikov',
     author_email='a@irqed.io',
     url='http://github.com/irqed/octokit.py',
-    packages=packages,
+    download_url='https://github.com/irqed/octokit.py/tree/%s' % octokit.__version__,
     package_data={'': ['LICENSE', 'NOTICE'], },
     package_dir={'octokit': 'octokit'},
     include_package_data=True,
