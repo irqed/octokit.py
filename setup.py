@@ -27,7 +27,7 @@ requires = [
     'requests>=2.0.1',
 ]
 
-with open('README.rst') as f:
+with open('README.md') as f:
     readme = f.read()
 with open('HISTORY.rst') as f:
     history = f.read()
