@@ -19,7 +19,7 @@ Octokit
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Octokit is a python toolkit for the GitHub API.
 
-:copyright: (c) 2013 by Alexander Shchepetilnikov.
+:copyright: (c) 2014 by Alexander Shchepetilnikov.
 :license: MIT, see LICENSE for more details.
 """
 

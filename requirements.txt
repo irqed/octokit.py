@@ -1,8 +1,8 @@
+slumber==0.6.0
+vcrpy==1.1.2
 nose
 rednose
-mock
 coverage
 flake8
 pylint
 wheel
-requests

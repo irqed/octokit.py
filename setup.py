@@ -20,7 +20,7 @@ if sys.argv[-1] == 'publish':
 
 
 requires = [
-    'requests>=2.0.1',
+    'slumber==0.6.0',
 ]
 
 with open('README.md') as f:

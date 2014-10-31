@@ -1,28 +1,14 @@
 # encoding: utf-8
+import octokit
+import unittest
 
-from .base import OctokitTestCase
+from .base import OctokitTestCase, vcr
+
+from octokit.errors import OctokitNotFoundError
 
 
 class IssuesTestCase(OctokitTestCase):
     """Test case for the issues API
     """
-    def test_all(self):
-        """Get a list all issues for a the authenticated user test
-        """
-        issues = self.hub.issues.all()
-        self.assertEqual(type(issues), list)
-        self.assertNotEqual(len(issues), 0)
 
-    def test_user(self):
-        """Get a list of all issues across owned and member repositories test
-        """
-        issues = self.hub.issues.user()
-        self.assertEqual(type(issues), list)
-        self.assertNotEqual(len(issues), 0)
-
-    def test_org(self):
-        """Get a list of all issues for a given org test
-        """
-        issues = self.hub.issues.org('octocats')
-        self.assertEqual(type(issues), list)
-        self.assertNotEqual(len(issues), 0)
+    pass
