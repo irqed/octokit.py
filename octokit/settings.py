@@ -1,17 +1,17 @@
 # encoding: utf-8
 
-"""Options class and default values for an API client.
+"""Settings class and default values for an API client.
 """
 
 from os import environ
-from octokit import __version__
+from .version import __version__
 
 
 # Default API endpoint
 API_ENDPOINT = "https://api.github.com/"
 
 # Default User Agent header string
-USER_AGENT = "Octokit.py/%s" % __version__
+USER_AGENT = "octokit.py/%s" % __version__
 
 # Default media type
 MEDIA_TYPE = "application/vnd.github.beta+json"

@@ -3,12 +3,8 @@
 """Toolkit for the GitHub API.
 """
 
-from octokit import http
+from octokit import http, resources
 from octokit.settings import Settings
-from octokit.resources import (Authorizations, CommitComments, Commits,
-                               Contents, Emojis, Events, Feeds, Gists,
-                               Gitignore, Hooks, Issues, Meta, Notifications, Say,
-                               ServiceStatus, User, Users)
 
 
 def lazy_property(fn):
@@ -25,22 +21,12 @@ def lazy_property(fn):
 
 
 class Octokit(object):
-    """Github API resources hub. Brings everything together.
+    """Github resources hub. Brings everything together.
     """
     def __init__(self, **kwargs):
         super(Octokit, self).__init__()
         self.settings = Settings(**kwargs)
         self._http = http.HTTPBackend(self.settings)
-
-    @property
-    def authenticated(self):
-        return (self.basic_authenticated or
-                self.token_authenticated or
-                self.application_authenticated)
-
-    @property
-    def user_authenticated(self):
-        return self.basic_authenticated or self.token_authenticated
 
     @property
     def basic_authenticated(self):
@@ -53,9 +39,19 @@ class Octokit(object):
                 else False)
 
     @property
+    def user_authenticated(self):
+        return self.basic_authenticated or self.token_authenticated
+
+    @property
     def application_authenticated(self):
         return (True if isinstance(self._http.auth, http.HTTPApplicationAuth)
                 else False)
+
+    @property
+    def authenticated(self):
+        return (self.basic_authenticated or
+                self.token_authenticated or
+                self.application_authenticated)
 
     @lazy_property
     def authorizations(self):
