@@ -7,10 +7,10 @@
 class OctokitError(Exception):
     """Base class to wrap up an API response error
     """
-    def __init__(self, r):
-        self.body = r.json()
-        self.headers = r.headers
-        self.code = r.status_code
+    def __init__(self, response):
+        self.body = response.json()
+        self.headers = response.headers
+        self.code = response.status_code
 
         if 'message' in self.body:
             self.message = self.body.get('message')
@@ -108,34 +108,36 @@ class OctokitMissingContentTypeError(OctokitError):
     """
 
 
-def error_from_response(r, *args, **kwargs):
-    if r.status_code == 400:
-        raise OctokitBadRequestError(r)
-    elif r.status_code == 401:
-        raise OctokitUnauthorizedError(r)
-    elif r.status_code == 403:
-        raise OctokitForbiddenError(r)
-    elif r.status_code == 404:
-        raise OctokitNotFoundError(r)
-    elif r.status_code == 406:
-        raise OctokitNotAcceptableError(r)
-    elif r.status_code == 409:
-        raise OctokitConflictError(r)
-    elif r.status_code == 415:
-        raise OctokitUnsupportedMediaTypeError(r)
-    elif r.status_code == 422:
-        raise OctokitUnprocessableEntityError(r)
-    elif 400 <= r.status_code <= 499:
-        raise OctokitClientError(r)
-    elif r.status_code == 500:
-        raise OctokitInternalServerErrorError(r)
-    elif r.status_code == 501:
-        raise OctokitNotImplementedError(r)
-    elif r.status_code == 502:
-        raise OctokitBadGatewayError(r)
-    elif r.status_code == 503:
-        raise OctokitServiceUnavailableError(r)
-    elif 500 <= r.status_code <= 599:
-        raise OctokitServerError(r)
+def error_from_response(response, *args, **kwargs):
+    """Raises appropriate error based on HTTP status code.
+    """
+    if response.status_code == 400:
+        raise OctokitBadRequestError(response)
+    elif response.status_code == 401:
+        raise OctokitUnauthorizedError(response)
+    elif response.status_code == 403:
+        raise OctokitForbiddenError(response)
+    elif response.status_code == 404:
+        raise OctokitNotFoundError(response)
+    elif response.status_code == 406:
+        raise OctokitNotAcceptableError(response)
+    elif response.status_code == 409:
+        raise OctokitConflictError(response)
+    elif response.status_code == 415:
+        raise OctokitUnsupportedMediaTypeError(response)
+    elif response.status_code == 422:
+        raise OctokitUnprocessableEntityError(response)
+    elif 400 <= response.status_code <= 499:
+        raise OctokitClientError(response)
+    elif response.status_code == 500:
+        raise OctokitInternalServerErrorError(response)
+    elif response.status_code == 501:
+        raise OctokitNotImplementedError(response)
+    elif response.status_code == 502:
+        raise OctokitBadGatewayError(response)
+    elif response.status_code == 503:
+        raise OctokitServiceUnavailableError(response)
+    elif 500 <= response.status_code <= 599:
+        raise OctokitServerError(response)
 
-    return r
+    return response
