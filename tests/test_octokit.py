@@ -5,7 +5,7 @@ from octokit import Octokit, errors
 from .base import OctokitTestCase, vcr
 
 
-class ClientTestCase(OctokitTestCase):
+class OctokitTestCase(OctokitTestCase):
     """Test case for the main Client.
     """
 
