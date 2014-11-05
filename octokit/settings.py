@@ -28,12 +28,16 @@ AUTO_PAGINATE = False
 # Can we trust env or not
 TRUST_ENV = True
 
+# Verify SSL certificate
+VERIFY_SSL = True
+
 
 class Settings(object):
     """Octokit settings class.
     """
     def __init__(self, **kwargs):
         super(Settings, self).__init__()
+        self.verify = kwargs.get('verify', VERIFY_SSL)
         self.trust_env = kwargs.get('trust_env', TRUST_ENV)
 
         self.login = kwargs.get('login')

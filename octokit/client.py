@@ -7,6 +7,7 @@ import slumber
 import requests
 
 from .auth import BasicAuth, TokenAuth, ApplicationAuth
+from .errors import error_from_response
 from .settings import Settings
 
 
@@ -17,8 +18,10 @@ class Octokit(slumber.API):
         self.settings = Settings(**kwargs)
 
         self._session = requests.Session()
+        self._session.verify = self.settings.verify
         self._session.proxies = self.settings.proxies
         self._session.trust_env = self.settings.trust_env
+        self._session.hooks = dict(response=error_from_response)
 
         self.__setup_headers()
         self.__setup_auth()

@@ -1,12 +1,12 @@
 # encoding: utf-8
 
-from octokit import Octokit
+from octokit import Octokit, errors
 
 from .base import OctokitTestCase, vcr
 
 
 class ClientTestCase(OctokitTestCase):
-    """Test case for the authorizations API
+    """Test case for the main Client.
     """
 
     def test_auth_login_password(self):
@@ -38,3 +38,8 @@ class ClientTestCase(OctokitTestCase):
         self.assertEqual(hub.basic_authenticated, False)
         self.assertEqual(hub.token_authenticated, False)
         self.assertEqual(hub.user_authenticated, False)
+
+    def test_error_unauthorized(self):
+        with vcr.use_cassette('client.yml'):
+            with self.assertRaises(errors.OctokitUnauthorizedError):
+                self.hub.authorizations.get()

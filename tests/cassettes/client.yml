@@ -1,0 +1,36 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/authorizations
+  response:
+    body: {string: !!python/unicode '{"message":"Requires authentication","documentation_url":"https://developer.github.com/v3"}'}
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      content-length: ['91']
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 15:01:01 GMT']
+      server: [GitHub.com]
+      status: [401 Unauthorized]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:706E:1552A8B:545A3BAC']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['59']
+      x-ratelimit-reset: ['1415203261']
+      x-xss-protection: [1; mode=block]
+    status: {code: 401, message: Unauthorized}
+version: 1
