@@ -46,7 +46,8 @@ class ClientTestCase(OctokitTestCase):
 
 
 class ErrorsTestCase(OctokitTestCase):
-    """Test case for custom Octokit exceptions.
+    """Test case for custom Octokit exceptions. Cassette for this test case
+    should never be removed since it is fake, no real requests ever made.
     """
 
     def test_error_bad_request(self):
