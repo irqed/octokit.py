@@ -8,29 +8,345 @@ interactions:
       accept: [application/json]
       content-type: [application/json]
     method: GET
-    uri: https://api.github.com:443/authorizations
+    uri: https://api.github.com:443/users/irqed
   response:
-    body: {string: !!python/unicode '{"message":"Requires authentication","documentation_url":"https://developer.github.com/v3"}'}
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA5VTzW6cMBh8lchndg00abKWqrQP0EubXnJZGXDgU4xN/cN2i/LuHcNutF2pUjkB
+        1sx84+GbiWnbkmGCkfupGpYxapgo8t1D8TFjcpRBun10GoAuhMELzpdDv20pdLGKXrnamqBM2Na2
+        55Ev5MfxUwm11p00kizDwZXWQCedhQwxz89OutDrq9nLzBl7Rr1Yre0BvGub/5Tm7xT4Wd7JtGvp
+        oEzchk4hH9h+S5clH1bYmOETT489NUnAI22nmv+3ciLAyMHAw8SdGuysFCtfOxoCWbPC0l80yFjX
+        SkO/5UoZ0DzYycyK4TMcNDVimVbwFvzEB0ejrI/p+k7VikYkuVbrigipcBwUVvcH/nHKlYLay6ZP
+        lXmR2quMGdknwBetfknTKHfzvas7NahA2tCrHcHCvg7SHJcGVGjcqU5oEz628ypvyQKpbT2HDcBX
+        62t7yG6+Re9Jplx6SamI8vMFoSOnZKXhILgINxVkhIlaZ2yIlaZ6v8Qq7t8P5r1jojwvP7qTKn/R
+        BXwWcA3lgAxlwNAyz3eb/H5T7p6KQhQPorx7hqc4NJeY4nZT5JsPxVORi7tclLfP7O0PKNijumME
+        AAA=
     headers:
       access-control-allow-credentials: ['true']
       access-control-allow-origin: ['*']
       access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
           X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
           X-Poll-Interval']
-      content-length: ['91']
+      cache-control: ['public, max-age=60, s-maxage=60']
+      content-encoding: [gzip]
       content-security-policy: [default-src 'none']
       content-type: [application/json; charset=utf-8]
-      date: ['Wed, 05 Nov 2014 15:01:01 GMT']
+      date: ['Wed, 05 Nov 2014 16:16:51 GMT']
+      etag: ['"89b2bb66251be31bf794f785563cc0e0"']
+      last-modified: ['Fri, 31 Oct 2014 10:50:24 GMT']
       server: [GitHub.com]
-      status: [401 Unauthorized]
+      status: [200 OK]
       strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      transfer-encoding: [chunked]
+      vary: [Accept, Accept-Encoding]
       x-content-type-options: [nosniff]
       x-frame-options: [deny]
       x-github-media-type: [github.v3]
-      x-github-request-id: ['B909E665:706E:1552A8B:545A3BAC']
+      x-github-request-id: ['B909E665:6BA4:6C548D:545A4D73']
       x-ratelimit-limit: ['60']
-      x-ratelimit-remaining: ['59']
-      x-ratelimit-reset: ['1415203261']
+      x-ratelimit-remaining: ['50']
+      x-ratelimit-reset: ['1415207215']
+      x-served-by: [8dd185e423974a7e13abbbe6e060031e]
       x-xss-protection: [1; mode=block]
-    status: {code: 401, message: Unauthorized}
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/users/irqed
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA5VTzW6cMBh8lchndg00abKWqrQP0EubXnJZGXDgU4xN/cN2i/LuHcNutF2pUjkB
+        1sx84+GbiWnbkmGCkfupGpYxapgo8t1D8TFjcpRBun10GoAuhMELzpdDv20pdLGKXrnamqBM2Na2
+        55Ev5MfxUwm11p00kizDwZXWQCedhQwxz89OutDrq9nLzBl7Rr1Yre0BvGub/5Tm7xT4Wd7JtGvp
+        oEzchk4hH9h+S5clH1bYmOETT489NUnAI22nmv+3ciLAyMHAw8SdGuysFCtfOxoCWbPC0l80yFjX
+        SkO/5UoZ0DzYycyK4TMcNDVimVbwFvzEB0ejrI/p+k7VikYkuVbrigipcBwUVvcH/nHKlYLay6ZP
+        lXmR2quMGdknwBetfknTKHfzvas7NahA2tCrHcHCvg7SHJcGVGjcqU5oEz628ypvyQKpbT2HDcBX
+        62t7yG6+Re9Jplx6SamI8vMFoSOnZKXhILgINxVkhIlaZ2yIlaZ6v8Qq7t8P5r1jojwvP7qTKn/R
+        BXwWcA3lgAxlwNAyz3eb/H5T7p6KQhQPorx7hqc4NJeY4nZT5JsPxVORi7tclLfP7O0PKNijumME
+        AAA=
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      cache-control: ['public, max-age=60, s-maxage=60']
+      content-encoding: [gzip]
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 16:16:54 GMT']
+      etag: ['"89b2bb66251be31bf794f785563cc0e0"']
+      last-modified: ['Fri, 31 Oct 2014 10:50:24 GMT']
+      server: [GitHub.com]
+      status: [200 OK]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      transfer-encoding: [chunked]
+      vary: [Accept, Accept-Encoding]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:6BAB:FA0064:545A4D76']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['49']
+      x-ratelimit-reset: ['1415207215']
+      x-served-by: [4c8b2d4732c413f4b9aefe394bd65569]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/users/irqed
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA5VTzW6cMBh8lchndg00abKWqrQP0EubXnJZGXDgU4xN/cN2i/LuHcNutF2pUjkB
+        1sx84+GbiWnbkmGCkfupGpYxapgo8t1D8TFjcpRBun10GoAuhMELzpdDv20pdLGKXrnamqBM2Na2
+        55Ev5MfxUwm11p00kizDwZXWQCedhQwxz89OutDrq9nLzBl7Rr1Yre0BvGub/5Tm7xT4Wd7JtGvp
+        oEzchk4hH9h+S5clH1bYmOETT489NUnAI22nmv+3ciLAyMHAw8SdGuysFCtfOxoCWbPC0l80yFjX
+        SkO/5UoZ0DzYycyK4TMcNDVimVbwFvzEB0ejrI/p+k7VikYkuVbrigipcBwUVvcH/nHKlYLay6ZP
+        lXmR2quMGdknwBetfknTKHfzvas7NahA2tCrHcHCvg7SHJcGVGjcqU5oEz628ypvyQKpbT2HDcBX
+        62t7yG6+Re9Jplx6SamI8vMFoSOnZKXhILgINxVkhIlaZ2yIlaZ6v8Qq7t8P5r1jojwvP7qTKn/R
+        BXwWcA3lgAxlwNAyz3eb/H5T7p6KQhQPorx7hqc4NJeY4nZT5JsPxVORi7tclLfP7O0PKNijumME
+        AAA=
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      cache-control: ['public, max-age=60, s-maxage=60']
+      content-encoding: [gzip]
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 16:17:08 GMT']
+      etag: ['"89b2bb66251be31bf794f785563cc0e0"']
+      last-modified: ['Fri, 31 Oct 2014 10:50:24 GMT']
+      server: [GitHub.com]
+      status: [200 OK]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      transfer-encoding: [chunked]
+      vary: [Accept, Accept-Encoding]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:6BA9:1ABE4A8:545A4D84']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['48']
+      x-ratelimit-reset: ['1415207215']
+      x-served-by: [76d9828c7e4f1d910f7ba069e90ce976]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/users/irqed
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA5VTzW6cMBh8lchndg00abKWqrQP0EubXnJZGXDgU4xN/cN2i/LuHcNutF2pUjkB
+        1sx84+GbiWnbkmGCkfupGpYxapgo8t1D8TFjcpRBun10GoAuhMELzpdDv20pdLGKXrnamqBM2Na2
+        55Ev5MfxUwm11p00kizDwZXWQCedhQwxz89OutDrq9nLzBl7Rr1Yre0BvGub/5Tm7xT4Wd7JtGvp
+        oEzchk4hH9h+S5clH1bYmOETT489NUnAI22nmv+3ciLAyMHAw8SdGuysFCtfOxoCWbPC0l80yFjX
+        SkO/5UoZ0DzYycyK4TMcNDVimVbwFvzEB0ejrI/p+k7VikYkuVbrigipcBwUVvcH/nHKlYLay6ZP
+        lXmR2quMGdknwBetfknTKHfzvas7NahA2tCrHcHCvg7SHJcGVGjcqU5oEz628ypvyQKpbT2HDcBX
+        62t7yG6+Re9Jplx6SamI8vMFoSOnZKXhILgINxVkhIlaZ2yIlaZ6v8Qq7t8P5r1jojwvP7qTKn/R
+        BXwWcA3lgAxlwNAyz3eb/H5T7p6KQhQPorx7hqc4NJeY4nZT5JsPxVORi7tclLfP7O0PKNijumME
+        AAA=
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      cache-control: ['public, max-age=60, s-maxage=60']
+      content-encoding: [gzip]
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 16:17:51 GMT']
+      etag: ['"89b2bb66251be31bf794f785563cc0e0"']
+      last-modified: ['Fri, 31 Oct 2014 10:50:24 GMT']
+      server: [GitHub.com]
+      status: [200 OK]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      transfer-encoding: [chunked]
+      vary: [Accept, Accept-Encoding]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:5F9A:170E405:545A4DAF']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['47']
+      x-ratelimit-reset: ['1415207215']
+      x-served-by: [b0ef53392caa42315c6206737946d931]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/users/irqed
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA5VTzW6cMBh8lchndg00abKWqrQP0EubXnJZGXDgU4xN/cN2i/LuHcNutF2pUjkB
+        1sx84+GbiWnbkmGCkfupGpYxapgo8t1D8TFjcpRBun10GoAuhMELzpdDv20pdLGKXrnamqBM2Na2
+        55Ev5MfxUwm11p00kizDwZXWQCedhQwxz89OutDrq9nLzBl7Rr1Yre0BvGub/5Tm7xT4Wd7JtGvp
+        oEzchk4hH9h+S5clH1bYmOETT489NUnAI22nmv+3ciLAyMHAw8SdGuysFCtfOxoCWbPC0l80yFjX
+        SkO/5UoZ0DzYycyK4TMcNDVimVbwFvzEB0ejrI/p+k7VikYkuVbrigipcBwUVvcH/nHKlYLay6ZP
+        lXmR2quMGdknwBetfknTKHfzvas7NahA2tCrHcHCvg7SHJcGVGjcqU5oEz628ypvyQKpbT2HDcBX
+        62t7yG6+Re9Jplx6SamI8vMFoSOnZKXhILgINxVkhIlaZ2yIlaZ6v8Qq7t8P5r1jojwvP7qTKn/R
+        BXwWcA3lgAxlwNAyz3eb/H5T7p6KQhQPorx7hqc4NJeY4nZT5JsPxVORi7tclLfP7O0PKNijumME
+        AAA=
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      cache-control: ['public, max-age=60, s-maxage=60']
+      content-encoding: [gzip]
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 16:18:26 GMT']
+      etag: ['"89b2bb66251be31bf794f785563cc0e0"']
+      last-modified: ['Fri, 31 Oct 2014 10:50:24 GMT']
+      server: [GitHub.com]
+      status: [200 OK]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      transfer-encoding: [chunked]
+      vary: [Accept, Accept-Encoding]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:67D1:1734154:545A4DD2']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['46']
+      x-ratelimit-reset: ['1415207215']
+      x-served-by: [a241e1a8264a6ace03db946c85b92db3]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/users/irqed
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA5VTzW6cMBh8lchndg00abKWqrQP0EubXnJZGXDgU4xN/cN2i/LuHcNutF2pUjkB
+        1sx84+GbiWnbkmGCkfupGpYxapgo8t1D8TFjcpRBun10GoAuhMELzpdDv20pdLGKXrnamqBM2Na2
+        55Ev5MfxUwm11p00kizDwZXWQCedhQwxz89OutDrq9nLzBl7Rr1Yre0BvGub/5Tm7xT4Wd7JtGvp
+        oEzchk4hH9h+S5clH1bYmOETT489NUnAI22nmv+3ciLAyMHAw8SdGuysFCtfOxoCWbPC0l80yFjX
+        SkO/5UoZ0DzYycyK4TMcNDVimVbwFvzEB0ejrI/p+k7VikYkuVbrigipcBwUVvcH/nHKlYLay6ZP
+        lXmR2quMGdknwBetfknTKHfzvas7NahA2tCrHcHCvg7SHJcGVGjcqU5oEz628ypvyQKpbT2HDcBX
+        62t7yG6+Re9Jplx6SamI8vMFoSOnZKXhILgINxVkhIlaZ2yIlaZ6v8Qq7t8P5r1jojwvP7qTKn/R
+        BXwWcA3lgAxlwNAyz3eb/H5T7p6KQhQPorx7hqc4NJeY4nZT5JsPxVORi7tclLfP7O0PKNijumME
+        AAA=
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      cache-control: ['public, max-age=60, s-maxage=60']
+      content-encoding: [gzip]
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 16:21:08 GMT']
+      etag: ['"89b2bb66251be31bf794f785563cc0e0"']
+      last-modified: ['Fri, 31 Oct 2014 10:50:24 GMT']
+      server: [GitHub.com]
+      status: [200 OK]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      transfer-encoding: [chunked]
+      vary: [Accept, Accept-Encoding]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:7069:6268B8:545A4E73']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['45']
+      x-ratelimit-reset: ['1415207215']
+      x-served-by: [065b43cd9674091fec48a221b420fbb3]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/users/irqed
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA5VTzW6cMBh8lchndg00abKWqrQP0EubXnJZGXDgU4xN/cN2i/LuHcNutF2pUjkB
+        1sx84+GbiWnbkmGCkfupGpYxapgo8t1D8TFjcpRBun10GoAuhMELzpdDv20pdLGKXrnamqBM2Na2
+        55Ev5MfxUwm11p00kizDwZXWQCedhQwxz89OutDrq9nLzBl7Rr1Yre0BvGub/5Tm7xT4Wd7JtGvp
+        oEzchk4hH9h+S5clH1bYmOETT489NUnAI22nmv+3ciLAyMHAw8SdGuysFCtfOxoCWbPC0l80yFjX
+        SkO/5UoZ0DzYycyK4TMcNDVimVbwFvzEB0ejrI/p+k7VikYkuVbrigipcBwUVvcH/nHKlYLay6ZP
+        lXmR2quMGdknwBetfknTKHfzvas7NahA2tCrHcHCvg7SHJcGVGjcqU5oEz628ypvyQKpbT2HDcBX
+        62t7yG6+Re9Jplx6SamI8vMFoSOnZKXhILgINxVkhIlaZ2yIlaZ6v8Qq7t8P5r1jojwvP7qTKn/R
+        BXwWcA3lgAxlwNAyz3eb/H5T7p6KQhQPorx7hqc4NJeY4nZT5JsPxVORi7tclLfP7O0PKNijumME
+        AAA=
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      cache-control: ['public, max-age=60, s-maxage=60']
+      content-encoding: [gzip]
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 16:21:13 GMT']
+      etag: ['"89b2bb66251be31bf794f785563cc0e0"']
+      last-modified: ['Fri, 31 Oct 2014 10:50:24 GMT']
+      server: [GitHub.com]
+      status: [200 OK]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      transfer-encoding: [chunked]
+      vary: [Accept, Accept-Encoding]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:706E:1772A3D:545A4E79']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['44']
+      x-ratelimit-reset: ['1415207215']
+      x-served-by: [01d096e6cfe28f8aea352e988c332cd3]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
 version: 1

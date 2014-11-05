@@ -14,7 +14,7 @@ CASSETTES_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)),
                               'cassettes')
 
 vcr = VCR(
-    record_mode='once',
+    record_mode='all',
     cassette_library_dir=CASSETTES_PATH,
 )
 
