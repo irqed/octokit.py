@@ -1,12 +1,11 @@
 # encoding: utf-8
 import os
-import octokit
 import unittest
 
 from vcr import VCR
+from octokit import Octokit
 
 
-API_ENDPOINT = "https://api.github.com/"
 CASSETTES_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)),
                               'cassettes')
 
@@ -25,4 +24,4 @@ class OctokitTestCase(unittest.TestCase):
     def setUp(self):
         """Setup client for all test cases.
         """
-        self.hub = octokit.Octokit()
+        self.hub = Octokit()

@@ -3,39 +3,70 @@
 """Toolkit for the GitHub API.
 """
 
-from octokit import http, resources
-from octokit.settings import Settings
+import slumber
+import requests
+
+from .auth import BasicAuth, TokenAuth, ApplicationAuth
+from .settings import Settings
 
 
-def lazy_property(fn):
-    """Decorator that makes a property lazy-evaluated
-    """
-    attr_name = '_lazy_' + fn.__name__
-
-    @property
-    def _lazy_property(self):
-        if not hasattr(self, attr_name):
-            setattr(self, attr_name, fn(self))
-        return getattr(self, attr_name)
-    return _lazy_property
-
-
-class Octokit(object):
+class Octokit(slumber.API):
     """Github resources hub. Brings everything together.
     """
     def __init__(self, **kwargs):
-        super(Octokit, self).__init__()
         self.settings = Settings(**kwargs)
-        self._http = http.HTTPBackend(self.settings)
+
+        self._session = requests.Session()
+        self._session.proxies = self.settings.proxies
+        self._session.trust_env = self.settings.trust_env
+
+        self.__setup_headers()
+        self.__setup_auth()
+
+        super(Octokit, self).__init__(
+            append_slash=False,
+            session=self._session,
+            base_url=self.settings.api_endpoint,
+        )
+
+    def __setup_headers(self):
+        self._session.headers['Accept'] = self.settings.media_type
+        self._session.headers['User-Agent'] = self.settings.user_agent
+        self._session.headers['Content-Type'] = 'application/json'
+
+    def __setup_auth(self):
+        if self.settings.access_token:
+            self._session.auth = TokenAuth(self.settings.access_token)
+
+        elif self.settings.login and self.settings.password:
+            self._session.auth = BasicAuth(
+                self.settings.login,
+                self.settings.password
+            )
+
+        elif self.settings.client_id and self.settings.client_secret:
+            self._session.auth = ApplicationAuth(
+                self.settings.client_id,
+                self.settings.client_secret
+            )
+
+    @property
+    def auth(self):
+        return self._session.auth if self._session.auth else None
 
     @property
     def basic_authenticated(self):
-        return (True if isinstance(self._http.auth, http.HTTPBasicAuth)
+        return (True if isinstance(self.auth, BasicAuth)
                 else False)
 
     @property
     def token_authenticated(self):
-        return (True if isinstance(self._http.auth, http.HTTPTokenAuth)
+        return (True if isinstance(self.auth, TokenAuth)
+                else False)
+
+    @property
+    def application_authenticated(self):
+        return (True if isinstance(self.auth, ApplicationAuth)
                 else False)
 
     @property
@@ -43,80 +74,6 @@ class Octokit(object):
         return self.basic_authenticated or self.token_authenticated
 
     @property
-    def application_authenticated(self):
-        return (True if isinstance(self._http.auth, http.HTTPApplicationAuth)
-                else False)
-
-    @property
     def authenticated(self):
-        return (self.basic_authenticated or
-                self.token_authenticated or
+        return (self.user_authenticated or
                 self.application_authenticated)
-
-    @lazy_property
-    def authorizations(self):
-        return Authorizations(http=self._http)
-
-    @lazy_property
-    def commit_comments(self):
-        return CommitComments(http=self._http)
-
-    @lazy_property
-    def commits(self):
-        return Commits(http=self._http)
-
-    @lazy_property
-    def contents(self):
-        return Contents(http=self._http)
-
-    @lazy_property
-    def user(self):
-        return User(http=self._http)
-
-    @lazy_property
-    def users(self):
-        return Users(http=self._http)
-
-    @lazy_property
-    def emojis(self):
-        return Emojis(http=self._http)
-
-    @lazy_property
-    def events(self):
-        return Events(http=self._http)
-
-    @lazy_property
-    def feeds(self):
-        return Feeds(http=self._http)
-
-    @lazy_property
-    def gists(self):
-        return Gists(http=self._http)
-
-    @lazy_property
-    def gitignore(self):
-        return Gitignore(http=self._http)
-
-    @lazy_property
-    def hooks(self):
-        return Hooks(http=self._http)
-
-    @lazy_property
-    def issues(self):
-        return Issues(http=self._http)
-
-    @lazy_property
-    def meta(self):
-        return Meta(http=self._http)
-
-    @lazy_property
-    def notifications(self):
-        return Notifications(http=self._http)
-
-    @lazy_property
-    def say(self):
-        return Say(http=self._http)
-
-    @lazy_property
-    def service_status(self):
-        return ServiceStatus(http=self._http)

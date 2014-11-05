@@ -16,6 +16,9 @@ class ClientTestCase(OctokitTestCase):
         self.assertEqual(hub.user_authenticated, True)
         self.assertEqual(hub.basic_authenticated, True)
 
+        self.assertEqual(hub.token_authenticated, False)
+        self.assertEqual(hub.application_authenticated, False)
+
     def test_auth_token(self):
         hub = Octokit(access_token='secret')
 
@@ -23,8 +26,15 @@ class ClientTestCase(OctokitTestCase):
         self.assertEqual(hub.user_authenticated, True)
         self.assertEqual(hub.token_authenticated, True)
 
+        self.assertEqual(hub.basic_authenticated, False)
+        self.assertEqual(hub.application_authenticated, False)
+
     def test_auth_application(self):
         hub = Octokit(client_id='id', client_secret='secret')
 
         self.assertEqual(hub.authenticated, True)
         self.assertEqual(hub.application_authenticated, True)
+
+        self.assertEqual(hub.basic_authenticated, False)
+        self.assertEqual(hub.token_authenticated, False)
+        self.assertEqual(hub.user_authenticated, False)

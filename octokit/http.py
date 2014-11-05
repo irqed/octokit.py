@@ -6,7 +6,7 @@
 import json
 import requests
 
-from octokit.errors import error_from_response, OctokitNotFoundError
+from .errors import error_from_response, OctokitNotFoundError
 
 
 class HTTPBackend(object):
@@ -86,34 +86,3 @@ class HTTPBackend(object):
     def head(self, path, params=None, allow_redirects=True):
         return self._request('HEAD', self.full_url(path),
                              params=params, allow_redirects=allow_redirects)
-
-
-class HTTPBasicAuth(requests.auth.HTTPBasicAuth):
-    """Class to use with GitHub basic auth
-    """
-    def __init__(self, login, password):
-        super(HTTPBasicAuth, self).__init__(login, password)
-
-
-class HTTPTokenAuth(requests.auth.AuthBase):
-    """Class to use with GitHub's access_token
-    """
-    def __init__(self, access_token):
-        super(HTTPTokenAuth, self).__init__()
-        self.access_token = access_token
-
-    def __call__(self, r):
-        r.headers['Authorization'] = 'token %s' % self.access_token
-        return r
-
-
-class HTTPApplicationAuth(requests.auth.AuthBase):
-    """Class to use with GitHub's application auth
-    """
-    def __init__(self, client_id, client_secret):
-        super(HTTPApplicationAuth, self).__init__()
-        self.client_id = client_id
-        self.client_secret = client_secret
-
-    def __call__(self, r):
-        return r
