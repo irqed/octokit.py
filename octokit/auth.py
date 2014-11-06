@@ -1,5 +1,11 @@
 # encoding: utf-8
 
+"""Classes to support GitHub auth methods.
+"""
+
+import urllib
+import urlparse
+
 from requests import auth
 
 
@@ -30,5 +36,22 @@ class ApplicationAuth(auth.AuthBase):
         self.client_id = client_id
         self.client_secret = client_secret
 
+    def __build_url(self, url):
+        """Adds client_id and client_secret to query string
+        """
+        auth_params = {
+            'client_id': self.client_id,
+            'client_secret': self.client_secret
+        }
+
+        url_parts = list(urlparse.urlparse(url))
+        query = dict(urlparse.parse_qsl(url_parts[4]))
+        query.update(auth_params)
+
+        url_parts[4] = urllib.urlencode(query)
+
+        return urlparse.urlunparse(url_parts)
+
     def __call__(self, r):
+        r.url = self.__build_url(r.url)
         return r

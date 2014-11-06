@@ -33,11 +33,15 @@ class Octokit(slumber.API):
         )
 
     def __setup_headers(self):
+        """Add Accept, User-Agent and Content-Type headers to request.
+        """
         self._session.headers['Accept'] = self.settings.media_type
         self._session.headers['User-Agent'] = self.settings.user_agent
         self._session.headers['Content-Type'] = 'application/json'
 
     def __setup_auth(self):
+        """Select appropriate Auth class.
+        """
         if self.settings.access_token:
             self._session.auth = TokenAuth(self.settings.access_token)
 

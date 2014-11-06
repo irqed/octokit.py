@@ -64,12 +64,16 @@ class Settings(object):
 
     @property
     def is_credentials_passed(self):
+        """Checks if creadentials have been passed to settings.
+        """
         if ((self.login and self.password) or self.access_token or
                 (self.client_id and self.client_secret)):
             return True
         return False
 
     def set_from_env(self):
+        """Sets creadentials from ENV variables if possible.
+        """
         self.login = environ.get('OCTOKIT_LOGIN')
         self.password = environ.get('OCTOKIT_PASSWORD')
 

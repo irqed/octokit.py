@@ -1,0 +1,154 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [token so_secret_wow]
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/users/irqed
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA5VTzY6bMBh8lZXPJPwo+xNLVdsH6KXdXvYSGeOFTzW2axvSFO27dwzJKo1UqZzA
+        ZmY8Hr6ZmLYtGcYZ+Z+qYRmjhvGy2D+VDxkTo4jCHwavAehidIHn+bIZti3FbqiHoLy0JioTt9L2
+        +ZAv5I/jhwpqrT9rJFmGjRstR2edhQyxkF+cdLHXN2cvZ87YC+rVam2P4N3a/Kd0/k6Bn+WdTLuW
+        DsqU29gp5APbb+myFOIKGzN8ytPjQE0SCEjbq+b/rZwJMHI08DDlXjk7Kw11kJ5cJGtWWPqLBhnr
+        W2Hot1gpA1oAO5lZcfgMB02NGKYVvAU/5c7TKOQpXd8rqWhEkmu1boiQiienMLrf8Y9TrhTVQTR9
+        qsyr0EFlzIg+AT5r9UuYRvm7b53slFORtKEfdgQL8+qEOS0NqNG4c53QJiy28yhvyQKprZzDBuCL
+        DdIes7uvQwgkUi69oFRE8emK0JFXotZwEP0ANzVkuBm0zpgbak3ysMTKH9835rljvLoMP7qTKn/V
+        BSzxVUI5IkMRcWhVFPtN8bip9s9lycsnXt2/wNPgmmtMuduU5aa4fy4f+G7Pi90Le/sDMkVedGME
+        AAA=
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      cache-control: ['private, max-age=60, s-maxage=60']
+      content-encoding: [gzip]
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Thu, 06 Nov 2014 09:03:27 GMT']
+      etag: ['"0b9574c5bd80bc274c15a1ad1f17c8fb"']
+      last-modified: ['Wed, 05 Nov 2014 16:49:04 GMT']
+      server: [GitHub.com]
+      status: [200 OK]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      transfer-encoding: [chunked]
+      vary: ['Accept, Authorization, Cookie, X-GitHub-OTP', Accept-Encoding]
+      x-accepted-oauth-scopes: ['']
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:6BAA:3B0FC3A:545B395F']
+      x-oauth-scopes: [repo]
+      x-ratelimit-limit: ['5000']
+      x-ratelimit-remaining: ['4999']
+      x-ratelimit-reset: ['1415268207']
+      x-served-by: [173530fed4bbeb1e264b2ed22e8b5c20]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/users/mojombo?client_secret=so_secret_wow&client_id=so_id_wow
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA5WUzW6cMBSFXyXyGsYwnZkolqruso7UqSplMzLGAVf+k22Ipijv3mMgTTqLSqxA
+        9v2OD9f3MBHtOmUJI8b9cqZxpCCqJawuCB954uEyBI3dPiUfGaXLYtx1KvVDM0QZhLNJ2rQTztCB
+        1t/Gr3todGHFsxjBwo2MV6vEwkEn0g8HfTL65uDlwLn6o+7Fae1ewd66/I88/QvB1fKubLddANBE
+        XeolWgT7b/mjVUybrMzARPPjotosEdHyINstdlYEZl4tfEw0SO9mraGJIiiflLObbP0DQsiFjlv1
+        m28WAhjBZ0ObDMwAQDlisjaRCzFRH9TIxTW3IUgh1Yieble7QSGWrl5ioH/gxnOHVZIX3pocoBeu
+        oyyI5SYXnJ25ewoyJmfLnzLgYlCO4fXcXgmzg9YFaRC9NVpIVnJm51cCIw0iDzso7cTceZR+5/bu
+        MXArVBQ5qdJwhXQucr0Kkjcap69WGuXe9/zQaCUuS1/Z8VSQdWWeQMJOx/csIExI//3h9PApHVjB
+        D0FAP6GPPMHKvqruy7oq99W5OrL9gdUPz3A0+PZzTX0o67qsTucqF7Av9TN5+wNb0UMGcwQAAA==
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      cache-control: ['public, max-age=60, s-maxage=60']
+      content-encoding: [gzip]
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Thu, 06 Nov 2014 10:16:07 GMT']
+      etag: ['"5d6f0084936d02ff0c7cf6f1f33b5b5c"']
+      last-modified: ['Thu, 06 Nov 2014 04:19:31 GMT']
+      server: [GitHub.com]
+      status: [200 OK]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      transfer-encoding: [chunked]
+      vary: [Accept, Accept-Encoding]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:6BAA:3D2A45D:545B4A67']
+      x-ratelimit-limit: ['5000']
+      x-ratelimit-remaining: ['4996']
+      x-ratelimit-reset: ['1415271432']
+      x-served-by: [173530fed4bbeb1e264b2ed22e8b5c20]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Authorization: [Basic yeah_sure==]
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/users/octocat
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA5WUQY+bMBSE/8rKZ7IOJNlGlqr2tNtbD00ve4mM8YIlY1u2AaVo/3vHQJPdHCpx
+        Ap7fNx4eHkaiba0MYcSKaAWPJCOqIuxw3BW7PCO855H7c+c1WpoYXWCUzsXwWKvYdGUXpBfWRGni
+        o7At7egMf+u/FlCr/aKRZAkKd1pOLTozDLFAb16a2Oq73eddp+5b35vV2g5g763+R55eIbia75Wp
+        1wsAGqmNjcScYP89vbQKcZWVCRhpupxVlSQC5u5ltcbOgsDMYOBjpF46O2l1ZRBeuaisWWXrEwgh
+        62tu1B++WghgAJ8MrTIwAQBlj+O1ipyJkTqvei4uaQxeCql6zHS92h0KsXhxEgf6N754mrCK8syr
+        NkXpjesgM2J4mxpOjXz4ec0WTq3j5oL6i4o/uhJoiQQu4UK2hmH4mIdpMUNIEU18PPT94ubh2XMj
+        VBA2TablKoVzycL3Wzyw2CgveanhYzFVKkuY6bTOiOtKrcR5njA7XAvTUSTs+C8TCBWetl8+ZISw
+        p4wISEcME/8MRoptnm+2+aY4nPIj2+/Z7ukV+3eu+tSz36S2w6nI2b5g2+KVvP8FeJoI24IEAAA=
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      cache-control: ['private, max-age=60, s-maxage=60']
+      content-encoding: [gzip]
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Thu, 06 Nov 2014 10:32:45 GMT']
+      etag: ['"c8c539388a28e23e12f2b6e493108653"']
+      last-modified: ['Wed, 05 Nov 2014 21:42:02 GMT']
+      server: [GitHub.com]
+      status: [200 OK]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      transfer-encoding: [chunked]
+      vary: ['Accept, Authorization, Cookie, X-GitHub-OTP', Accept-Encoding]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:5F99:2A1B66E:545B4E4D']
+      x-ratelimit-limit: ['5000']
+      x-ratelimit-remaining: ['4999']
+      x-ratelimit-reset: ['1415273565']
+      x-served-by: [173530fed4bbeb1e264b2ed22e8b5c20]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1
