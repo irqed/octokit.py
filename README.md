@@ -1,11 +1,19 @@
-**********************************************
-Python toolkit for the GitHub API.
-**********************************************
+Octokit.py: GitHub API toolkit
+=========================
 
-Octokit.py is a port of ruby gem - Octokit.rb, basically it's just a wrapper around GitHub API.
+It's a small library written in Python to query GitHub API in a quick and easy way.
 
+Features
+--------
 
-!Under heavy construction!
-====================
+Installation
+------------
 
+Documentation
+-------------
 
+Examples
+-------------
+
+Alternatives
+-------------
