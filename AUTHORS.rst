@@ -4,4 +4,4 @@ various contributors:
 Development Lead
 ````````````````
 
-- Alexander Shchepetilnikov <alex@irqed.com>
+- Alexander Shchepetilnikov <a@irqed.io>
