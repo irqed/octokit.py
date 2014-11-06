@@ -56,6 +56,9 @@ setup(
     url='http://github.com/irqed/octokit.py',
     download_url=('https://github.com/irqed/octokit.py/tree/%s' % __version__),
 
+    test_suite="tests",
+    tests_require=['vcrpy'],
+
     classifiers=(
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
