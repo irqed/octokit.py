@@ -11,7 +11,7 @@ flake:
 	flake8 octokit
 
 coverage:
-	nosetests --with-coverage --rednose tests
+	nosetests --with-coverage --cover-package=octokit
 
 publish:
 	python setup.py sdist upload

@@ -1,0 +1,486 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/nonexisting/0
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6tWyk0tLk5MT1WyUvLLL1Fwyy/NS1HSUUrJTy7NTc0rSSzJzM+LLy3KAcpnlJQU
+        FFvp66eklqXm5BekFumlZ5ZklCbpJefn6pcZK9UCAP6TTUJNAAAA
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      content-encoding: [gzip]
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 15:43:52 GMT']
+      server: [GitHub.com]
+      status: [400 Bad request]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      transfer-encoding: [chunked]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:67D0:133AEBB:545A45B8']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['52']
+      x-ratelimit-reset: ['1415203261']
+      x-xss-protection: [1; mode=block]
+    status: {code: 400, message: Bad request}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/nonexisting/1
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6tWyk0tLk5MT1WyUvLLL1Fwyy/NS1HSUUrJTy7NTc0rSSzJzM+LLy3KAcpnlJQU
+        FFvp66eklqXm5BekFumlZ5ZklCbpJefn6pcZK9UCAP6TTUJNAAAA
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      content-encoding: [gzip]
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 15:43:52 GMT']
+      server: [GitHub.com]
+      status: [404 Not Found]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      transfer-encoding: [chunked]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:67D0:133AEBB:545A45B8']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['52']
+      x-ratelimit-reset: ['1415203261']
+      x-xss-protection: [1; mode=block]
+    status: {code: 404, message: Not Found}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/nonexisting/2
+  response:
+    body: {string: !!python/unicode '{"message":"Requires authentication","documentation_url":"https://developer.github.com/v3"}'}
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      content-length: ['91']
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 15:43:53 GMT']
+      server: [GitHub.com]
+      status: [401 Unauthorized]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:67CD:835914:545A45B9']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['51']
+      x-ratelimit-reset: ['1415203261']
+      x-xss-protection: [1; mode=block]
+    status: {code: 401, message: Unauthorized}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/nonexisting/3
+  response:
+    body: {string: !!python/unicode '{"message":"Requires authentication","documentation_url":"https://developer.github.com/v3"}'}
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      content-length: ['91']
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 15:43:53 GMT']
+      server: [GitHub.com]
+      status: [403 Forbidden]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:67CD:835914:545A45B9']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['51']
+      x-ratelimit-reset: ['1415203261']
+      x-xss-protection: [1; mode=block]
+    status: {code: 403, message: Forbidden}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/nonexisting/4
+  response:
+    body: {string: !!python/unicode '{"message":"Requires authentication","documentation_url":"https://developer.github.com/v3"}'}
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      content-length: ['91']
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 15:43:53 GMT']
+      server: [GitHub.com]
+      status: [406 Not Acceptable]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:67CD:835914:545A45B9']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['51']
+      x-ratelimit-reset: ['1415203261']
+      x-xss-protection: [1; mode=block]
+    status: {code: 406, message: Not Acceptable}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/nonexisting/5
+  response:
+    body: {string: !!python/unicode '{"message":"Requires authentication","documentation_url":"https://developer.github.com/v3"}'}
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      content-length: ['91']
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 15:43:53 GMT']
+      server: [GitHub.com]
+      status: [409 Conflict]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:67CD:835914:545A45B9']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['51']
+      x-ratelimit-reset: ['1415203261']
+      x-xss-protection: [1; mode=block]
+    status: {code: 409, message: Conflict}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/nonexisting/6
+  response:
+    body: {string: !!python/unicode '{"message":"Requires authentication","documentation_url":"https://developer.github.com/v3"}'}
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      content-length: ['91']
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 15:43:53 GMT']
+      server: [GitHub.com]
+      status: [415 Unsupported MediaType]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:67CD:835914:545A45B9']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['51']
+      x-ratelimit-reset: ['1415203261']
+      x-xss-protection: [1; mode=block]
+    status: {code: 415, message: Unsupported MediaType}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/nonexisting/7
+  response:
+    body: {string: !!python/unicode '{"message":"Validation Failed","errors":[{"resource":"Issue","field":"title","code":"missing_field"}]}'}
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      content-length: ['91']
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 15:43:53 GMT']
+      server: [GitHub.com]
+      status: [422 Unprocessable Entity]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:67CD:835914:545A45B9']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['51']
+      x-ratelimit-reset: ['1415203261']
+      x-xss-protection: [1; mode=block]
+    status: {code: 422, message: Unprocessable Entity}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/nonexisting/8
+  response:
+    body: {string: !!python/unicode '{"message":"Requires authentication","documentation_url":"https://developer.github.com/v3"}'}
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      content-length: ['91']
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 15:43:53 GMT']
+      server: [GitHub.com]
+      status: [499 Ooops]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:67CD:835914:545A45B9']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['51']
+      x-ratelimit-reset: ['1415203261']
+      x-xss-protection: [1; mode=block]
+    status: {code: 499, message: Ooops}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/nonexisting/9
+  response:
+    body: {string: !!python/unicode '{"message":"Requires authentication","documentation_url":"https://developer.github.com/v3"}'}
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      content-length: ['91']
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 15:43:53 GMT']
+      server: [GitHub.com]
+      status: [500 Internal Server Error]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:67CD:835914:545A45B9']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['51']
+      x-ratelimit-reset: ['1415203261']
+      x-xss-protection: [1; mode=block]
+    status: {code: 500, message: Internal Server Error}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/nonexisting/10
+  response:
+    body: {string: !!python/unicode '{"message":"Requires authentication","documentation_url":"https://developer.github.com/v3"}'}
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      content-length: ['91']
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 15:43:53 GMT']
+      server: [GitHub.com]
+      status: [501 Ooops]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:67CD:835914:545A45B9']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['51']
+      x-ratelimit-reset: ['1415203261']
+      x-xss-protection: [1; mode=block]
+    status: {code: 501, message: Ooops}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/nonexisting/11
+  response:
+    body: {string: !!python/unicode '{"message":"Requires authentication","documentation_url":"https://developer.github.com/v3"}'}
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      content-length: ['91']
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 15:43:53 GMT']
+      server: [GitHub.com]
+      status: [502 Ooops]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:67CD:835914:545A45B9']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['51']
+      x-ratelimit-reset: ['1415203261']
+      x-xss-protection: [1; mode=block]
+    status: {code: 502, message: Ooops}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/nonexisting/12
+  response:
+    body: {string: !!python/unicode '{"message":"Requires authentication","documentation_url":"https://developer.github.com/v3"}'}
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      content-length: ['91']
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 15:43:53 GMT']
+      server: [GitHub.com]
+      status: [503 Ooops]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:67CD:835914:545A45B9']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['51']
+      x-ratelimit-reset: ['1415203261']
+      x-xss-protection: [1; mode=block]
+    status: {code: 503, message: Ooops}
+- request:
+    body: null
+    headers:
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [octokit.py/0.0.2]
+      accept: [application/json]
+      content-type: [application/json]
+    method: GET
+    uri: https://api.github.com:443/nonexisting/13
+  response:
+    body: {string: !!python/unicode '{"message":"Requires authentication","documentation_url":"https://developer.github.com/v3"}'}
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      content-length: ['91']
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Wed, 05 Nov 2014 15:43:53 GMT']
+      server: [GitHub.com]
+      status: [599 Ooops]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['B909E665:67CD:835914:545A45B9']
+      x-ratelimit-limit: ['60']
+      x-ratelimit-remaining: ['51']
+      x-ratelimit-reset: ['1415203261']
+      x-xss-protection: [1; mode=block]
+    status: {code: 599, message: Ooops}
+version: 1

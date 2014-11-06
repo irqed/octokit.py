@@ -1,23 +1,23 @@
 # encoding: utf-8
 
-"""Options class and default values for an API client.
+"""Settings class and default values for an API client.
 """
 
 from os import environ
-from octokit import __version__
+from .version import __version__
 
 
 # Default API endpoint
 API_ENDPOINT = "https://api.github.com/"
 
+# Default WEB endpoint
+WEB_ENDPOINT = "https://github.com"
+
 # Default User Agent header string
-USER_AGENT = "Octokit.py/%s" % __version__
+USER_AGENT = "octokit.py/%s" % __version__
 
 # Default media type
 MEDIA_TYPE = "application/vnd.github.beta+json"
-
-# Default WEB endpoint
-WEB_ENDPOINT = "https://github.com"
 
 # Default page size
 PAGE_SIZE = 50
@@ -25,15 +25,19 @@ PAGE_SIZE = 50
 # Do not auto paginate by default
 AUTO_PAGINATE = False
 
-# Can we trust env ot not
+# Can we trust env or not
 TRUST_ENV = True
+
+# Verify SSL certificate
+VERIFY_SSL = True
 
 
 class Settings(object):
-    """Octokit settings
+    """Octokit settings class.
     """
     def __init__(self, **kwargs):
         super(Settings, self).__init__()
+        self.verify = kwargs.get('verify', VERIFY_SSL)
         self.trust_env = kwargs.get('trust_env', TRUST_ENV)
 
         self.login = kwargs.get('login')
@@ -55,17 +59,21 @@ class Settings(object):
         self.auto_paginate = kwargs.get('auto_paginate', AUTO_PAGINATE)
         self.page_size = int(kwargs.get('page_size', PAGE_SIZE))
 
-        if not self.credentials_passed and self.trust_env:
+        if not self.is_credentials_passed and self.trust_env:
             self.set_from_env()
 
     @property
-    def credentials_passed(self):
+    def is_credentials_passed(self):
+        """Checks if creadentials have been passed to settings.
+        """
         if ((self.login and self.password) or self.access_token or
                 (self.client_id and self.client_secret)):
             return True
         return False
 
     def set_from_env(self):
+        """Sets creadentials from ENV variables if possible.
+        """
         self.login = environ.get('OCTOKIT_LOGIN')
         self.password = environ.get('OCTOKIT_PASSWORD')
 
