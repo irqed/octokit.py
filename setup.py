@@ -11,8 +11,7 @@ except ImportError:
 exec(open('octokit/version.py').read())
 
 if sys.argv[-1] == 'publish':
-    os.system("python setup.py sdist upload")
-    os.system("python setup.py bdist_wheel upload")
+    os.system("python setup.py sdist bdist_wheel upload")
     print("You probably also want to tag the version now:")
     print("\tgit tag -a %s -m 'version %s'" % (__version__, __version__))
     print("\tgit push --tags")
