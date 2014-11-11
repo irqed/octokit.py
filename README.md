@@ -9,6 +9,11 @@ It's a small library written in Python to query GitHub API in a quick and easy w
 
 Features
 --------
+* Clean and easy interface
+* Completely reflects GitHub API V3 (except gists)
+* Dot notation
+* 100% test coverage 
+
 
 Requirements
 --------
@@ -24,7 +29,6 @@ Note: PyPi package isn't updated yet.
 
 Examples
 -------------
-
 To get a list of user's repositories:
 ```python
 >>> hub = Octokit()
@@ -48,6 +52,7 @@ To use access token:
 
 Documentation
 -------------
+
 Alternatives
 -------------
 * [PyGithub](https://github.com/jacquev6/PyGithub)
