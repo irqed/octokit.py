@@ -59,7 +59,7 @@ setup(
     tests_require=['vcrpy'],
 
     classifiers=(
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'Natural Language :: English',
         'Programming Language :: Python',
