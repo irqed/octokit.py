@@ -24,6 +24,28 @@ Note: PyPi package isn't updated yet.
 
 Examples
 -------------
+
+To get a list of user's repositories:
+```python
+>>> hub = Octokit()
+>>> print hub.users('irqed').repos.get()
+```
+or
+```python
+>>> print hub.users.irqed.repos.get()
+```
+
+To use basic authorization just pass your login and password
+```python
+>>> hub = Octokit(login='username', password='secret_password')
+>>> print hub.repos.irqed('octokit.py').issues.get()
+```
+
+To use access token:
+```python
+>>> hub = Octokit(access_token='so_secret_wow')
+```
+
 Documentation
 -------------
 Alternatives
