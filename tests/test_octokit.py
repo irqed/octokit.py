@@ -62,70 +62,74 @@ class ErrorsTestCase(OctokitTestCase):
 
     def test_error_bad_request(self):
         with vcr.use_cassette('errors.yml'):
-            with self.assertRaises(errors.OctokitBadRequestError):
-                self.hub.nonexisting(0).get()
+            resourse = self.hub.nonexisting(0)
+            self.assertRaises(errors.OctokitBadRequestError, resourse.get)
 
     def test_error_not_found(self):
         with vcr.use_cassette('errors.yml'):
-            with self.assertRaises(errors.OctokitNotFoundError):
-                self.hub.nonexisting(1).get()
+            resourse = self.hub.nonexisting(1)
+            self.assertRaises(errors.OctokitNotFoundError, resourse.get)
 
     def test_error_unauthorized(self):
         with vcr.use_cassette('errors.yml'):
-            with self.assertRaises(errors.OctokitUnauthorizedError):
-                self.hub.nonexisting(2).get()
+            resourse = self.hub.nonexisting(2)
+            self.assertRaises(errors.OctokitUnauthorizedError, resourse.get)
 
     def test_error_forbidden(self):
         with vcr.use_cassette('errors.yml'):
-            with self.assertRaises(errors.OctokitForbiddenError):
-                self.hub.nonexisting(3).get()
+            resourse = self.hub.nonexisting(3)
+            self.assertRaises(errors.OctokitForbiddenError, resourse.get)
 
     def test_error_not_acceptable(self):
         with vcr.use_cassette('errors.yml'):
-            with self.assertRaises(errors.OctokitNotAcceptableError):
-                self.hub.nonexisting(4).get()
+            resourse = self.hub.nonexisting(4)
+            self.assertRaises(errors.OctokitNotAcceptableError, resourse.get)
 
     def test_error_conflict(self):
         with vcr.use_cassette('errors.yml'):
-            with self.assertRaises(errors.OctokitConflictError):
-                self.hub.nonexisting(5).get()
+            resourse = self.hub.nonexisting(5)
+            self.assertRaises(errors.OctokitConflictError, resourse.get)
 
     def test_error_unsupported_media_type(self):
         with vcr.use_cassette('errors.yml'):
-            with self.assertRaises(errors.OctokitUnsupportedMediaTypeError):
-                self.hub.nonexisting(6).get()
+            resourse = self.hub.nonexisting(6)
+            self.assertRaises(errors.OctokitUnsupportedMediaTypeError,
+                              resourse.get)
 
     def test_error_unprocessable_entity(self):
         with vcr.use_cassette('errors.yml'):
-            with self.assertRaises(errors.OctokitUnprocessableEntityError):
-                self.hub.nonexisting(7).get()
+            resourse = self.hub.nonexisting(7)
+            self.assertRaises(errors.OctokitUnprocessableEntityError,
+                              resourse.get)
 
     def test_error_client(self):
         with vcr.use_cassette('errors.yml'):
-            with self.assertRaises(errors.OctokitClientError):
-                self.hub.nonexisting(8).get()
+            resourse = self.hub.nonexisting(8)
+            self.assertRaises(errors.OctokitClientError, resourse.get)
 
     def test_error_internal_server_error(self):
         with vcr.use_cassette('errors.yml'):
-            with self.assertRaises(errors.OctokitInternalServerErrorError):
-                self.hub.nonexisting(9).get()
+            resourse = self.hub.nonexisting(9)
+            self.assertRaises(errors.OctokitInternalServerErrorError,
+                              resourse.get)
 
     def test_error_not_implemented(self):
         with vcr.use_cassette('errors.yml'):
-            with self.assertRaises(errors.OctokitNotImplementedError):
-                self.hub.nonexisting(10).get()
+            resourse = self.hub.nonexisting(10)
+            self.assertRaises(errors.OctokitNotImplementedError, resourse.get)
 
     def test_error_bad_gateway(self):
         with vcr.use_cassette('errors.yml'):
-            with self.assertRaises(errors.OctokitBadGatewayError):
-                self.hub.nonexisting(11).get()
+            resourse = self.hub.nonexisting(11)
+            self.assertRaises(errors.OctokitBadGatewayError, resourse.get)
 
     def test_error_service_unavailable(self):
         with vcr.use_cassette('errors.yml'):
-            with self.assertRaises(errors.OctokitServiceUnavailableError):
-                self.hub.nonexisting(12).get()
+            resourse = self.hub.nonexisting(12)
+            self.assertRaises(errors.OctokitServiceUnavailableError,
+                              resourse.get)
 
     def test_error_server_error(self):
         with vcr.use_cassette('errors.yml'):
-            with self.assertRaises(errors.OctokitServerError):
-                self.hub.nonexisting(13).get()
+            resourse = self.hub.nonexisting(13)
+            self.assertRaises(errors.OctokitServerError, resourse.get)
