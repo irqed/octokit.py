@@ -1,4 +1,4 @@
-slumber==0.6.0
+slumber==0.6.1
 vcrpy
 nose
 rednose

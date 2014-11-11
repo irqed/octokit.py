@@ -4,9 +4,13 @@
 """
 
 import urllib
-import urlparse
 
 from requests import auth
+
+try:
+    from urllib.parse import urlparse, parse_qsl, urlunparse
+except ImportError:
+    from urlparse import urlparse, parse_qsl, urlunparse
 
 
 class BasicAuth(auth.HTTPBasicAuth):
@@ -44,13 +48,13 @@ class ApplicationAuth(auth.AuthBase):
             'client_secret': self.client_secret
         }
 
-        url_parts = list(urlparse.urlparse(url))
-        query = dict(urlparse.parse_qsl(url_parts[4]))
+        url_parts = list(urlparse(url))
+        query = dict(parse_qsl(url_parts[4]))
         query.update(auth_params)
 
         url_parts[4] = urllib.urlencode(query)
 
-        return urlparse.urlunparse(url_parts)
+        return urlunparse(url_parts)
 
     def __call__(self, r):
         r.url = self.__build_url(r.url)
