@@ -24,7 +24,6 @@ Requirements
 
 Installation
 ------------
-Note: PyPi package isn't updated yet.
 ```
   pip install octokit.py
 ```
