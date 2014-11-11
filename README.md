@@ -8,15 +8,21 @@ It's a small library written in Python to query GitHub API in a quick and easy w
 Features
 --------
 
+Requirements
+--------
+* Python 2.6/2.7 (Python 3 support is blocked by slumber, but should be fixed soon)
+* slumber
+
 Installation
 ------------
-
-Documentation
--------------
+```
+  pip install octokit.py
+```
 
 Examples
 -------------
-
+Documentation
+-------------
 Alternatives
 -------------
 * [PyGithub](https://github.com/jacquev6/PyGithub)
