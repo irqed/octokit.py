@@ -2,12 +2,10 @@ Octokit.py: GitHub API toolkit
 =========================
 It's a small library written in Python to query GitHub API in a quick and easy way.
 
-[![PyPi version](https://pypip.in/version/octokit.py/badge.svg?style=flat)](https://crate.io/packages/octokit.py/)
-[![PyPi downloads](https://pypip.in/download/octokit.py/badge.svg?style=flat)](https://crate.io/packages/octokit.py/)
-![Python versions](https://pypip.in/py_versions/octokit.py/badge.svg?style=flat)
-
-[![Build Status](https://travis-ci.org/irqed/octokit.py.svg?branch=master)](https://travis-ci.org/irqed/octokit.py)
-[![Coverage Status](https://coveralls.io/repos/irqed/octokit.py/badge.png?branch=master)](https://coveralls.io/r/irqed/octokit.py?branch=master)
+[![PyPi Downloads](https://img.shields.io/pypi/dm/octokit.py.svg)](https://pypi.python.org/pypi/octokit.py/0.1.1)
+[![PyPi Version](https://img.shields.io/pypi/v/octokit.py.svg)](https://pypi.python.org/pypi/octokit.py/0.1.1)
+[![Build Status](https://img.shields.io/travis/irqed/octokit.py.svg)](https://travis-ci.org/irqed/octokit.py)
+[![Coverage Status](https://img.shields.io/coveralls/irqed/octokit.py.svg)](https://coveralls.io/r/irqed/octokit.py?branch=master)
 
 Features
 --------
