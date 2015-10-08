@@ -4,7 +4,7 @@ It's a small library written in Python to query GitHub API in a quick and easy w
 
 [![PyPi Downloads](https://img.shields.io/pypi/dm/octokit.py.svg)](https://pypi.python.org/pypi/octokit.py/0.1.1)
 [![PyPi Version](https://img.shields.io/pypi/v/octokit.py.svg)](https://pypi.python.org/pypi/octokit.py/0.1.1)
-[![Build Status](https://img.shields.io/travis/irqed/octokit.py.svg)](https://travis-ci.org/irqed/octokit.py)
+[![Build Status](https://travis-ci.org/irqed/octokit.py.svg)](https://travis-ci.org/irqed/octokit.py)
 [![Coverage Status](https://img.shields.io/coveralls/irqed/octokit.py.svg)](https://coveralls.io/r/irqed/octokit.py?branch=master)
 
 Features
